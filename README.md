@@ -1,1 +1,1 @@
-# WDProjMagnesiumFernandoFrancisco
+# WDProjMgFernandoFrancisco Project Proposal
