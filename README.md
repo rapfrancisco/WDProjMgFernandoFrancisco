@@ -166,3 +166,42 @@ As an educational and creative website for **students**, **art enthusiasts**, **
 
 
 ---
+### Wireframe
+
+## HOME - top
+![Home_page](1.1_Home_page.png):
+
+## HOME with Navigation tab expanded:
+![Home_page](1.2_Home_page.png)
+
+## HOME - bottom
+![Home_page](1.3_Home_page.png)
+
+## HISTORY OF ORIGAMI - top
+![History](2.1_History.png)
+
+## HISTORY OF ORIGAMI - middle
+![History](2.3_History.png)
+
+## HISTORY OF ORIGAMI - bottom
+![History](2.4_History.png)
+
+## ORIGAMI EXHIBIT - top
+![Exhibit](3.1_Exhibit.png)
+
+## ORIGAMI EXHIBIT - per origami
+![Exhibit](3.2_Exhibit.png)
+
+## ORIGAMI EXHIBIT - bottom
+![Exhibit](3.3_Exhibit.png)
+
+## FOLDING IN ORIGAMI - top
+![Mechanisms](4.1_Mechanisms.png)
+
+## FOLDING IN ORIGAMI - bottom
+![Mechanisms](4.2_Mechanisms.png)
+
+## REFERENCES & RESOURCES
+![References_and_Resources](5.1_References_and_Resources.png)
+
+---
