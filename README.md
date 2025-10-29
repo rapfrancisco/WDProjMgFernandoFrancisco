@@ -4,7 +4,7 @@
 
 
 ## Logo
-![Placeholder Image](#)
+![Oricentric_logo](Oricentric_logo.png)
 
 
 ---
