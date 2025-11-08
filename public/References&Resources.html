@@ -21,6 +21,55 @@
                 flex: 1;
             }
 
+            .sidebar {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 220px;
+                height: 100vh;
+                background-color: #d6ccc2
+                padding-top: 2rem;
+                box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+                display: flex;
+                felx-direction: column;
+                align-items: flext-start;
+            }
+            .sidebar ul {
+                list-style: none;
+                width: 100%;
+                padding: 0;
+                margin-top: 1rem;
+            }
+            .sidebar ul li a{
+                display: block;
+                padding: 1rem;
+                font-weight: bolder;
+                color: #000000;
+                text-decoration: none;
+                letter-spacing: 1px;
+                border-bottom: 1px solid #e0e0e0;
+                transition: all 0.4s ease;
+                
+            }
+            .sidebar ul li a:hover {
+                background-color: #c4b7ad;
+                color: #141414;
+                transform: scale(1.05);
+            }
+
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            body {
+                font-family: Helvitica, sans-serif;
+                line-height: 1.6;
+                background-color: #f4f4f4;
+                color: #000000;
+                padding: 20px;
+                margin-left: 260px; }
+            
         </style>
     </head>
 
@@ -30,7 +79,7 @@
             <h1> Oricentric </h1>
             <h2> The Art of Folds </h2>
             
-            <nav>
+            <nav class="sidebar">
                 <ul>
                     <li><a href="../index.html">HOME</a></li>
                     <li><a href="History_Of_Origami.html">HISTORY OF ORIGAMI</a></li>
@@ -42,35 +91,15 @@
             </nav>
         </header>
 
-        <section> 
-            <!-- List organized by Page -->
+        <section id="listbypage"> 
+            <p><!-- list credentials per page --></p> 
         </section>
 
-        <section>
+        <section id="references">
             <!-- References with APA Format -->
         </section>
-        
         <footer>
-             <div class="name-and-authorship">
-            <h3>Oricentric</h3>
-            <p>Brandon Timothy P. Fernando
-            <br>btpfernando@pshs.edu.pshs
-            <br>Rei Annica P. Francisco
-            <br>rapfrancisco@pshs.edu.pshsz
-            </p>
-        </div>
-        <div class="credentials">
-            <h3>Credentials</h3>
-            <p> <!-- references in apa format --> </p>
-        </div>
-        <div class="social-media-links">
-             <ul>
-                <li>Link 1</li>
-                <li>Link 2</li>
-                <li>etc</li>
-            </ul>
-        </div>
-        </footer>
-
+            <p>&copy; 2025 Oricentric — Fernando & Francisco</p>
+        </footer>   
     </body>
 </html>
