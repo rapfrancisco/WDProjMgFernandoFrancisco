@@ -17,18 +17,29 @@
                 box-sizing: border-box;
             }
             body {
-                font-family: Helvitica, sans-serif;
+                font-family: poppins, sans-serif;
                 line-height: 1.6;
-                background-color: #f4f4f4;
-                color: #000000;
+                background-color: #FAF9F7;
+                color: #1e1e1e;
                 padding: 20px;
                 margin-left: 260px;
             }
             header {
-                background-color: #dfd6cb;
-                padding: 20px 0;
+                background-color: #4A90E2;
+                color: white;
+                font-family: playfair display, serif;
+                font-size: 1.7rem;
+                padding: 15px 0;
                 text-align: center;
                 border-bottom: 2px solid #e0e0e0;
+            }
+            a {
+                text-decoration: none;
+                background-color: #4A90E2;
+            }
+            a:hover {
+                text-decoration: underline;
+                background-color: #E86F68;
             }
             .sidebar {
                 position: fixed;
@@ -36,11 +47,11 @@
                 left: 0;
                 width: 220px;
                 height: 100vh;
-                background-color: #d6ccc2;
+                background-color: #EAE8E2;
                 padding-top: 2rem;
                 box-shadow: 2px 0 5px rgba(0,0,0,0.1);
                 display: flex;
-                felx-direction: column;
+                flex-direction: column;
                 align-items: flext-start;
             }
             .sidebar ul {
@@ -67,7 +78,7 @@
             }
             #intro {
                 text-align: center;
-                margin-bottom: 2rem;
+                margin-bottom: 1.3rem;
                 padding: 2rem 1rem;
                 background-color: #f4f1ef;
                 border-radius: 5px;
@@ -84,7 +95,7 @@
                 margin: 0 auto;
             }
             #aboutWebsite {
-                margin-bottom: 20rem;
+                margin-bottom: 2rem;
                 display: flex;
                 flex-wrap:wrap;
                 gap: 2rem;
@@ -94,6 +105,7 @@
             .infoBox {
                 background-color: white;
                 padding: 1.5rem;
+                border: 2px solid #EAE8E2
                 border-radius: 5px;
                 box-shadow: 0 2px 5px rgba(0,0,0,0.1);
                 text-align: center;
@@ -101,10 +113,12 @@
                 overflow: hidden;
                 transition: all 0.3s ease;
                 width: 30%;
+                justify-content: space-between;
             }
             .infoBox:hover {
                 box-shadow: 0 4px 10px rgba(0,0,0,0.2);
                 transform: translateY(-5px);
+                border-color: #E7C65E;
             }
             .infoBox h2 {
                 margin-bottom: 0.5rem;
@@ -116,17 +130,69 @@
                 max-height:0;
                 transition: all 0.3s ease;
             }
-
             /* FOR JAVASCRIPT */
             .infoBox.active {
                 max-height: 1000px;
             }
-
             .infoBox.active .infoContent {
                 opacity: 1;
                 max-height: 500px;
                 margin-top: 1rem;
             }
+            .infoBoxImg {
+                width: 100%;
+                height: 400px;
+                object-fit: cover;
+                margin-top: 1rem;
+                border-radius: 5px;
+                transition: transform 0.3s ease;
+            }
+            .infoBoxImg:hover {
+                transform: scale(1.05);
+            }
+
+            /* Features Section */
+            #features {
+                margin: 2rem 0;
+                border-radius: 5px;
+                border-color:#EAE8E2;
+                padding: 2rem;
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;  
+            }
+            .divFeature {
+                background-color: white;
+                padding: 1.5rem;
+                border: 2px solid #EAE8E2;
+                border-radius: 5px;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+                text-align: center;
+                transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+                justify-content: space-between;
+                display: flex;
+                flex-direction: column;
+                cursor: pointer;
+                min-height: 350px;
+            }
+            .divFeature:hover {
+                box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+                transform: translateY(-5px);
+                border-color: #E7C65E;
+            }
+            .divFeature h2 {
+                margin-bottom: 0.5rem;
+                color: #1e1e1e;
+                font-size: 1.5rem;
+            }
+            .divFeatureImg {
+                width: 100%;
+                height: 400px;
+                object-fit: cover;
+                border-radius: 5px;
+                transition: transform 0.3s ease;
+            }
+
 
         </style>
     </head>
@@ -136,10 +202,10 @@
         <nav class = "sidebar">
             <ul>
                 <li><a href="#home">HOME</a></li>
-                <li><a href="#about">HISTORY OF ORIGAMI</a></li>
-                <li><a href="#contact">ORIGAMI EXHIBIT</a></li>
-                <li><a href="#about">FOLDING IN ORIGAMI</a></li>
-                <li><a href="#about">References & Resources</a></li>
+                <li><a href="#history">HISTORY OF ORIGAMI</a></li>
+                <li><a href="#exhibit">ORIGAMI EXHIBIT</a></li>
+                <li><a href="#folds">FOLDING IN ORIGAMI</a></li>
+                <li><a href="#references">References & Resources</a></li>
             </ul>
         </nav>
 
@@ -176,6 +242,7 @@
                             and interactive element to enhance user engagement.
                         </p>
                     </div>
+                    <img src="assets/origamiexample1home.png" alt="Origami Image Example 1" class="infoBoxImg">
             </div>
 
             <div class = infoBox id="mission">
@@ -188,6 +255,7 @@
                             be inspired to learn and create their own origami pieces.
                         </p>
                     </div>
+                    <img src="assets/origamiexample2home.png" alt="Origami Image Example 2" class="infoBoxImg">
              </div>
 
             <div class = infoBox id="audience">
@@ -199,7 +267,30 @@
                             of origami. 
                         </p>
                     </div>
+                    <img src="assets/kidsdoingorigami.png" alt="Origami Kids" class="infoBoxImg">
             </div>
+        </section>
+
+        <section id="features"> 
+
+            <div class="divFeature" id="history">
+                <h2> Oricentric: Unfolding a Colorful History </h2>
+                    <img src="assets/origamihistoryhome.png" alt="Origami Image History" class="divFeatureImg">
+            </div>
+
+            <div class="divFeature" id="exhibit">
+                <h2> Oricentric: Showcasing Numerous Masterpieces </h2>
+                    <img src="assets/origamiexhibithome.png" alt="Origami Image Exhibit" class="divFeatureImg">
+            </div>
+            <div class="divFeature" id="folds">
+                <h2> Oricentric: The Science Behind Every Fold </h2>
+                    <img src="assets/origamimechanismshome.png" alt="Origami Image Folds" class="divFeatureImg">
+            </div>
+            <div class="divFeature" id="references">
+                <h2> Oricentric: References Used </h2>
+                    <img src="assets/origamiexample3home.png" alt="Origami Image References/Example 3" class="divFeatureImg">
+            </div>
+
         </section>
 
         <section id="finalMessage">
