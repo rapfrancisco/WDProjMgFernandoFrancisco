@@ -1,0 +1,137 @@
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            :root { /* Light Theme Colors */
+                --primary-color: #8eb8ea;
+                --secondary-color: #7097c6;
+                --background-color: #FAF9F7;
+                --text-color: #1e1e1e;
+                --link-color: #8eb8ea;
+                --accent-color: #e7c65e;
+                --link-hover-color: #E86F68;
+                --hotkey-bg-color: #9db1d1;
+            }
+
+            [dark-theme="dark"] { /* Dark Theme Colors */
+                --primary-color: #2b3a67;
+                --secondary-color: #1e2a4d;
+                --background-color: #121212;
+                --text-color: #e0e0e0;
+                --link-color: #4a90e2;
+                --accent-color: #f5a623;
+                --link-hover-color: #E86F68;
+                --hotkey-bg-color: #3a4a6d;
+            }
+
+            /* Basic Body, Header, and Link Styles */
+            body { 
+                font-family: poppins, sans-serif;
+                line-height: 1.6;
+                background-color: var(--background-color);
+                color: var(--text-color);
+                padding: 20px;
+                margin-left: 260px;
+            }
+            header {
+                background-color: var(--secondary-color);
+                color: white;
+                font-family: playfair display, serif;
+                font-size: 1.7rem;
+                padding: 15px 0;
+                text-align: center;
+                border: 2px solid white;
+            }
+            a {
+                text-decoration: none;
+                background-color: var(--link-color);
+            }
+            a:hover {
+                text-decoration: underline;
+                background-color: var(--link-hover-color);
+            }
+
+            /* Sidebar Navigation */
+            .sidebar {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 220px;
+                height: 100vh;
+                background-color: var(--secondary-color);
+                padding-top: 2rem;
+                box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .sidebar ul {
+                list-style: none;
+                width: 100%;
+                padding: 0;
+                margin-top: 1rem;
+            }
+            .sidebar ul li a{
+                display: block;
+                padding: 1rem;
+                font-weight: bolder;
+                color: var(--text-color)
+                text-decoration: none;
+                letter-spacing: 1px;
+                border-bottom: 1px solid white;
+                transition: all 0.4s ease;
+                
+            }
+            .sidebar ul li a:hover {
+                background-color: var(--accent-color);
+                color: #141414;
+                transform: scale(1.05);
+            }
+            #intro { /* Universally used to explain what each section is about */
+                text-align: center;
+                margin-bottom: 1.3rem;
+                padding: 2rem 1rem;
+                background-color: #f4f1ef;
+                border-radius: 5px;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            }
+            /* Hotkeys */
+            .hotkeys {
+                margin-top: 2.5rem;
+                padding: 1rem;
+                background-color: var(--hotkey-bg-color);
+                border-radius: 5px;
+                width: 95%;
+            }
+            .hotkeys h4 {
+                margin-bottom: 0.5rem;
+                color: black;
+                text-align: center;
+            }
+            .hotkeys ul {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+            }
+            .hotkeys ul li {
+                margin-bottom: 0.5rem;
+                text-align: left;
+            }
+            .hotkeys ul li p {
+                color: black;
+                font-size: 0.75rem;
+            }
+            kbd {
+                background-color: #e0e0e0;
+                border: 1px solid #b0b0b0;
+                border-radius: 3px;
+                box-shadow: 0 1px 0 rgba(0,0,0,0.2);
+                color: #333333;
+                display: inline-block;
+                font-size: 0.9rem;
+                padding: 1px 2px;
+                margin: 0 1px;
+            }
+
