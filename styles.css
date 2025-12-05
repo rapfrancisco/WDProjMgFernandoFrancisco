@@ -32,18 +32,29 @@
                 line-height: 1.6;
                 background-color: var(--background-color);
                 color: var(--text-color);
-                padding: 20px;
-                margin-left: 260px;
+                padding: 2rem;
+                margin-left: 15rem;
             }
             header {
                 background-color: var(--secondary-color);
                 color: white;
                 font-family: playfair display, serif;
                 font-size: 1.7rem;
-                padding: 15px 0;
+                padding: 1.5rem;
                 text-align: center;
                 border: 2px solid white;
             }
+            footer{
+                width:100%;
+                background-color: var(--secondary-color);
+                color: rgb(0, 0, 0);
+                padding: 1rem;
+                border-top: 2px solid white;
+                padding:2.5rem;
+                min-height: calc(100vh-80px);
+                background: rgb(247, 244, 244);
+            }
+            /* LINKS */
             a {
                 text-decoration: none;
                 background-color: var(--link-color);
@@ -58,7 +69,7 @@
                 position: fixed;
                 top: 0;
                 left: 0;
-                width: 220px;
+                width: 260px;
                 height: 100vh;
                 background-color: var(--secondary-color);
                 padding-top: 2rem;
@@ -70,19 +81,17 @@
             .sidebar ul {
                 list-style: none;
                 width: 100%;
-                padding: 0;
                 margin-top: 1rem;
             }
             .sidebar ul li a{
                 display: block;
                 padding: 1rem;
                 font-weight: bolder;
-                color: var(--text-color)
+                color: var(--text-color);
                 text-decoration: none;
                 letter-spacing: 1px;
                 border-bottom: 1px solid white;
-                transition: all 0.4s ease;
-                
+                transition: background-color 0.4s ease, color .3s ease;   
             }
             .sidebar ul li a:hover {
                 background-color: var(--accent-color);
