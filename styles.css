@@ -7,7 +7,7 @@
             :root { /* Light Theme Colors */
                 --primary-color: #8eb8ea;
                 --secondary-color: #7097c6;
-                --background-color: #FAF9F7;
+                --background-color: #fff;
                 --text-color: #1e1e1e;
                 --link-color: #8eb8ea;
                 --accent-color: #e7c65e;
@@ -37,7 +37,12 @@
             }
             header {
                 background-color: var(--secondary-color);
-                color: white;
+                background-image: url(assets/white-paper-texture.jpg);
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-blend-mode: overlay;
+                background-position: center;
+                color: rgb(19, 18, 47);
                 font-family: playfair display, serif;
                 font-size: 1.7rem;
                 padding: 1.5rem;
@@ -49,7 +54,7 @@
                 background-color: var(--secondary-color);
                 color: rgb(0, 0, 0);
                 padding: 1rem;
-                border-top: 2px solid white;
+                border-top: 2px solid #f1eaea;
                 padding:2.5rem;
                 min-height: calc(100vh-80px);
                 background: rgb(247, 244, 244);
@@ -116,7 +121,7 @@
                 max-width: 600px;
                 margin: 0 auto;
             }
-            .contentSection { /* Sections like History, Significance, Innovators */
+            .contentSection { /* Sections like History, Significance, Innovators; Exhibit; Types of Folds, Tools; and References*/
                 margin-bottom: 2rem;
                 padding: 2rem 3rem;
                 max-width: 900px;
