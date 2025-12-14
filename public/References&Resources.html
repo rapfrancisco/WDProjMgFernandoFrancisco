@@ -8,50 +8,13 @@
         <meta name="author" content="Brandon Timothy P. Fernando & Rei Annica P. Francisco">
         <meta name="keywords" content="HTML, CSS, JavaScript, Web Development Oricentric, Origami, Paper Crafts" >
         <link rel="stylesheet" href="../styles.css">
-
+        <script src="script.js"></script>
         <style>
 
 
             name-and-authorship, .credentials, .social-media-links {
                 flex: 1;
             }
-
-            .sidebar {
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 220px;
-                height: 100vh;
-                background-color: #d6ccc2
-                padding-top: 2rem;
-                box-shadow: 2px 0 5px rgba(0,0,0,0.1);
-                display: flex;
-                felx-direction: column;
-                align-items: flext-start;
-            }
-            .sidebar ul {
-                list-style: none;
-                width: 100%;
-                padding: 0;
-                margin-top: 1rem;
-            }
-            .sidebar ul li a{
-                display: block;
-                padding: 1rem;
-                font-weight: bolder;
-                color: #000000;
-                text-decoration: none;
-                letter-spacing: 1px;
-                border-bottom: 1px solid #e0e0e0;
-                transition: all 0.4s ease;
-                
-            }
-            .sidebar ul li a:hover {
-                background-color: #c4b7ad;
-                color: #141414;
-                transform: scale(1.05);
-            }
-
             
         </style>
     </head>
@@ -62,16 +25,31 @@
             <h1> Oricentric </h1>
             <h2> The Art of Folds </h2>
             
-            <nav class="sidebar">
+             <nav class = "sidebar">
+            <ul>
+                <li><a href="../index.html">HOME</a></li>
+                <li><a href="History_Of_Origami.html">HISTORY OF ORIGAMI</a></li>
+                <li><a href="Origami_Exhibit.html">ORIGAMI EXHIBIT</a></li>
+                <li><a href="Folding_In_Origami.html">FOLDING IN ORIGAMI</a></li>
+                <li><a href="References&Resources.html">RESOURCES</a></li>
+            </ul>
+            <aside class="hotkeys">
+                <h4> Hotkeys </h4>
                 <ul>
-                    <li><a href="../index.html">HOME</a></li>
-                    <li><a href="History_Of_Origami.html">HISTORY OF ORIGAMI</a></li>
-                    <li><a href="Origami_Exhibit.html">ORIGAMI EXHIBIT</a></li>
-                    <li><a href="Folding_In_Origami.html">FOLDING IN ORIGAMI</a></li>
-                    <li><a href="References&Resources.html">References & Resources</a></li>
-                    
+                    <li> <p> <kbd>Shift</kbd> + <kbd>B</kbd> - HOME </p> </li>
+                    <li> <p> <kbd>Shift</kbd> + <kbd>H</kbd> - HISTORY </p> </li>   
+                    <li> <p> <kbd>Shift</kbd> + <kbd>E</kbd> - EXHIBIT</p> </li>
+                    <li> <p> <kbd>Shift</kbd> + <kbd>M</kbd> - MECHANISMS </p> </li>    
+                    <li> <p> <kbd>Shift</kbd> + <kbd>R</kbd> - RESOURCES </p></li>    
+                    <li> <p> <kbd>Shift
+                        
+                    </kbd> + <kbd>T</kbd> - THEME </p> </li>    
+                    <li> <p> <kbd>Shift</kbd> + <kbd>P</kbd> - PLAY </p> </li>    
+                    <li> <p> <kbd>Shift</kbd> + <kbd>U</kbd> - MUTE </p> </li>    
                 </ul>
-            </nav>
+            </aside>
+        </nav>
+
         </header>
 
         <section id="listbypage"> 

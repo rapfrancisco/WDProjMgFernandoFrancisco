@@ -7,8 +7,9 @@
         <meta name="description" content="The home page of Oricentric">
         <meta name="author" content="Brandon Timothy P. Fernando & Rei Annica P. Francisco">
         <meta name="keywords" content="HTML, CSS, JavaScript, Web Development Oricentric, Origami, Paper Crafts" >
-        <link rel="icon" type="image/png" href="/Oricentric_logo.png">
+        <link rel="icon" type="image/png" href="/Oricentric_logo(transparent).png">
         <link rel="stylesheet" href="styles.css">
+        <script src="script.js"></script>
 
         <style>
             /* Internal CSS: Home Page Specifics */
@@ -108,26 +109,6 @@
                 object-fit: cover;
                 border-radius: 5px;
                 transition: transform 0.3s ease;
-            }
-
-            #finalMessage {
-                text-align: center;
-                font-size: 1.3rem;
-                margin: 2rem 0;
-                padding: 1.5rem;
-                background-color: #f4f1ef;
-                border-radius: 5px;
-                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            }
-
-            #finalMessage > p {
-                margin-bottom: 1rem;
-                font-weight: bold;
-            }
-
-            #finalMessage > p:last-child {
-                font-style: italic;
-                font-family:playfair display, serif;
             }
 
         </style>
@@ -274,40 +255,11 @@
             </ul>
 
             <p> &copy; 2025 Oricentric — Fernando & Francisco</p>
+             
+            <div id="footerlogoimg">
+                <img src="Oricentric_logo(transparent).png" alt="Oricentric Logo" width="267px">
+            </div>
         </footer>   
 
-<script>
-    document.addEventListener('keydown', function(event) {
-        if (event.shiftKey) {
-            switch(event.key.toLowerCase()) {
-                 /*Navigation Hotkeys*/
-                case 'b': window.location.href = '#intro'; break;
-                case 'h': window.location.href = '#history'; break;
-                case 'e': window.location.href = '#exhibit'; break;
-                case 'm': window.location.href = '#folds'; break;
-                case 'r': window.location.href = '#references'; break;
-                               
-                /*Theme and Music Hotkeys; MORE COMPLEX JS REQUIRED*/
-                case "t": toggleTheme(); break;
-                case "p": break;
-                case "u": break;
-
-                default: break;
-            }
-        }
-    });
-    function toggleTheme() {
-        const body = document.body;
-        const current = body.getAttribute('data-theme');
-        const newTheme = current === 'dark' ? 'light' : 'dark';
-        body.setAttribute('data-theme', newTheme);
-        localStorage.setItem('theme', newTheme);
-
-        window.addEventListener('load', () => {
-        const saved = localStorage.getItem('theme');
-        if (saved) document.body.setAttribute('data-theme', saved);
-        });
-        }
-</script>
     </body>
 </html>

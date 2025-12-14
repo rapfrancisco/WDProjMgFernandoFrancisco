@@ -167,4 +167,31 @@
                 padding: 1px 2px;
                 margin: 0 1px;
             }
+            #finalMessage {
+                text-align: center;
+                font-size: 1.3rem;
+                margin: 2rem 0;
+                padding: 1.5rem;
+                background-color: #f4f1ef;
+                border-radius: 5px;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            }
+
+            #finalMessage > p {
+                margin-bottom: 1rem;
+                font-weight: bold;
+            }
+
+            #finalMessage > p:last-child {
+                font-style: italic;
+                font-family:playfair display, serif;
+            }
+             
+            #footerlogoimg {
+                display:flex;
+                justify-content: center;
+                margin-top: 1rem;
+                align-items: center;
+                height: auto;
+            }
 
