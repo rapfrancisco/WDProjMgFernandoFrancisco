@@ -18,48 +18,94 @@
                 justify-content: space-between;
                 padding: 2rem 1rem;
             }
-            #timeline{
-                margin-bottom: 20rem;
+            #timeline-container{
+                position: relative;
+                padding: 4rem 1rem;
+            }
+            #timeline-line {
+                position: absolute;
+                left: 2.5rem;
+                top: 4rem;
+                bottom: 4rem;
+                width: 2px;
+                background-color: rgba(0,0,0,0.15);
+                z-index: -1;
+            }
+            #timeline-cards {
                 display: flex;
                 flex-direction: column;
-                justify-content: space-between;
-                padding-left: 4rem;
+                gap: 4rem;
+            }
+            .timeline-point {
+                width: 14px;
+                height: 14px;
+                background-color: var(--secondary-color);
+                border-radius: 50%;
+                position: absolute;
+                left: 2.5rem;
+                top: 2.41rem;
+                transform: translateX(-50%);
+            }
+            .timeline-content {
+                margin-left: 5rem;
+                background-color: white;
+                padding: 3ch;
+                border-radius: 10px;
+                box-shadow: 0 12px 25px rgba(0,0,0,0.8);
+                display: flex;
+                align-items: flex-start;
+                gap: 2rem;
+                transition:transform 0.3s ease, box-shadow 0.3s ease;
+            }
+            .timeline-image {
+                margin-top: 1rem;
+                text-align: center;
+                flex: 1;
+            }
+            .timeline-image img {
+                width: 100%;
+                height: auto;
+                border-radius: 10px;
+                box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+                object-fit: cover;
+                margin-bottom: 3rem;
+            }
+            .timeline-text {
+                flex: 2;
+            }
+            .timeline-item {
                 position: relative;
-                width: 95%;
-                gap: 5rem;
-                padding: 2rem;
             }
-             #timeline article {
-                background-color: #FFFFFF;
-                padding: 2rem 2rem;
-                border-radius: 5px;
-                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-                transition: all 0.3s ease;
-                position: relative;
+            .timeline-content h3 {
+                margin: 0 0.5rem;
+                font-size: 2rem;
+                color: #0a0a0a;
             }
-                #timeline::before { /* This generates a Vertical line*/
-                    content: '';
-                    position: absolute;
-                    left: 20px;
-                    top: 0;
-                    bottom: 0;
-                    width: 4px;
-                    background-color: var(--secondary-color);
+            .timeline-content p{
+                margin-bottom: 1.2rem;
+                font-size: 1.2rem;
+                line-height: 1.8;
+                color: #333;
+            }
+
+            .timeline-item:hover .timeline-content {
+                transform: translateY(-5px);
+                box-shadow: 0 16px 30px rgba(0,0,0,0.2);
+            }
+
+            /* For mobile */
+            @media (max-width: 768px) {
+                .timeline-content {
+                    flex-direction: column;
                 }
-                #timeline article:hover {
-                    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+                .timeline-image, .timeline-text {
+                    flex: unset;
                 }
-                #timeline article::before { /* This generates the circles on the vertical line */
-                    content: '';
-                    position: absolute;
-                    left: -3rem;
-                    top: 1rem;
-                    width: 16px;
-                    height: 16px;
-                    background-color: var(--secondary-color);
-                    border-radius: 50%;
-                    border: 4px solid #FFFFFF;
+                .timeline-image{
+                    margin-top: 1rem;
+                }
             }
+
             #significance {
                 margin-bottom: 2rem;
                 display: flex;
@@ -129,40 +175,120 @@
             <p> History Introduction </p>
         </section>
 
-        <section id="timeline" class="contentSection">
-            <h2> History Timeline </h2>
+        <section id="timeline-container" class="contentSection">
+            <h2> Unfolding the History of Origami </h2>
+            <div id="timeline-line"></div>
+                <div id="timeline-cards">
+                <article id = "earlyBeginnings" class="timeline-item"> 
+                    <div class="timeline-point"></div>
 
-            <article id = "earlyBeginnings"> 
-                <h3> Early Beginnings and Invention of Origami </h3>
-                <p>
-                    txt
-                </p>
-            </article>
+                        <div class="timeline-content">
+                            <div class = "timeline-text"> 
+                        <h3> Early Beginnings and Invention of Origami </h3>
+<p>
+    It is quite difficult to trace the exact origins and plot a comprehensive and concise timeline of origami’s history. 
+    However, despite most of its information being disintegrated, 
+    it is believed that Japan’s tradition of paper folding began shortly after Buddhist monks from China brought paper to Korea and Japan at around the sixth (6th) Century. 
+    First appearing in China around the 2nd century BCE, paper replaced heavier writing materials such as bamboo and wood. 
 
-            <article id = "japaneseCulture"> 
-                <h3> Integration of Origami into Japanese Culture </h3>
-                <p>
-                    txt
-                </p>
-            </article>
+</p>
+                        </div>
 
-            <article id = "globalInfluence"> 
-                <h3> Global Influence and Origami Spreading Worldwide </h3>
-                <p>
-                    txt
-                </p>    
-            </article>
+                    <div class="timeline-image">
+                        <img src="../assets/origamihistoryimage1.png" alt="Ancient Origami Illustration" width="500px">
+                    </div>
 
-            <article id = "modernApplications"> 
-                <h3> Modern Applications inspiring Architecture and Robotics </h3>
-                <p>
-                    txt
-                </p>
-            </article>
+                    </div>
+                </article>
+
+                <article id = "japaneseCulture" class="timeline-item"> 
+                    <div class="timeline-point"></div>
+
+                    <div class="timeline-content">
+                        <div class = "timeline-text"> 
+                    <h3> Integration of Origami into Japanese Culture </h3>
+<p>
+    Shortly thereafter, the art of folding paper was limited only to religious and ceremonial use as paper was expensive. 
+    <i>Girei-ori</i>, or ceremonial folds, were done by the Ogasawara and Ise clans- noble families who developed this strict folding style for ceremonies. 
+    It was until various Japanese feudal lords, during the Edo Period (1603-1868), encouraged the expansion of local paper making industries that led to the mass production of paper 
+    and inspirational recreation in the form of <i>orisue</i> (meaning “folded setting down”) or <i>origata</i> (meaning “folded shape”), currently known as origami.
+</p>
+                    <br>
+<p> 
+    With paper now being affordable, and origami spreading amongst the masses, paper folding flourished in Japan. 
+    Noshi is known as the earliest non-religious use of folded paper, wherein a sort of folded chevron was given with a gift as a token of good fortune, 
+    as well as <i>tsutsumi</i>- formal gift wrapping. During Shinto weddings, paired butterflies adorned sake bottles as the first representatives of origami.
+    Additionally, cranes and samurai dolls were folded into reality and were integrated into Japan’s rich culture.
+</p>
+                    <br>
+<p>
+    In addition, in 1797, the oldest known origami book was publish- known as <i>Hiden Senbazuru Orikata</i> (Secret Folding Methods of a Thousands Cranes). 
+    Demonstrating basic diagrammatic instructions on 49 different forms of paper cranes, the love for paper folding was clearly emphasized in Japan; 
+    with origami even entering curriculums during the Meiji period- allowing children to learn patience, balance, and precision.
+</p>
+                        </div>
+                    <div class="timeline-image">
+                        <img src="../assets/origamihistoryimage3.png" alt="Japanese Origami Illustration" width="867px">
+                        <img src="../assets/origamihistoryimage4.png" alt="Japanese Origami Illustration" width="867px">
+                        <img src="../assets/origamihistoryimage2.png" alt="ygfghi guhgyg" width="867px">
+                    </div>
+                </article>
+
+                <article id = "globalInfluence" class="timeline-item"> 
+                    <div class="timeline-point"></div>
+                    <div class="timeline-content">
+                    <h3> Global Influence and Origami Spreading Worldwide </h3>
+                    <p>
+                        The tradition of paper folding had also independently developed in Europe in the 11th or 12th century in Spain and Germany, 
+                        with the early 1800s displaying folded paper animals, horses and riders in German museum collections. 
+                        Friedrich Frobel, a German Educator who created the first kindergarten, used paper folding as well as creative lessons to teach children. 
+                        European folding patterns also allowed teachers to introduce geometry to kindergarteners since it tended to be more geometric and used 45-degree folds, 
+                        rather than Japanese 22.5-degree folds.
+                    </p>  
+                    <br>
+                    <p>
+                        During the late 19th to mid-20th century, orisue or origata developed from its original root–oru (to fold)–and soon settled to origami (meaning “folded paper”).
+                        Born in 1911 in Kaminokawa Tochigi, Akira Yoshizawa is currently considered the father of origami. 
+                        Folding an estimate of more than 50,000 models in his entire lifetime, he also published Atarashi Origami Heijutsu (New Origami Art) in 1954,
+                        laying the foundation for what is now known as the Yoshizawa-Randlett system of notation of origami folds- 
+                        using mountain and valley folds represented by dashed and dotted lines. 
+                    </p>  
+                    <br>
+                    <p>
+                        Concurrently, figures resembling cranes, frogs and flowers are folded by common people with <i>chiyogami</i>- 
+                        a single sheet of paper without requiring glue or scissors. Other techniques that include cutting and using glue have also been developed however. 
+                        Modular origami is another origami technique that uses multiple folded shapes to form larger constructions, 
+                        wet folding allows creations to have more curved shapes, and action origami allows origami to move such as jumping frogs. 
+                    </p>
+                </div>
+                </article>
+
+                <article id = "modernApplications" class="timeline-item"> 
+                    <div class="timeline-point"></div>
+                    <div class="timeline-content">
+                    <h3> Modern Applications inspiring Architecture and Robotics </h3>
+                    <p>
+                        While origami is usually seen on tables or displayed as art, it also has many modern applications in Science. 
+                        According to a theoretical study titled “Origami-Inspired Living Panels For Energy-efficient And Power-Generating Buildings” 
+                        conducted in the Rochester Institute of Technology (2024, Basta), origami principles could be applied to solar panels. 
+                        This would optimize effective capturing and conversion of solar energy, in light of incentives to reduce energy consumption and to mitigate the adverse effects 
+                        of climate change and greenhouse gas emissions. Aiming to maximize solar energy capture, enhance thermal management, and generate renewable energy, origami techniques 
+                        were applied to reflective panels that could direct sunlight to specific areas such as photovoltaic cells 
+                        (panels that convert sunlight directly into electricity) or thermal collectors. 
+                        This maximized reflection and collection of sunlight during peak hours, increasing energy captured by the system. 
+                        Concentrating sunlight into smaller, highly efficient areas can also increase thermal energy available for conversion.
+                    </p>
+                    <p>
+                        Origami also skyrocketed and is used in space exploration. Inspired by origami, NASA’s golden starshade prototype is a large, foldable structure designed to block starlight,
+                        allowing telescopes to capture clearer images of distant exoplanets. 
+                    </p>
+                    </div>
+                </article>
+            </div>
         </section>
 
         <section id="significance">
-        <!-- txt for significance of origami in culture and art -->\
+        <!-- txt for significance of origami in culture and art -->
         </section>
 
         <section id="innovators">

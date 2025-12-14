@@ -124,7 +124,7 @@
             .contentSection { /* Sections like History, Significance, Innovators; Exhibit; Types of Folds, Tools; and References*/
                 margin-bottom: 2rem;
                 padding: 2rem 3rem;
-                max-width: 900px;
+                max-width: 2000px;
                 background-color: var(--background-color);
                 border-radius: 5px;
                 box-shadow: 0 2px 5px rgba(0,0,0,0.1);
