@@ -29,12 +29,14 @@
                 bottom: 4rem;
                 width: 2px;
                 background-color: rgba(0,0,0,0.15);
-                z-index: -1;
+                z-index: 0;
             }
             #timeline-cards {
                 display: flex;
                 flex-direction: column;
                 gap: 4rem;
+                position: relative;
+                z-index: 1;
             }
             .timeline-point {
                 width: 14px;
@@ -86,6 +88,13 @@
                 font-size: 1.2rem;
                 line-height: 1.8;
                 color: #333;
+            }
+            #timeline-container > h2 {
+                text-align: center;
+                padding: 0 1rem;
+                margin-bottom: 3rem;
+                font-size: 4rem;
+                color: #0a0a0a;
             }
 
             .timeline-item:hover .timeline-content {
