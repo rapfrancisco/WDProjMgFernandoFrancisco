@@ -113,10 +113,9 @@
                 border-radius: 5px;
                 box-shadow: 0 2px 5px rgba(0,0,0,0.1);
                 text-align: center;
-                flex: 1;
-                overflow: hidden;
+                flex: 1 1 250px; 
+                max-width: 300px; 
                 transition: all 0.3s ease;
-                width: 30%;
             }
 
             .sections{
@@ -232,28 +231,6 @@
                 <span class="dot"></span>
                 <span class="dot"></span>
                 </div>
-
-                <script>
-                let slideIndex = 0;
-                showSlides();
-
-                function showSlides() {
-                let i;
-                let slides = document.getElementsByClassName("mySlides");
-                let dots = document.getElementsByClassName("dot");
-                for (i = 0; i < slides.length; i++) {
-                    slides[i].style.display = "none";  
-                }
-                slideIndex++;
-                if (slideIndex > slides.length) {slideIndex = 1}    
-                for (i = 0; i < dots.length; i++) {
-                    dots[i].className = dots[i].className.replace(" active", "");
-                }
-                slides[slideIndex-1].style.display = "block";  
-                dots[slideIndex-1].className += "active";
-                setTimeout(showSlides, 2000); // Change image every 2 seconds
-                }            
-                </script>
             </section>
         </section>
         
@@ -310,6 +287,38 @@
 
             <p> &copy; 2025 Oricentric — Fernando & Francisco</p>
 
-        </footer>    
+        </footer>   
+        
+        <script>
+let slideIndex = 0;
+
+function showSlides() {
+    const slides = document.getElementsByClassName("mySlides");
+    const dots = document.getElementsByClassName("dot");
+    
+
+    for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+
+    slideIndex = (slideIndex + 1) % slides.length;
+    slides[slideIndex].style.display = "block";
+
+    for (let i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+    }
+    dots[slideIndex].className += " active";
+    setTimeout(showSlides, 2000);
+}
+
+    document.addEventListener("DOMContentLoaded", () => {
+    const slides = document.getElementsByClassName("mySlides");
+    const dots = document.getElementsByClassName("dot");
+    slides[0].style.display = "block";
+    dots[0].className += " active";
+
+    showSlides();
+    });
+</script>
     </body>
 </html>
