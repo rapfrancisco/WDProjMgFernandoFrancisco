@@ -83,10 +83,11 @@
             }
 
             #applications {
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 2rem;
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 2rem; 
+                justify-items: center; 
+                padding: 2rem 1rem;
             }
 
             .section img {
@@ -112,6 +113,10 @@
                 box-shadow: 0 2px 5px rgba(0,0,0,0.1);
                 text-align: center;
                 flex: 1 1 calc(50% - 2rem);
+            }
+
+            .box p {
+                text-align: justify;
             }
 
             .sections{
@@ -240,23 +245,25 @@
 
         <section id="applications">
             <!-- Descriptions of Applications -->
-            <h1>With the <i>practice</i> of Origami</h1>
             <div class="box">
                 <h3>Stress reliever</h3>
-                <p>Origami can help reduce stress by encouraging focus and calmness during the folding process'. As a person concentrates on each step, it can aid clear the mind and promote relaxation, making origami a peaceful and enjoyable activity.</p>
-                
+                <p>Origami can help reduce stress by encouraging focus and calmness during the folding process. As a person concentrates on each step, it can aid clear the mind and promote relaxation, making origami a peaceful and enjoyable activity.</p>
+            </div>
+            
+            <div class="box">
                 <h3>Expression of Creativity</h3>
-                <p>Origami allows people to express their creativity by turning simple paper into different designs and figures. By choosing how to fold and shape the paper, individuals can explore new ideas and create something unique using their imagination</p>
+                <p>Origami allows people to express their creativity by turning simple paper into different designs and figures. By choosing how to fold and shape the paper, individuals can explore new ideas and create something unique using their imagination.</p>
             </div>
             
             <div class="box">
                 <h3>Applicated in Real Life</h3>
                 <p>Origami is not only an art form but also has real-world applications in fields like science, engineering, and medicine. Its principles are used to design foldable structures and tools, showing how origami can contribute to modern technology and learning.</p>
+            </div>
             
+            <div class="box">
                 <h3>Improves Focus and Patience</h3>
                 <p>Origami improves hand control and coordination. Folding carefully helps your fingers work better for writing, drawing, and other activities.</p>
             </div>
-            
         </section>
         <footer>
         <div class ="footerhead">
