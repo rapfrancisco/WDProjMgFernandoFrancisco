@@ -90,6 +90,13 @@
                 padding: 2rem 1rem;
             }
 
+            #applications h2 {
+                text-align: center;
+                margin-bottom: 2rem; 
+                font-size: 1.8rem; 
+                color: #141414;
+            }
+
             .section img {
                 width: 100%;
                 max-width: 500px;
@@ -244,6 +251,7 @@
         <!-- end of gallery w/ pics,steps, & descs-->
 
         <section id="applications">
+            <h2>With the Practice of Origami</h2
             <!-- Descriptions of Applications -->
             <div class="box">
                 <h3>Stress reliever</h3>
@@ -253,11 +261,6 @@
             <div class="box">
                 <h3>Expression of Creativity</h3>
                 <p>Origami allows people to express their creativity by turning simple paper into different designs and figures. By choosing how to fold and shape the paper, individuals can explore new ideas and create something unique using their imagination.</p>
-            </div>
-            
-            <div class="box">
-                <h3>Applicated in Real Life</h3>
-                <p>Origami is not only an art form but also has real-world applications in fields like science, engineering, and medicine. Its principles are used to design foldable structures and tools, showing how origami can contribute to modern technology and learning.</p>
             </div>
             
             <div class="box">
@@ -299,35 +302,35 @@
         </footer>   
         
         <script>
-let slideIndex = 0;
+        let slideIndex = 0;
 
-function showSlides() {
-    const slides = document.getElementsByClassName("mySlides");
-    const dots = document.getElementsByClassName("dot");
-    
+        function showSlides() {
+            const slides = document.getElementsByClassName("mySlides");
+            const dots = document.getElementsByClassName("dot");
+            
 
-    for (let i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-    }
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
 
-    slideIndex = (slideIndex + 1) % slides.length;
-    slides[slideIndex].style.display = "block";
+            slideIndex = (slideIndex + 1) % slides.length;
+            slides[slideIndex].style.display = "block";
 
-    for (let i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" active", "");
-    }
-    dots[slideIndex].className += " active";
-    setTimeout(showSlides, 2000);
-}
+            for (let i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            dots[slideIndex].className += " active";
+            setTimeout(showSlides, 2000);
+        }
 
-    document.addEventListener("DOMContentLoaded", () => {
-    const slides = document.getElementsByClassName("mySlides");
-    const dots = document.getElementsByClassName("dot");
-    slides[0].style.display = "block";
-    dots[0].className += " active";
+            document.addEventListener("DOMContentLoaded", () => {
+            const slides = document.getElementsByClassName("mySlides");
+            const dots = document.getElementsByClassName("dot");
+            slides[0].style.display = "block";
+            dots[0].className += " active";
 
-    showSlides();
-    });
-</script>
+            showSlides();
+            });
+        </script>
     </body>
 </html>
