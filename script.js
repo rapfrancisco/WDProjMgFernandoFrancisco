@@ -29,3 +29,25 @@ document.addEventListener('keydown', function(event) {
         if (saved) document.body.setAttribute('data-theme', saved);
         });
         }
+
+        document.addEventListener('DOMContentLoaded', function() {
+
+                    var outsideTheBox = document.querySelectorAll(".infoBox");
+
+                    for (var i = 0; i < outsideTheBox.length; i++) {
+                    outsideTheBox[i].addEventListener("click", function() {
+                    this.classList.toggle("active");
+
+                    var content = this.querySelector(".infoContent");
+
+                    if (content){
+                        if(content.style.maxHeight){
+                            content.style.maxHeight = null;
+                        } 
+                        else {
+                            content.style.maxHeight = content.scrollHeight + "px";
+                        } 
+                    }
+                    });
+                    }
+                    });
