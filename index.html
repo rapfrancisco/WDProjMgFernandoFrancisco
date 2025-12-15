@@ -101,6 +101,11 @@
                 grid-template-columns: repeat(2, 1fr);
                 gap: 2rem;  
             }
+            #features h2 {
+                grid-column: span 2;
+                text-align: center;
+                margin-bottom: 1rem;
+            }
             .divFeature {
                 background-color: white;
                 padding: 1.5rem;
@@ -156,9 +161,9 @@
                     <li> <p> <kbd>Shift</kbd> + <kbd>R</kbd> - RESOURCES </p></li>    
                     <li> <p> <kbd>Shift
                         
-                    </kbd> + <kbd>T</kbd> - THEME </p> </li>    
-                    <li> <p> <kbd>Shift</kbd> + <kbd>P</kbd> - PLAY </p> </li>    
-                    <li> <p> <kbd>Shift</kbd> + <kbd>U</kbd> - MUTE </p> </li>    
+                    </kbd> + <kbd>T</kbd> - THEME [Unfinished] </p> </li>    
+                    <li> <p> <kbd>Shift</kbd> + <kbd>P</kbd> - PLAY [Unfinished] </p> </li>    
+                    <li> <p> <kbd>Shift</kbd> + <kbd>U</kbd> - MUTE [Unfinished] </p> </li>    
                 </ul>
             </aside>
         </nav>
@@ -229,23 +234,31 @@
         </section>
 
         <section id="features"> 
-
+            <h2> Our masterfully crafted webpages! </h2>
             <div class="divFeature" id="history">
                 <h2> Oricentric: Unfolding a Colorful History </h2>
+                <a href ="public/History_Of_Origami.html">
                     <img src="assets/origamihistoryhome.png" alt="Origami Image History" class="divFeatureImg">
+                </a>
             </div>
 
             <div class="divFeature" id="exhibit">
                 <h2> Oricentric: Showcasing Numerous Masterpieces </h2>
+                <a href ="public/Origami_Exhibit.html">
                     <img src="assets/origamiexhibithome.png" alt="Origami Image Exhibit" class="divFeatureImg">
+                </a>
             </div>
             <div class="divFeature" id="folds">
                 <h2> Oricentric: The Science Behind Every Fold </h2>
+                <a href ="public/Folding_In_Origami.html">
                     <img src="assets/origamimechanismshome.png" alt="Origami Image Folds" class="divFeatureImg">
+                </a>
             </div>
             <div class="divFeature" id="references">
                 <h2> Oricentric: References Used </h2>
+                <a href = "public/References&Resources.html">
                     <img src="assets/origamiexample3home.png" alt="Origami Image References/Example 3" class="divFeatureImg">
+                </a>
             </div>
 
         </section>
@@ -260,31 +273,64 @@
         </section>
 
         <footer>
+        <div class ="footerhead">
             <h2> ORICENTRIC </h2>
             <hr>
-
+        </div>
             <!-- Left -->
-            
-                <p> Philippine Science High School - Main Campus, Agham Road, Diliman, Quezon City, Philippines </p>
-            <ul> <p> Email Addresses: </p> 
-                <li> Fernando: b2029btpfernando@pshs.edu.ph </li>
-                <li> Francisco: b2029rapfrancisco@pshs.edu.ph </li>
-            </ul>
+            <div id="footerbox"> 
+                <div id="footercontacts">
+                        <p> <i>Address:</i> Philippine Science High School - Main Campus, Agham Road, Diliman, Quezon City, Philippines </p>
+                    <ul> <p> <i>Email Addresses:</i> </p> 
+                        <li> <i> Fernando </i>b2029btpfernando@pshs.edu.ph </li>
+                        <li> <i> Francisco:</i> b2029rapfrancisco@pshs.edu.ph </li>
+                    </ul>
+                </div
 
-            <!-- Right -->
-            <ul> 
-                <p> Social Media: </p>
-                <li> Instagram: something </li>
-                <li> Facebook: Oricentricsomething </li>
-                <li> Twitter: something </li>
-            </ul>
+                <!-- Right -->
+
+                <div id="footersocialmedia">
+                    <ul> 
+                        <p> <i>Social Media:</i> </p>
+                        <li> Facebook: Brandon Fernando  ||  Rei Annica Francisco </li>
+                    </ul>
+                </div>
+                
+                <div id="footerlogoimg">
+                    <img src="Oricentric_logo(transparent).png" alt="Oricentric Logo" width="267px">
+                </div>
+            </div>
 
             <p> &copy; 2025 Oricentric — Fernando & Francisco</p>
-             
-            <div id="footerlogoimg">
-                <img src="Oricentric_logo(transparent).png" alt="Oricentric Logo" width="267px">
-            </div>
+
         </footer>   
 
+        <script>
+            document.addEventListener('keydown', function(event) {
+        if (event.shiftKey) {
+
+            if(['b','h','e','m','r','t','p','u'].includes(event.key.toLowerCase())){
+                event.preventDefault();
+            }
+
+            switch(event.key.toLowerCase()) {
+                 /*Navigation Hotkeys, these are like a fast travel way if you dont want to use 
+                 the sidebar. when u combine shift and a key, you can navigate to different places*/
+                case 'b': window.location.href = '/index.html'; break;
+                case 'h': window.location.href = '/public/History_Of_Origami.html'; break;
+                case 'e': window.location.href = '/public/Origami_Exhibit.html'; break;
+                case 'm': window.location.href = '/public/Folding_In_Origami.html'; break;
+                case 'r': window.location.href = '/public/References&Resources.html'; break;
+                               
+                /*Theme and Music Hotkeys; MORE COMPLEX JS REQUIRED AND WILL NOT BE FINISHED*/
+                case "t": toggleTheme(); break;
+                case "p": break;
+                case "u": break;
+
+                default: break;
+            }
+        }
+    });
+        </script>
     </body>
 </html>

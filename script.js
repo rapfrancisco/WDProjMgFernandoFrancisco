@@ -1,14 +1,23 @@
 document.addEventListener('keydown', function(event) {
         if (event.shiftKey) {
+
+            if(['b','h','e','m','r','t','p','u'].includes(event.key.toLowerCase())){
+                event.preventDefault();
+            }
+
             switch(event.key.toLowerCase()) {
-                 /*Navigation Hotkeys*/
-                case 'b': window.location.href = '/index.html'; break;
-                case 'h': window.location.href = "..public/History_Of_Origami"; break;
-                case 'e': window.location.href = '#exhibit'; break;
-                case 'm': window.location.href = '#folds'; break;
-                case 'r': window.location.href = '#references'; break;
+                 /*Navigation Hotkeys, these are like a fast travel way if you dont want to use 
+                 the sidebar. when u combine shift and a key, you can navigate to different places
+                 Right now this is for the public folder files while the js for the index is saved as
+                 an internal js. since i dont have much time and the folders are already there, i cant
+                 really think of a better way, sorry*/
+                case 'b': window.location.href = '../index.html'; break;
+                case 'h': window.location.href = 'History_Of_Origami.html'; break;
+                case 'e': window.location.href = 'Origami_Exhibit.html'; break;
+                case 'm': window.location.href = 'Folding_In_Origami.html'; break;
+                case 'r': window.location.href = 'References&Resources.html'; break;
                                
-                /*Theme and Music Hotkeys; MORE COMPLEX JS REQUIRED*/
+                /*Theme and Music Hotkeys; MORE COMPLEX JS REQUIRED AND WILL NOT BE FINISHED*/
                 case "t": toggleTheme(); break;
                 case "p": break;
                 case "u": break;

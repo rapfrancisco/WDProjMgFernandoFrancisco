@@ -1,3 +1,4 @@
+            /* Base Styles */
             * {
                 margin: 0;
                 padding: 0;
@@ -33,7 +34,7 @@
                 background-color: var(--background-color);
                 color: var(--text-color);
                 padding: 2rem;
-                margin-left: 15rem;
+                margin-left: 15rem; /*For the fixed Sidebar*/
             }
             header {
                 background-color: var(--secondary-color);
@@ -42,60 +43,67 @@
                 background-repeat: no-repeat;
                 background-blend-mode: overlay;
                 background-position: center;
+                border: 2px solid white;
                 color: rgb(19, 18, 47);
                 font-family: playfair display, serif;
                 font-size: 1.7rem;
-                padding: 1.5rem;
                 text-align: center;
-                border: 2px solid white;
+                padding: 1.5rem;
             }
             footer{
                 width:100%;
-                background-color: var(--secondary-color);
-                color: rgb(0, 0, 0);
-                padding: 1rem;
-                border-top: 2px solid #f1eaea;
-                padding:2.5rem;
-                min-height: calc(100vh-80px);
                 background: rgb(247, 244, 244);
+                background-color: var(--secondary-color);
+                border-top: 2px solid #f1eaea;
+                color: rgba(240, 240, 238, 0.897);
+                padding: 1.5rem;
             }
+            #footerlogo img{
+                width: 150px;
+                height: auto;
+                align-items: center;
+                margin-top: 1rem;
+                display: flex;
+                justify-content: center;
+            }
+
             /* LINKS */
             a {
-                text-decoration: none;
                 background-color: var(--link-color);
+                text-decoration: none;
             }
             a:hover {
-                text-decoration: underline;
                 background-color: var(--link-hover-color);
+                text-decoration: underline;
             }
 
             /* Sidebar Navigation */
             .sidebar {
-                position: fixed;
-                top: 0;
-                left: 0;
                 width: 260px;
                 height: 100vh;
                 background-color: var(--secondary-color);
-                padding-top: 2rem;
                 box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+                padding-top: 2rem;
+                position: fixed;
+                top: 0;
+                left: 0;
                 display: flex;
                 flex-direction: column;
                 align-items: flex-start;
             }
             .sidebar ul {
-                list-style: none;
                 width: 100%;
+                list-style: none;
                 margin-top: 1rem;
             }
             .sidebar ul li a{
-                display: block;
-                padding: 1rem;
-                font-weight: bolder;
+                border-bottom: 1px solid white;
                 color: var(--text-color);
+                font-weight: bolder;
                 text-decoration: none;
                 letter-spacing: 1px;
-                border-bottom: 1px solid white;
+                padding: 1rem;
+                display: block;
                 transition: background-color 0.4s ease, color .3s ease;   
             }
             .sidebar ul li a:hover {
@@ -104,44 +112,45 @@
                 transform: scale(1.05);
             }
             #intro { /* Universally used to explain what each section is about */
-                text-align: center;
-                margin-bottom: 1.3rem;
-                padding: 2rem 1rem;
                 background-color: #f4f1ef;
                 border-radius: 5px;
                 box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+                text-align: center;
+                margin-bottom: 1.3rem;
+                padding: 2rem 1rem;
             }
             #intro h3 {
-                margin-bottom: 10px;
-                font-size: 2rem;
                 color: #141414;
+                font-size: 2rem;
+                margin-bottom: 10px;
             }
             #intro p {
-                font-size: 1.2rem;
                 max-width: 600px;
+                font-size: 1.2rem;
                 margin: 0 auto;
             }
             .contentSection { /* Sections like History, Significance, Innovators; Exhibit; Types of Folds, Tools; and References*/
-                margin-bottom: 2rem;
-                padding: 2rem 3rem;
                 max-width: 2000px;
                 background-color: var(--background-color);
                 border-radius: 5px;
                 box-shadow: 0 2px 5px rgba(0,0,0,0.1);
                 line-height: 1.8;
+                margin-bottom: 2rem;
+                padding: 2rem 3rem;
             } 
+
             /* Hotkeys */
             .hotkeys {
-                margin-top: 2rem;
-                padding: 1rem;
+                width: 95%;
                 background-color: var(--hotkey-bg-color);
                 border-radius: 5px;
-                width: 95%;
+                margin-top: 2rem;
+                padding: 1rem;
             }
             .hotkeys h4 {
-                margin-bottom: 0.5rem;
                 color: black;
                 text-align: center;
+                margin-bottom: 0.5rem;
             }
             .hotkeys ul {
                 list-style: none;
@@ -149,8 +158,8 @@
                 margin: 0;
             }
             .hotkeys ul li {
-                margin-bottom: 0.5rem;
                 text-align: left;
+                margin-bottom: 0.5rem;
             }
             .hotkeys ul li p {
                 color: black;
@@ -162,36 +171,85 @@
                 border-radius: 3px;
                 box-shadow: 0 1px 0 rgba(0,0,0,0.2);
                 color: #333333;
-                display: inline-block;
                 font-size: 0.67rem;
+                display: inline-block;
                 padding: 1px 2px;
                 margin: 0 1px;
             }
+
+            /* Final Message Section */
             #finalMessage {
+                background-color: #f4f1ef;
+                border-radius: 5px;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
                 text-align: center;
                 font-size: 1.3rem;
                 margin: 2rem 0;
                 padding: 1.5rem;
-                background-color: #f4f1ef;
-                border-radius: 5px;
-                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             }
-
             #finalMessage > p {
-                margin-bottom: 1rem;
                 font-weight: bold;
+                margin-bottom: 1rem;
             }
-
             #finalMessage > p:last-child {
                 font-style: italic;
-                font-family:playfair display, serif;
+                font-family: playfair display, serif;
             }
-             
+            /* Footer Styles */
+            #footerhead {
+                text-align: center;
+            }
+            #footerhead h2 {
+                font-family: playfair display, serif;
+                font-size: 2rem;
+                margin-bottom: 0.5rem;
+            }
+            #footer ul {
+                list-style: none;
+                display: flex;
+                justify-content: space-around;
+                margin: 1rem 2rem;
+                padding: 0;
+            }
+            footer ul li{
+                line-height: 1.6;
+            }
+            #footerbox {
+                border-bottom: 1px solid rgba(255, 255, 255, 0.084);
+                align-items: center;
+                padding: 1rem 0;
+                margin-bottom: 1rem;
+                display: flex;
+                justify-content: space-around;
+            }
+            #footercontacts, .footersocialmedia {
+                flex-basis: 45%;
+                padding-right: 1rem;
+            }
             #footerlogoimg {
+                height: auto;
+                align-items: center;
                 display:flex;
                 justify-content: center;
                 margin-top: 1rem;
-                align-items: center;
+                flex-basis: 30%;
+            }
+            #footerlogoimg img {
+                max-width: 100%;
+                width: 267px;
                 height: auto;
+                display: block;
+                opacity: 0.85;
+            }
+            #footerlogoimg img:hover {
+                opacity: 1;
+                transform: scale(1.05);
+                transition: opacity 0.3s ease, transform 0.3s ease;
+            }
+            #footer p {
+                color: rgba(0, 0, 0, 0.67);
+                text-align: center;
+                font-size: 1rem;
+                margin-top: 1rem;
             }
 
