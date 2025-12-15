@@ -8,7 +8,7 @@
         <meta name="author" content="Brandon Timothy P. Fernando & Rei Annica P. Francisco">
         <meta name="keywords" content="HTML, CSS, JavaScript, Web Development Oricentric, Origami, Paper Crafts" >
         <link rel="stylesheet" href="../styles.css">
-        <script src="script.js"></script>
+        <script src="script.js" defer></script>
         <style>
             /* Slideshow container */
             .slideshow-container {
@@ -136,18 +136,25 @@
                 transition: all 0.3s ease;
                 width: 30%;
             }
+
+            .mySlides {
+                display: none;
+            }
+
+            .mySlides:first-child {
+                display: block;
+            }
         </style>
     </head>
 
     <body>
         <header>
-
             <h1> Oricentric </h1>
             <h2> The Art of Folds </h2>
             
              <nav class = "sidebar">
             <ul>
-                <li><a href="..index/html">HOME</a></li>
+                <li><a href="../index.html">HOME</a></li>
                 <li><a href="History_Of_Origami.html">HISTORY OF ORIGAMI</a></li>
                 <li><a href="Origami_Exhibit.html">ORIGAMI EXHIBIT</a></li>
                 <li><a href="Folding_In_Origami.html">FOLDING IN ORIGAMI</a></li>
@@ -170,7 +177,7 @@
             </aside>
         </nav>
 
-
+        </header>
                 <!-- start of gallery w/ pics,steps, & descs-->
     <section id="exhibit">
         <section id="slideshow" class="sub-section">
@@ -207,7 +214,8 @@
             <div style="text-align:center">
             <span class="dot"></span> 
             <span class="dot"></span> 
-            <span class="dot"></span> 
+            <span class="dot"></span>
+            <span class="dot"></span>
             </div>
 
             <script>
@@ -231,7 +239,7 @@
             setTimeout(showSlides, 2000); // Change image every 2 seconds
             }            
             </script>
-        </header>
+        </section>
 
         <section id="intro"> 
             <h3>Oricentric: Showcasing Numerous Masterpieces</h3>
@@ -307,7 +315,7 @@
                         <li> <i> Fernando </i>b2029btpfernando@pshs.edu.ph </li>
                         <li> <i> Francisco:</i> b2029rapfrancisco@pshs.edu.ph </li>
                     </ul>
-                </div
+                </div>
 
                 <!-- Right -->
 
