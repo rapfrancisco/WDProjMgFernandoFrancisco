@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-    <head>
+    <header>
         <title>Oricentric</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,12 +8,136 @@
         <meta name="author" content="Brandon Timothy P. Fernando & Rei Annica P. Francisco">
         <meta name="keywords" content="HTML, CSS, JavaScript, Web Development Oricentric, Origami, Paper Crafts" >
         <link rel="stylesheet" href="../styles.css">
-        <script src="../script.js"></script>
-    </head>
+        <link rel="icon" type="image/png" href="../assets/Oricentric_logo(transparent).png">
+        <script src="script.js"></script>
+    </header>
 
-    <nav class = "sidebar">
+    <style>
+        .grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+        }
+
+        .folds .box, .tools .box {
+            background-color: #fff;
+            padding: 1.5rem;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            flex: 1 1 calc(25% - 2rem); 
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .tools .box img, .folds .box img {
+            width: 100px;
+            height: 100px;
+            object-fit: contain;
+            margin-top: 1rem;
+        }
+
+        #footerreferences {
+            margin-top: 1rem;
+        }
+
+        #footerreferences p {
+            font-style: italic;
+            margin-bottom: 0.5rem;
+        }
+
+        #footerreferences ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        #footerreferences li {
+            margin-bottom: 0.3rem;
+            font-size: 0.9rem;
+        }
+
+        #footerreferences a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        #footerreferences a:hover {
+            text-decoration: underline;
+        }
+    </style>
+
+    <section id="folds-section">
+        <h2>Common Types of Folds</h2>
+        <div class="grid folds">
+            <div class="box">
+                <h3>Valley fold</h3>
+                <p>The paper is folded towards you, forming a “v" shape. it’s the foundation of almost every origami model.</p>
+                <img src="../assets/valley-placeholder.png" alt="valley fold">
+            </div>
+            <div class="box">
+                <h3>Mountain fold</h3>
+                <p>The paper is folded away from you, forming an upside down “v” shape. often paired with valley folds to form 3d structures.</p>
+                <img src="../assets/mountain-placeholder.png" alt="mountain fold">
+            </div>
+            <div class="box">
+                <h3>Pleat fold</h3>
+                <p>Two parallel folds in opposite directions, creating what looks like an accordion. useful for layering and shaping.</p>
+                <img src="../assets/pleat-placeholder.png" alt="pleat fold">
+            </div>
+            <div class="box">
+                <h3>Squash fold</h3>
+                <p>A flap is opened and pressed flat to form a triangular or pointed shape. widely used in cranes and flowers.</p>
+                <img src="../assets/squash-placeholder.png" alt="squash fold">
+            </div>
+            <div class="box">
+                <h3>Reverse fold (inside/outside)</h3>
+                <p>A flap is folded along an existing crease inward or outward. commonly used to create limbs, beaks, or tails.</p>
+                <img src="../assets/reverse-placeholder.png" alt="reverse fold">
+            </div>
+            <div class="box">
+                <h3>Rabbit ear fold</h3>
+                <p>A combination of folds forming a pointed flap resembling a rabbit’s ear, often used for legs, ears, or markings.</p>
+                <img src="../assets/rabbit-ear-placeholder.png" alt="rabbit ear fold">
+            </div>
+            <div class="box">
+                <h3>Crimp fold</h3>
+                <p>Two folds in opposite directions close together, forming a zigzag. used for claws, wings, or intricate features.</p>
+                <img src="../assets/crimp-placeholder.png" alt="crimp fold">
+            </div>
+            <div class="box">
+                <h3>Petal fold</h3>
+                <p>A flap is lifted and folded into a point using valley and mountain folds. essential for making flower petals.</p>
+                <img src="../assets/petal-placeholder.png" alt="petal fold">
+            </div>
+        </div>
+    </section>
+
+    <section id="tools-section">
+        <h2>Commonly Used Tools</h2>
+        <p id="tools-intro">aside from paper, these tools can guide or help in making origami more precise and creative.</p>
+        <div class="grid tools">
+            <div class="box">
+                <h3>Scissors</h3>
+                <img src="../assets/scissors.webp" alt="scissors">
+            </div>
+            <div class="box">
+                <h3>Pencil</h3>
+                <img src="../assets/pencil.webp" alt="pencil">
+            </div>
+            <div class="box">
+                <h3>Ruler</h3>
+                <img src="../assets/ruler.webp" alt="ruler">
+            </div>
+            <div class="box">
+                <h3>Double-sided tape</h3>
+                <img src="../assets/doublesidedtape.webp" alt="double-sided tape">
+            </div>
+        </div>
+    </section>
+
+     <nav class = "sidebar">
             <ul>
-                <li><a href="index.html">HOME</a></li>
+                <li><a href="../index.html">HOME</a></li>
                 <li><a href="History_Of_Origami.html">HISTORY OF ORIGAMI</a></li>
                 <li><a href="Origami_Exhibit.html">ORIGAMI EXHIBIT</a></li>
                 <li><a href="Folding_In_Origami.html">FOLDING IN ORIGAMI</a></li>
@@ -29,19 +153,12 @@
                     <li> <p> <kbd>Shift</kbd> + <kbd>R</kbd> - RESOURCES </p></li>    
                     <li> <p> <kbd>Shift
                         
-                    </kbd> + <kbd>T</kbd> - THEME [Unfinished] </p> </li>    
-                    <li> <p> <kbd>Shift</kbd> + <kbd>P</kbd> - PLAY [Unfinished] </p> </li>    
-                    <li> <p> <kbd>Shift</kbd> + <kbd>U</kbd> - MUTE [Unfinished] </p> </li>    
+                    </kbd> + <kbd>T</kbd> - THEME </p> </li>    
+                    <li> <p> <kbd>Shift</kbd> + <kbd>P</kbd> - PLAY </p> </li>    
+                    <li> <p> <kbd>Shift</kbd> + <kbd>U</kbd> - MUTE </p> </li>    
                 </ul>
             </aside>
         </nav>
-
-        <header>
-
-            <h1> Oricentric </h1>
-            <h2> The Art of Folds </h2>
-          
-        </header>
 
         <footer>
         <div class ="footerhead">
@@ -56,7 +173,7 @@
                         <li> <i> Fernando </i>b2029btpfernando@pshs.edu.ph </li>
                         <li> <i> Francisco:</i> b2029rapfrancisco@pshs.edu.ph </li>
                     </ul>
-                </div
+                </div>
 
                 <!-- Right -->
 
@@ -65,10 +182,33 @@
                         <p> <i>Social Media:</i> </p>
                         <li> Facebook: Brandon Fernando  ||  Rei Annica Francisco </li>
                     </ul>
+
+                    <p><i>References:Mechanisms</i></p>
+
+                    <ul>
+                        <li>
+                            Bower, I. (2024, June 20). Learn | Basic Origami Folds | The Simple Things. The Simple Things. 
+                            <a href="https://www.thesimplethings.com/blog/learn-basic-origami-folds" target="_blank">
+                                https://www.thesimplethings.com/blog/learn-basic-origami-folds
+                            </a>
+                        </li>
+                        <li>
+                            Bot verification. (n.d.-a). 
+                            <a href="https://origami.me/beginners-guide/" target="_blank">
+                                https://origami.me/beginners-guide/
+                            </a>
+                        </li>
+                        <li>
+                            Bot verification. (n.d.-b). 
+                            <a href="https://origami.me/beginners-guide/" target="_blank">
+                                https://origami.me/beginners-guide/
+                            </a>
+                        </li>
+                    </ul>
                 </div>
                 
                 <div id="footerlogoimg">
-                    <img src="Oricentric_logo(transparent).png" alt="Oricentric Logo" width="267px">
+                    <img src="../assets/Oricentric_logo(transparent).png" alt="Oricentric Logo" width="267px">
                 </div>
             </div>
 
