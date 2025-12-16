@@ -10,14 +10,13 @@
         <link rel="stylesheet" href="../styles.css">
         <script src="script.js" defer></script>
         <style>
-            /* Slideshow container */
+
             .slideshow-container {
             max-width: 1000px;
             position: relative;
             margin: auto;
             }
 
-            /* Caption text */
             .text {
             color: #f2f2f2;
             font-size: 15px;
@@ -28,7 +27,6 @@
             text-align: center;
             }
 
-            /* Number text (1/3 etc) */
             .numbertext {
             color: #f2f2f2;
             font-size: 12px;
@@ -37,7 +35,6 @@
             top: 0;
             }
 
-            /* The dots/bullets/indicators */
             .dot {
             height: 15px;
             width: 15px;
@@ -52,7 +49,20 @@
             background-color: #717171;
             }
 
-            /* Fading animation */
+            .dot2 {
+                height: 15px;
+                width: 15px;
+                margin: 0 2px;
+                background-color: #bbb;
+                border-radius: 50%;
+                display: inline-block;
+                transition: background-color 0.6s ease;
+            }
+
+            .dot2.active {
+                background-color: #717171;
+            }
+
             .fade {
             animation-name: fade;
             animation-duration: 1.5s;
@@ -200,7 +210,7 @@
         <section id="intro"> 
             <h3>Oricentric: Showcasing Numerous Masterpieces</h3>
             <p>
-                Welcome to the Origami Exhibit of Oricentric! In this gallery, we humbly showcase origami creations we carefully folded ourselves. While we didn’t design the original models, each piece reflects the steps we followed and represents some of our finest paper mockups yet. Explore a variety of designs, from traditional models to modern interpretations, and enjoy the beauty and craftsmanship of origami through our own hands-on creations.
+                Welcome to the Origami Exhibit of Oricentric! In this gallery, we humbly showcase origami creations we folded ourselves. While we didn’t design the original models, each piece reflects the steps we followed and represents some of our finest paper mockups yet. Explore a variety of designs, from traditional models to modern interpretations, and enjoy the beauty and craftsmanship of origami through our own hands-on creations.
             </p>
         </section>
 
@@ -247,6 +257,48 @@
                 </div>
             </section>
         </section>
+
+        <section class="sub-section">
+            <h2>Mini Gallery: Flowering Collection</h2>
+            <!-- image steps, descriptions, etc. will go here -->
+                <section id="slideshow2" class="sub-section">
+                <div class="slideshow-container">
+
+                <div class="mySlides2 fade">
+                <div class="numbertext">1 / 4</div>
+                <img src="../assets/Flower1.webp" style="width:100%">
+                <div class="text">Origami: Flower</div>
+                </div>
+
+                <div class="mySlides2 fade">
+                <div class="numbertext">2 / 4</div>
+                <img src="../assets/Flower2.webp" style="width:100%">
+                <div class="text">Origami: Flower</div>
+                </div>
+
+                <div class="mySlides2 fade">
+                <div class="numbertext">3 / 4</div>
+                <img src="../assets/Flower3.webp" style="width:100%">
+                <div class="text">Origami: Flower</div>
+                </div>
+                
+                <div class="mySlides2 fade">
+                <div class="numbertext">4 / 4</div>
+                <img src="../assets/Flower4.webp" style="width:100%">
+                <div class="text">Origami: Flower</div>
+                </div>
+
+                </div>
+                <br>
+
+                <div style="text-align:center">
+                <span class="dot2"></span> 
+                <span class="dot2"></span> 
+                <span class="dot2"></span>
+                <span class="dot2"></span>
+                </div>
+            </section>
+        </section>
         
         <!-- end of gallery w/ pics,steps, & descs-->
 
@@ -264,7 +316,7 @@
             
             <div class="box">
                 <h3>Improves Focus and Patience</h3>
-                <p>Origami improves hand control and coordination. Folding carefully helps your fingers work better for writing, drawing, and other activities.</p>
+                <p>Origami can and does improve hand control and coordination. Folding carefully helps your fingers work better for writing, drawing, as well as other activities.</p>
             </div>
         </section>
         <footer>
@@ -288,6 +340,18 @@
                     <ul> 
                         <p> <i>Social Media:</i> </p>
                         <li> Facebook: Brandon Fernando  ||  Rei Annica Francisco </li>
+                    </ul>
+                </div>
+
+                <div id="footerreferences">
+                    <p><i>References: Origami Exhibit</i></p>
+                    <ul>
+                        <li>
+                            W3Schools.com. (n.d.).
+                            <a href="https://www.w3schools.com/howto/howto_js_slideshow.asp" target="_blank">
+                                https://www.w3schools.com/howto/howto_js_slideshow.asp
+                            </a>
+                        </li>
                     </ul>
                 </div>
                 
@@ -330,6 +394,38 @@
 
             showSlides();
             });
+
+        let slideIndex2 = 0;
+
+        function showSlides2() {
+            const slides = document.getElementsByClassName("mySlides2");
+            const dots = document.getElementsByClassName("dot2");
+
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+
+            slideIndex2 = (slideIndex2 + 1) % slides.length;
+            slides[slideIndex2].style.display = "block";
+
+            for (let i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+
+            dots[slideIndex2].className += " active";
+
+            setTimeout(showSlides2, 2000);
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const slides2 = document.getElementsByClassName("mySlides2");
+            const dots2 = document.getElementsByClassName("dot2");
+
+            slides2[0].style.display = "block";
+            dots2[0].className += " active";
+
+            showSlides2();
+        });
         </script>
     </body>
 </html>
