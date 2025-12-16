@@ -11,7 +11,7 @@ document.addEventListener('keydown', function(event) {
                  Right now this is for the public folder files while the js for the index is saved as
                  an internal js. since i dont have much time and the folders are already there, i cant
                  really think of a better way, sorry*/
-                case 'b': window.location.href = '../index.html'; break;
+                case 'b': window.location.href = 'index.html'; break;
                 case 'h': window.location.href = 'History_Of_Origami.html'; break;
                 case 'e': window.location.href = 'Origami_Exhibit.html'; break;
                 case 'm': window.location.href = 'Folding_In_Origami.html'; break;

@@ -9,7 +9,7 @@
         <meta name="keywords" content="HTML, CSS, JavaScript, Web Development Oricentric, Origami, Paper Crafts" >
         <link rel="icon" type="image/png" href="/Oricentric_logo(transparent).png">
         <link rel="stylesheet" href="../styles.css">
-        <script src="script.js"></script>
+        <script src="../script.js"></script>
 
         <style>
             /* Internal CSS: Home Page Specifics */
@@ -303,33 +303,5 @@
             <p> &copy; 2025 Oricentric — Fernando & Francisco</p>
 
         </footer>   
-
-        <script>
-            document.addEventListener('keydown', function(event) {
-        if (event.shiftKey) {
-
-            if(['b','h','e','m','r','t','p','u'].includes(event.key.toLowerCase())){
-                event.preventDefault();
-            }
-
-            switch(event.key.toLowerCase()) {
-                 /*Navigation Hotkeys, these are like a fast travel way if you dont want to use 
-                 the sidebar. when u combine shift and a key, you can navigate to different places*/
-                case 'b': window.location.href = '/index.html'; break;
-                case 'h': window.location.href = '/public/History_Of_Origami.html'; break;
-                case 'e': window.location.href = '/public/Origami_Exhibit.html'; break;
-                case 'm': window.location.href = '/public/Folding_In_Origami.html'; break;
-                case 'r': window.location.href = '/public/References&Resources.html'; break;
-                               
-                /*Theme and Music Hotkeys; MORE COMPLEX JS REQUIRED AND WILL NOT BE FINISHED*/
-                case "t": toggleTheme(); break;
-                case "p": break;
-                case "u": break;
-
-                default: break;
-            }
-        }
-    });
-        </script>
     </body>
 </html>
