@@ -26,18 +26,22 @@ document.addEventListener('keydown', function(event) {
             }
         }
     });
-    function toggleTheme() {
-        const body = document.body;
-        const current = body.getAttribute('data-theme');
-        const newTheme = current === 'dark' ? 'light' : 'dark';
-        body.setAttribute('data-theme', newTheme);
-        localStorage.setItem('theme', newTheme);
 
-        window.addEventListener('load', () => {
-        const saved = localStorage.getItem('theme');
-        if (saved) document.body.setAttribute('data-theme', saved);
+    function toggleTheme() {
+        const useButton = document.getElementById('toggleTheme');
+        const body = document.body;
+
+        useButton.addEventListener('click', () => {
+            if(body.getAttribute('data-theme') === 'dark') {
+                body.removeAttribute('data-theme');
+                useButton.textContent = 'Toggle Dark Mode'; 
+            }
+            else {
+                body.setAttribute('data-theme','dark');
+                useButton.textContent = 'Toggle Light Mode';
+            }
         });
-        }
+    }
 
         document.addEventListener('DOMContentLoaded', function() {
 

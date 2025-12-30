@@ -16,11 +16,11 @@
                 --hotkey-bg-color: #9db1d1;
             }
 
-            [dark-theme="dark"] { /* Dark Theme Colors */
+            body[data-theme="dark"] { /* Dark Theme Colors */
                 --primary-color: #2b3a67;
                 --secondary-color: #1e2a4d;
                 --background-color: #121212;
-                --text-color: #e0e0e0;
+                --text-color: #dcdada;
                 --link-color: #4a90e2;
                 --accent-color: #f5a623;
                 --link-hover-color: #E86F68;
@@ -148,7 +148,7 @@
                 padding: 1rem;
             }
             .hotkeys h4 {
-                color: black;
+                color: var(--text-color);
                 text-align: center;
                 margin-bottom: 0.5rem;
             }
@@ -162,7 +162,7 @@
                 margin-bottom: 0.5rem;
             }
             .hotkeys ul li p {
-                color: black;
+                color: var(--text-color);
                 font-size: 0.75rem;
             }
             kbd {
