@@ -205,19 +205,4 @@ As an educational and creative website for **students**, **art enthusiasts**, **
 ## REFERENCES & RESOURCES
 ![References_and_Resources](5.1_References_and_Resources.png)
 
-## PREFERENCES FORUM
-![Preferences_Forum](6.1_Preferences_Forum.png)
-
-## TUTORIALS - recommendations
-![Tutorials](7.1_Tutorials.png)
-
-## TUTORIALS - library
-![Tutorials](7.2_Tutorials.png)
-
-## FOLDING - options
-![Folding](8.1_Folding.png)
-
-## FOLDING - ambiance
-![Folding](8.2_Folding.png)
-
 ---
