@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Oricentric</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="The home page of Oricentric">
+        <meta name="author" content="Brandon Timothy P. Fernando & Rei Annica P. Francisco">
+        <meta name="keywords" content="HTML, CSS, JavaScript, Web Development Oricentric, Origami, Paper Crafts" >
+        <link rel="icon" type="image/png" href="/Oricentric_logo(transparent).png">
+        <link rel="stylesheet" href="../styles.css">
+        <script src="../script.js"></script>
+        <style>
+
+        </style>
+    </head>
+    
+<body> 
+    <nav class = "sidebar">
+        <ul>
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="History_Of_Origami.html">HISTORY OF ORIGAMI</a></li>
+            <li><a href="Origami_Exhibit.html">ORIGAMI EXHIBIT</a></li>
+            <li><a href="Folding_In_Origami.html">FOLDING IN ORIGAMI</a></li>
+            <li><a href="References&Resources.html">RESOURCES</a></li>
+        </ul>
+        <aside class="hotkeys">
+            <h4> Hotkeys </h4>
+            <ul>
+                <li> <p> <kbd>Shift</kbd> + <kbd>B</kbd> - HOME </p> </li>
+                <li> <p> <kbd>Shift</kbd> + <kbd>H</kbd> - HISTORY </p> </li>   
+                <li> <p> <kbd>Shift</kbd> + <kbd>E</kbd> - EXHIBIT</p> </li>
+                <li> <p> <kbd>Shift</kbd> + <kbd>M</kbd> - MECHANISMS </p> </li>    
+                <li> <p> <kbd>Shift</kbd> + <kbd>R</kbd> - RESOURCES </p></li>    
+                    
+                <li> <p> <kbd>Shift</kbd> + <kbd>T</kbd> - THEME </p>
+                <li> <p> <kbd>Shift</kbd> + <kbd>P</kbd> - PLAY [Unfinished] </p> </li>    
+                <li> <p> <kbd>Shift</kbd> + <kbd>U</kbd> - MUTE [Unfinished] </p> </li>    
+            </ul>
+        </aside>
+    </nav>
+
+    <header>
+
+        <h1> Oricentric </h1>
+        <h2> The Art of Folds </h2>
+
+        <button id ="toggleTheme" onclick="toggleTheme()"> Toggle Dark Mode </button>
+      
+    </header>
+    
+    <section id="intro">
+        <h3>Home</h3>
+        <p>
+            Welcome to Oricentric- a website dedicated to allow art enthusiats, students, 
+            STEM advocates, learners, and everyone to explore the world of folding paper!
+        </p>
+    </section>
+
+    <form>
+        <fieldset>
+            <legend> User Origami Prefernces </legend>
+
+                <p>  Why do you want to learn how to fold Origami? (Select all that apply) </p>
+
+                    <input type="checkbox" id="option1" name="option1" value="option1">
+                    <label for="option1">To create something beautiful</label><br>
+
+                    <input type="checkbox" id="option2" name="option2" value="option2">
+                    <label for="option2">To learn a new skill</label><br>
+
+                    <input type="checkbox" id="option3" name="option3" value="option3">
+                    <label for="option3">To relax and relieve my stress</label><br>
+
+                    <input type="checkbox" id="option4" name="option4" value="option4">
+                    <label for="option4">To improve my hand-eye coordination</label><br>
+
+                    <input type="checkbox" id="option5" name="option5" value="option5">
+                    <label for="option5">To connect with other people who also enjoy Origami</label><br>
+
+                    <input type="checkbox" id="option6" name="option6" value="option6">
+                    <label for="option6">To improve my spatial awareness</label><br>
+
+                    <label for="option7">Other (optional): </label><br>
+                    <input type="text" id="option7" name="option7" value="option7" maxlength="100"> <br><br>
+                
+<!--  - Intended purpose of learning origami (relaxation, skill improvement, creativity, other); uses radio buttons
+  - Preferred learning difficulty of tutorials (beginner, intermediate, advanced); uses radio buttons
+  - Areas of interest in origami making (animals, modular, geometric, plants, decorative, other); uses checkboxes
+  - Preferred background music (lo-fi, ambiance, classical, OST, instrumental, silence); uses dropdown
+  -->
+
+                <p> Preferred learning difficulty of tutorials: </p>
+
+                    <input type="radio" id="beginner" name="difficulty" value="beginner">
+                    <label for="beginner">Beginner</label><br>
+
+                    <input type="radio" id="intermediate" name="difficulty" value="intermediate">
+                    <label for="intermediate">Intermediate</label><br>
+
+                    <input type="radio" id="advanced" name="difficulty" value="advanced">
+                    <label for="advanced">Advanced</label><br><br>
+
+                <p> Areas of interest in origami making (Select all that apply): </p>
+
+                    <input type="checkbox" id="animals" name="animals" value="animals">
+                    <label for="animals">Animals</label><br>
+
+                    <input type="checkbox" id="modular" name="modular" value="modular">
+                    <label for="modular">Modular</label><br>
+
+                    <input type="checkbox" id="geometric" name="geometric" value="geometric">
+                    <label for="geometric">Geometric</label><br>
+
+                    <input type="checkbox" id="plants" name="plants" value="plants">
+                    <label for="plants">Plants</label><br>
+
+                    <input type="checkbox" id="decorative" name="decorative" value="decorative">
+                    <label for="decorative">Decorative</label><br>
+
+                    <input type="checkbox" id="otherInterest" name="otherInterest" value="otherInterest">
+                    <label for="otherInterest">Other</label><br><br>
+
+                <label for="musicPreference"> Preferred background music: </label>
+                    <select id="musicPreference" name="musicPreference">
+                        <option value="lofi">Lo-fi</option>
+                        <option value="ambiance">Ambiance</option>
+                        <option value="classical">Classical</option>
+                        <option value="OST">OST</option>
+                        <option value="instrumental">Instrumental</option>
+                        <option value="silence">Silence</option>
+                    </select><br><br>
+
+                <input type="submit" value="Submit Preferences">
+                <input type="reset" value="Reset Preferences">
+
+
+        </fieldset>
+    </form>
+
+    <script>
+        
+    </script>
+</body>
+
+</html>
