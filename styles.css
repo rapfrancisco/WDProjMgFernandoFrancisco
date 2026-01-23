@@ -14,6 +14,7 @@
                 --accent-color: #e7c65e;
                 --link-hover-color: #E86F68;
                 --hotkey-bg-color: #9db1d1;
+                --background-color-form:#91b995;
             }
 
             body[data-theme="dark"] { /* Dark Theme Colors */
@@ -251,5 +252,25 @@
                 text-align: center;
                 font-size: 1rem;
                 margin-top: 1rem;
+            }
+            form{
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+                margin: 0.5rem;
+            }
+            fieldset{
+                border-radius:10px;
+                padding:1rem;
+                border:none;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+                background-color: var(--background-color-form);
+            }
+            form input, font textarea, font select, font button{
+                padding: 1rem;
+                border: none;
+                border-radius:5px;
+                font-size: 1.8rem;
+                color: var(--text-color);
             }
 
