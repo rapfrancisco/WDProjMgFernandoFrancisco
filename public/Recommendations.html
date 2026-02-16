@@ -9,7 +9,21 @@
             <meta name="keywords" content="HTML, CSS, JavaScript, Web Development Oricentric, Origami, Paper Crafts" >
             <link rel="icon" type="image/png" href="../assets/Oricentric_logo(transparent).png">
             <link rel="stylesheet" href="../styles.css">
-            <script src="../script.js"></script>
+            <script src="../script.js" defer></script>
+
+            <style>
+
+                .divFeatureImg{
+                    height: 250px;
+                    display: flex;
+                    flex-direction: column;
+                    margin-top: auto;
+                }
+                .hidden{
+                    display: none;
+                }
+
+            </style>
         </head>
 
         <body>
@@ -50,17 +64,60 @@
         <section id="intro">
             <h3>Home</h3>
             <p>
-                Welcome to Oricentric- a website dedicated to allow art enthusiats, students, 
-                STEM advocates, learners, and everyone to explore the world of folding paper!
+                Welcome to the recommendations page! Here you may find curated lists of your preferences!
             </p>
         </section>
 
-        
+            <section id="features" class="hidden"> 
+                <h2> Suggestions Text </h2>
+
+                <button onclick = "showRecommendations()"> Show suggested </button>
+
+                <!--
+                - Header: **Oricentric: Guidance**
+- Page Title: TUTORIALS
+- Navigation bar with links back to home and the preferences forum
+- Brief introduction explaining the purpose of the webpage- to allow users to explore tutorials organized by their interests and skill level
+- A recommended tutorials section that should appear at the top page, including:
+  - Automatically generated tutorials and text best suited to the user's selected skill level and interests
+- A complete tutorial library section that contains:
+  - Beginner, Intermediate and Advanced origami tutorials; will use dropdown
+  - Estimated difficulty and time required for each model; will use checkboxes
+  - A filter that can manually browse tutorials, regardless of user preferences and recommendations
+- JavaScript would use saved user preferences from localStorage to determine tutorial order and recommendations
+- Footer containing:
+  - Copyright
+  - Credentials to referenced materials
+                -->
+
+                <div id="woahRecoms">
+                    <div class="divFeature" >
+                        <h2> Sample Card 1 </h2>
+                    </div>
+
+                    <div class="divFeature" >
+                        <h2> Sample Card 2 </h2>
+                    </div>
+                    <div class="divFeature">
+                        <h2> Sample Card 3 </h2>
+                    </div>
+                    <div class="divFeature">
+                        <h2> Sample Card 4 </h2>
+                    </div>
+            </div>
+
+        </section>
+
+
 
 
         </body>
 
         <script>
+
+            function showRecommendations(reco){
+                
+            }
 
         </script>
 
