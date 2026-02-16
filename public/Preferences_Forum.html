@@ -7,7 +7,7 @@
         <meta name="description" content="The home page of Oricentric">
         <meta name="author" content="Brandon Timothy P. Fernando & Rei Annica P. Francisco">
         <meta name="keywords" content="HTML, CSS, JavaScript, Web Development Oricentric, Origami, Paper Crafts" >
-        <link rel="icon" type="image/png" href="/Oricentric_logo(transparent).png">
+        <link rel="icon" type="image/png" href="../assets/Oricentric_logo(transparent).png">
         <link rel="stylesheet" href="../styles.css">
         <script src="../script.js"></script>
         <style>
@@ -57,12 +57,15 @@
         </p>
     </section>
 
-    <form>
+    <button onclick="sendToFoldingInOri()">Go to Folding</button>
+    <button onclick="sendToRecommendations()">Go to Recommended</button>
+<!--Sadly, since im out of creativity, our function name will be sixSeven -Brandy -->
+    <form method="post" onsubmit="return sixSeven(event)" onreset = "return willReset()">
         <fieldset>
             <legend> User Origami Prefernces </legend>
 
-                <p>  Why do you want to learn how to fold Origami? (Select all that apply) </p>
-
+                <p>  Why do you want to learn how to fold Origami? (Select all that apply) </p> <!-- CHECKBOXES -->
+                
                     <input type="checkbox" id="option1" name="option1" value="option1">
                     <label for="option1">To create something beautiful</label><br>
 
@@ -81,16 +84,13 @@
                     <input type="checkbox" id="option6" name="option6" value="option6">
                     <label for="option6">To improve my spatial awareness</label><br>
 
-                    <label for="option7">Other (optional): </label><br>
-                    <input type="text" id="option7" name="option7" value="option7" maxlength="100"> <br><br>
-                
 <!--  - Intended purpose of learning origami (relaxation, skill improvement, creativity, other); uses radio buttons
   - Preferred learning difficulty of tutorials (beginner, intermediate, advanced); uses radio buttons
   - Areas of interest in origami making (animals, modular, geometric, plants, decorative, other); uses checkboxes
   - Preferred background music (lo-fi, ambiance, classical, OST, instrumental, silence); uses dropdown
   -->
 
-                <p> Preferred learning difficulty of tutorials: </p>
+                <p> Preferred learning difficulty of tutorials: </p> <!-- CHECKBOXES -->
 
                     <input type="radio" id="beginner" name="difficulty" value="beginner">
                     <label for="beginner">Beginner</label><br>
@@ -101,7 +101,8 @@
                     <input type="radio" id="advanced" name="difficulty" value="advanced">
                     <label for="advanced">Advanced</label><br><br>
 
-                <p> Areas of interest in origami making (Select all that apply): </p>
+
+                <p> Areas of interest in origami making (Select all that apply): </p> <!-- CHECKBOXES -->
 
                     <input type="checkbox" id="animals" name="animals" value="animals">
                     <label for="animals">Animals</label><br>
@@ -121,7 +122,7 @@
                     <input type="checkbox" id="otherInterest" name="otherInterest" value="otherInterest">
                     <label for="otherInterest">Other</label><br><br>
 
-                <label for="musicPreference"> Preferred background music: </label>
+                <label for="musicPreference"> Preferred background music: </label> <!-- CHECKBOXES -->
                     <select id="musicPreference" name="musicPreference">
                         <option value="lofi">Lo-fi</option>
                         <option value="ambiance">Ambiance</option>
@@ -140,6 +141,63 @@
 
     <script>
         
+        function sendToFoldingInOri(){
+            window.location.href = "Calm.html"; //send to clam
+        }
+        function sendToRecommendations(){
+            window.location.href = "Recommendations.html"; //send to reco(llection)
+        }
+        function willReset(){
+            return confirm("Are you sure you want to reset your preferences"); //confirm to reset?
+        }
+
+        function sixSeven(event){ //function is named sixSeven, deal with it. 
+            event.preventDefault(); //prevent refresh
+
+            if(!confirm("Are you sure you want to submit your preferences?")){ //confirm to submit?
+                return false;
+            }
+
+            const checkValues = (name) => {
+                const checkedBoxes = document.querySelectorAll(`input[name="${name}"]:checked`);
+                return Array.from(checkedBoxes).map(box => box.value);
+            };
+
+                let preferences = {
+
+                    whyJoin: [ //uses ellipsis to merge all individual names into an array
+                        ...checkedValues('option1'),
+                        ...checkedValues('option2'),
+                        ...checkedValues('option3'),
+                        ...checkedValues('option4'),
+                        ...checkedValues('option5'),
+                        ...checkedValues('option6'),
+                    ]
+
+                    //grabs one checked value from difficulty radio
+                    difficulty: document.querySelector('input[name="difficulty"]:checked') ?.value || "not selected",
+
+                    interests: [ //merge all checked values to one array
+                        ...checkedValues('animals'),
+                        ...checkedValues('modular'),
+                        ...checkedValues('geometric'),
+                        ...checkedValues('plants'),
+                        ...checkedValues('decorative'),
+                        ...checkedValues('otherInterest'),
+                    ]
+
+                    musicPreference: document.getElementById("musicPreference").value
+                };
+
+                localStorage.setItem('userPreferences', JSON.stringify(preferences)); //save to local storage as string
+
+                alert("Preferences submitted and saved successfully!"); //alert success
+
+            
+
+            }
+
+        }
     </script>
 </body>
 

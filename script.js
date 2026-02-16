@@ -64,3 +64,5 @@ document.addEventListener('keydown', function(event) {
                     });
                     }
                     });
+
+//Preferences html
