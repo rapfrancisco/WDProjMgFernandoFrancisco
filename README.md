@@ -67,9 +67,6 @@ As an educational and creative website for **students**, **art enthusiasts**, **
   - Global Influence and Origami Spreading Worldwide
   - Modern Applications inspiring Architecture and Robotics  
 - Each era includes photos for visual engagement  
-- Discussion of origami’s significance in Japansese culture and as an art
-- Key figures and innovators
-- Additional videos
 - **Footer** containing:
   - Copyright  
   - Social media links  
