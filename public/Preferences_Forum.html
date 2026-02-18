@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Oricentric</title>
+        <title>Oricentric: Preferences</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="The home page of Oricentric">
@@ -11,7 +11,11 @@
         <link rel="stylesheet" href="../styles.css">
         <script src="../script.js"></script>
         <style>
-
+            #butCont{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
         </style>
     </head>
     
@@ -23,6 +27,7 @@
             <li><a href="Origami_Exhibit.html">ORIGAMI EXHIBIT</a></li>
             <li><a href="Folding_In_Origami.html">FOLDING IN ORIGAMI</a></li>
             <li><a href="References&Resources.html">RESOURCES</a></li>
+            <li><a href="Prefernces_Forum.html">PREFERENCES</a></li>
         </ul>
         <aside class="hotkeys">
                 <h4> Hotkeys </h4>
@@ -32,7 +37,6 @@
                     <li> <p> <kbd>Shift</kbd> + <kbd>E</kbd> - EXHIBIT</p> </li>
                     <li> <p> <kbd>Shift</kbd> + <kbd>M</kbd> - MECHANISMS </p> </li>    
                     <li> <p> <kbd>Shift</kbd> + <kbd>R</kbd> - RESOURCES </p></li>    
-                    <li> <p> <button id ="toggleTheme" onclick="toggleTheme()"> Toggle Dark Mode </button> </p>
                 </ul>
             </aside>
     </nav>
@@ -41,8 +45,6 @@
 
         <h1> Oricentric </h1>
         <h2> The Art of Folds </h2>
-
-        <button id ="toggleTheme" onclick="toggleTheme()"> Toggle Dark Mode </button>
       
     </header>
     
@@ -54,8 +56,11 @@
         </p>
     </section>
 
-    <button onclick="sendToFoldingInOri()">Go to Folding</button>
-    <button onclick="sendToRecommendations()">Go to Recommended</button>
+    <div id=butCont>
+        <button class="coolButton" id="goTo" onclick="sendToFoldingInOri()">Go to Folding</button>
+        <button class="coolButton" id="goTo" onclick="sendToRecommendations()">Go to Recommended</button>
+    </div>
+
 <!--Sadly, since im out of creativity, our function name will be sixSeven -Brandy -->
     <form method="post" onsubmit="return sixSeven(event)" onreset = "return willReset()">
         <fieldset>
@@ -193,8 +198,6 @@
                 
 
             }
-
-        }
     </script>
 </body>
 
