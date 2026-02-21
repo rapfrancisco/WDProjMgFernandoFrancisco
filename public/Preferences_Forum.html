@@ -9,7 +9,7 @@
         <meta name="keywords" content="HTML, CSS, JavaScript, Web Development Oricentric, Origami, Paper Crafts" >
         <link rel="icon" type="image/png" href="../assets/Oricentric_logo(transparent).png">
         <link rel="stylesheet" href="../styles.css">
-        <script src="../script.js"></script>
+        <script src="../script.js" defer></script>
         <style>
             #butCont{
                 display: flex;
@@ -57,8 +57,8 @@
     </section>
 
     <div id=butCont>
-        <button class="coolButton" id="goTo" onclick="sendToFoldingInOri()">Go to Folding</button>
-        <button class="coolButton" id="goTo" onclick="sendToRecommendations()">Go to Recommended</button>
+        <button class="coolButton" onclick="sendToFoldingInOri()">Go to Folding</button>
+        <button class="coolButton" onclick="sendToRecommendations()">Go to Recommended</button>
     </div>
 
 <!--Sadly, since im out of creativity, our function name will be sixSeven -Brandy -->
@@ -94,42 +94,33 @@
 
                 <p> Preferred learning difficulty of tutorials: </p> <!-- CHECKBOXES -->
 
-                    <input type="radio" id="beginner" name="difficulty" value="beginner">
+                    <input type="radio" id="beginner" name="difficulty" value="Beginner">
                     <label for="beginner">Beginner</label><br>
 
-                    <input type="radio" id="intermediate" name="difficulty" value="intermediate">
+                    <input type="radio" id="intermediate" name="difficulty" value="Intermediate">
                     <label for="intermediate">Intermediate</label><br>
 
-                    <input type="radio" id="advanced" name="difficulty" value="advanced">
+                    <input type="radio" id="advanced" name="difficulty" value="Advanced">
                     <label for="advanced">Advanced</label><br><br>
 
 
                 <p> Areas of interest in origami making (Select all that apply): </p> <!-- CHECKBOXES -->
 
-                    <input type="checkbox" id="animals" name="animals" value="animals">
+                    <input type="checkbox" id="animals" name="animals" value="Animals">
                     <label for="animals">Animals</label><br>
 
-                    <input type="checkbox" id="modular" name="modular" value="modular">
-                    <label for="modular">Modular</label><br>
-
-                    <input type="checkbox" id="geometric" name="geometric" value="geometric">
+                    <input type="checkbox" id="geometric" name="geometric" value="Geometric">
                     <label for="geometric">Geometric</label><br>
 
-                    <input type="checkbox" id="plants" name="plants" value="plants">
+                    <input type="checkbox" id="plants" name="plants" value="Plants">
                     <label for="plants">Plants</label><br>
-
-                    <input type="checkbox" id="decorative" name="decorative" value="decorative">
-                    <label for="decorative">Decorative</label><br>
-
-                    <input type="checkbox" id="otherInterest" name="otherInterest" value="otherInterest">
-                    <label for="otherInterest">Other</label><br><br>
 
                 <label for="musicPreference"> Preferred background music: </label> <!-- CHECKBOXES -->
                     <select id="musicPreference" name="musicPreference">
                         <option value="lofi">Lo-fi</option>
                         <option value="ambiance">Ambiance</option>
                         <option value="classical">Classical</option>
-                        <option value="OST">OST</option>
+                        <option value="ost">OST</option>
                         <option value="instrumental">Instrumental</option>
                         <option value="silence">Silence</option>
                     </select><br><br>
@@ -141,64 +132,6 @@
         </fieldset>
     </form>
 
-    <script>
-        
-        function sendToFoldingInOri(){
-            window.location.href = "Calm.html"; //send to clam
-        }
-        function sendToRecommendations(){
-            window.location.href = "Recommendations.html"; //send to reco(llection)
-        }
-        function willReset(){
-            return confirm("Are you sure you want to reset your preferences"); //confirm to reset?
-        }
-
-        function sixSeven(event){ //function is named sixSeven, deal with it. 
-            event.preventDefault(); //prevent refresh
-
-            if(!confirm("Are you sure you want to submit your preferences?")){ //confirm to submit?
-                return false;
-            }
-
-            const checkValues = (name) => {
-                const checkedBoxes = document.querySelectorAll(`input[name="${name}"]:checked`);
-                return Array.from(checkedBoxes).map(box => box.value);
-            };
-
-                let preferences = {
-
-                    whyJoin: [ //uses ellipsis to merge all individual names into an array
-                        ...checkedValues('option1'),
-                        ...checkedValues('option2'),
-                        ...checkedValues('option3'),
-                        ...checkedValues('option4'),
-                        ...checkedValues('option5'),
-                        ...checkedValues('option6'),
-                    ]
-
-                    //grabs one checked value from difficulty radio
-                    difficulty: document.querySelector('input[name="difficulty"]:checked') ?.value || "not selected",
-
-                    interests: [ //merge all checked values to one array
-                        ...checkedValues('animals'),
-                        ...checkedValues('modular'),
-                        ...checkedValues('geometric'),
-                        ...checkedValues('plants'),
-                        ...checkedValues('decorative'),
-                        ...checkedValues('otherInterest'),
-                    ]
-
-                    musicPreference: document.getElementById("musicPreference").value
-                };
-
-                localStorage.setItem('userPreferences', JSON.stringify(preferences)); //save to local storage as string
-
-                alert("Preferences submitted and saved successfully!"); //alert success
-
-                
-
-            }
-    </script>
 </body>
 
 </html>

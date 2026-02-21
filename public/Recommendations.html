@@ -9,7 +9,6 @@
             <meta name="keywords" content="HTML, CSS, JavaScript, Web Development Oricentric, Origami, Paper Crafts" >
             <link rel="icon" type="image/png" href="../assets/Oricentric_logo(transparent).png">
             <link rel="stylesheet" href="../styles.css">
-            <script src="../script.js" defer></script>
 
             <style>
 
@@ -19,10 +18,85 @@
                     flex-direction: column;
                     margin-top: auto;
                 }
-                .hidden{
-                    display: none;
-                }
 
+                #recommendations {
+                padding: 40px;
+                text-align: center;
+            }
+
+            /* Centered horizontal button */
+            .backBut {
+                display: block;
+                margin: 20px auto;
+                padding: 10px 25px;
+                font-size: 16px;
+                border-radius: 25px;
+                border: none;
+                background-color: #444;
+                color: white;
+                cursor: pointer;
+            }
+
+            .backBut:hover {
+                background-color: #222;
+            }
+
+            .card {
+                background: white;
+                border-radius: 15px;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+                padding: 15px;
+                transition: transform 0.3s ease;
+            }
+
+            .card:hover {
+                transform: translateY(-5px);
+            }
+
+            .card img {
+                width: 100%;
+                height: 180px;
+                object-fit: cover;
+                border-radius: 10px;
+            }
+
+            .card h3 {
+                margin: 10px 0 5px;
+            }
+
+            .card p {
+                font-size: 14px;
+                color: #555;
+            }
+
+            .card a {
+                display: inline-block;
+                margin-top: 10px;
+                padding: 6px 12px;
+                background: #444;
+                color: white;
+                border-radius: 20px;
+                text-decoration: none;
+            }
+            #woahRecoms {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 25px;
+                max-width: 900px;
+                margin: 30px auto;
+            }
+            #all-tutorials {
+                padding: 40px;
+            }
+
+            .all-grid {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 20px;
+                max-height: 800px;   /* Makes it scrollable */
+                overflow-y: auto;
+                padding-right: 10px;
+            }
 
             </style>
         </head>
@@ -56,8 +130,6 @@
             <h1> Oricentric </h1>
             <h2> The Art of Folds </h2>
 
-            <button id ="toggleTheme" onclick="toggleTheme()"> Toggle Dark Mode </button>
-          
         </header>
         
         <section id="intro">
@@ -67,49 +139,43 @@
             </p>
         </section>
 
-            <section id="features" class="hidden"> 
+            <section id="recommendations"> 
                 <h2> Suggestions Text </h2>
 
-                <button onclick = "showRecommendations()"> Show suggested </button>
+                <button id="showBtn"> Show suggested </button>
 
-                <!--
-                - Header: **Oricentric: Guidance**
-- Page Title: TUTORIALS
-- Navigation bar with links back to home and the preferences forum
-- Brief introduction explaining the purpose of the webpage- to allow users to explore tutorials organized by their interests and skill level
-- A recommended tutorials section that should appear at the top page, including:
-  - Automatically generated tutorials and text best suited to the user's selected skill level and interests
-- A complete tutorial library section that contains:
-  - Beginner, Intermediate and Advanced origami tutorials; will use dropdown
-  - Estimated difficulty and time required for each model; will use checkboxes
-  - A filter that can manually browse tutorials, regardless of user preferences and recommendations
-- JavaScript would use saved user preferences from localStorage to determine tutorial order and recommendations
-- Footer containing:
-  - Copyright
-  - Credentials to referenced materials
-                -->
+                <button class="backBut">Back To Preferences</button>
 
-                <div id="woahRecoms">
-                    <div class="divFeature" >
-                        <h2> Sample Card 1 </h2>
-                    </div>
+                <div class="woahRecoms" id="woahRecoms">
+                    
+                </div>
 
-                    <div class="divFeature" >
-                        <h2> Sample Card 2 </h2>
-                    </div>
-                    <div class="divFeature">
-                        <h2> Sample Card 3 </h2>
-                    </div>
-                    <div class="divFeature">
-                        <h2> Sample Card 4 </h2>
-                    </div>
-            </div>
+            </section>
+
+            <section id="all-tutorials">
+
+            <h2>All Tutorials</h2>
+
+            <div class="all-grid"></div>
 
         </section>
 
 
 
+            <script src="../script.js" ></script>
+            <script>
+                    document.addEventListener("DOMContentLoaded", function () {
+                        const showBtn = document.getElementById("showBtn");
+                        
+                        showBtn.addEventListener("click", function(){
+                            displayTutorials(tutorials);
+                        });
 
+                        displayAllTutorials();
+                    });
+
+    
+            </script>
         </body>
 
     </html>
