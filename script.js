@@ -1,49 +1,42 @@
 document.addEventListener('keydown', function(event) {
-        if (event.shiftKey) {
+    if (event.shiftKey) {
 
-            if(['b','h','e','m','r','t','p','u'].includes(event.key.toLowerCase())){
-                event.preventDefault();
-            }
+        if(['b','h','e','m','r','t','p','u'].includes(event.key.toLowerCase())){
+            event.preventDefault();
+        }
 
-            switch(event.key.toLowerCase()) {
-                 /*Navigation Hotkeys, these are like a fast travel way if you dont want to use 
-                 the sidebar. when u combine shift and a key, you can navigate to different places
-                 Right now this is for the public folder files while the js for the index is saved as
-                 an internal js. since i dont have much time and the folders are already there, i cant
-                 really think of a better way, sorry*/
-                case 'b': window.location.href = 'index.html'; break;
-                case 'h': window.location.href = 'History_Of_Origami.html'; break;
-                case 'e': window.location.href = 'Origami_Exhibit.html'; break;
-                case 'm': window.location.href = 'Folding_In_Origami.html'; break;
-                case 'r': window.location.href = 'References&Resources.html'; break;
-                //dont forget new cases
-                default: break;
+        switch(event.key.toLowerCase()) {
+            case 'b': window.location.href = 'index.html'; break;
+            case 'h': window.location.href = 'History_Of_Origami.html'; break;
+            case 'e': window.location.href = 'Origami_Exhibit.html'; break;
+            case 'm': window.location.href = 'Folding_In_Origami.html'; break;
+            case 'r': window.location.href = 'References&Resources.html'; break;
+            //dont forget new cases
+            default: break;
             }
         }
     });
 
-        document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function() {
+    var outsideTheBox = document.querySelectorAll(".infoBox");
 
+        for (var i = 0; i < outsideTheBox.length; i++) {
+            outsideTheBox[i].addEventListener("click", function() {
+            this.classList.toggle("active");
 
-                    var outsideTheBox = document.querySelectorAll(".infoBox");
+            var content = this.querySelector(".infoContent");
 
-                    for (var i = 0; i < outsideTheBox.length; i++) {
-                    outsideTheBox[i].addEventListener("click", function() {
-                    this.classList.toggle("active");
-
-                    var content = this.querySelector(".infoContent");
-
-                    if (content){
-                        if(content.style.maxHeight){
+                if (content){
+                    if(content.style.maxHeight){
                             content.style.maxHeight = null;
-                        } 
-                        else {
-                            content.style.maxHeight = content.scrollHeight + "px";
-                        } 
-                    }
-                    });
-                    }
-                    });
+                    } 
+                    else {
+                        content.style.maxHeight = content.scrollHeight + "px";
+                    } 
+                }
+            });
+        }
+});
                     
 const tutorials = [
 
@@ -117,20 +110,130 @@ const tutorials = [
     }
 ];
 
-        function loadRecommendations() {
+const audio = document.getElementById('bgAudio');
+const musicSelect = document.getElementById('chosenMusic'); // or 'musicPreference'
+const volumeSlider = document.getElementById('volumeRange');
+const sessionInput = document.getElementById('sessionTime');
+const quoteDisplay = document.getElementById('displayQuote');
+const musicForm = document.getElementById('musicForm');
 
+const quotes = [
+    "dd",
+    "dd",
+    "dd",
+];
+
+function displayQuoteFunc(){
+    const displayQuote = document.getElementById('displayQuote');
+    const random = quotes[Math.floor(Math.random()*quotes.length)];
+    displayQuote.textContent = random;
+}
+setInterval(displayQuoteFunc, 300000);
+displayQuoteFunc();
+
+function getMusicFile(opt){
+    switch(opt){
+        case 'lofi': return '';
+        case 'ambiance': return '';
+        case 'classical': return '';
+        case 'ost': return '';
+        case 'instrumental': return '';
+        case 'silence': return '';
+        default: return ''
+        }
+    }
+
+function loadPreferences() {
+    const savedMusic = localStorage.getItem('music') || 'silence';
+    const savedVolume = localStorage.getItem('volume') || 50;
+    const savedSession = localStorage.getItem('session') || 30;
+
+    musicSelect.value = savedMusic;
+    volumeSlider.value = savedVolume;
+    sessionInput.value = savedSession;
+
+    audio.src = savedMusic;
+    audio.volume = savedVolume / 100;
+    }
+
+loadPreferences();
+
+musicSelect.addEventListener('change', () => {
+    audio.src = getMusicFile(musicSelect.value);
+    if(audio.src) audio.play();
+});
+
+volumeSlider.addEventListener('input', () => {
+    audio.volume = volumeSlider.value / 100;
+});
+
+function sixSeven(event){ //function is named sixSeven, deal with it. 
+    console.log("Form Submitted"); //just a checker to see if form loads, unrelated to actual code and jsut for debugging
+        event.preventDefault(); //prevent refresh
+
+    if(!confirm("Are you sure you want to submit your preferences?")){ //confirm to submit?
+        return false;
+    }
+    const checkedValues = (name) => {
+        const checkedBoxes = document.querySelectorAll(`input[name="${name}"]:checked`);
+        return Array.from(checkedBoxes).map(box => box.value);
+    };
+
+    const preferences = {
+
+        //grabs one checked value from difficulty radio
+        difficulty: document.querySelector('input[name="difficulty"]:checked') ?.value || "not selected",
+        interests: [].concat( //merge all checked values to one array
+            checkedValues('animals'),
+            checkedValues('geometric'),
+            checkedValues('plants'),
+        ),
+
+        musicPreference: document.getElementById("musicPreference").value,
+        volume: volumeSlider.value,
+        session: sessionInput.value
+
+        };
+
+        localStorage.setItem('userPreferences', JSON.stringify(preferences)); //save new info to local storage as string
+        localStorage.setItem('music', musicSelect.value);
+        localStorage.setItem('volume', volumeSlider.value);
+        localStorage.setItem('session', sessionInput.value);
+
+        audio.src = getMusicFile(musicSelect.value);
+        audio.volume = volumeSlider.value / 100;
+        if(audio.src) audio.play()
+                        
+        alert("Preferences saved/overwritten successfully! Note: Head to folding or recommendations!")
+    }
+        
+    if(musicForm){
+        musicForm.addEventListener('submit', sixSeven);
+    }
+
+    function backToPref(){
+        window.location.href = "Preferences_Forum.html";
+    }
+    function sendToFoldingInOri(){
+        window.location.href = "Calm.html"; //sent to calm
+    }
+    function sendToRecommendations(){
+        window.location.href = "Recommendations.html"; //send to recommendations
+    }
+    function willReset(){
+        return confirm("Are you sure you want to reset your preferences"); //confirm to reset?
+    }
+
+    function loadRecommendations() {
         const stored = localStorage.getItem("userPreferences");
-
         if (!stored) {
             alert("Please set your preferences first.");
             return;
         }
 
         const prefs = JSON.parse(stored);
-
         const selectedDifficulty = prefs.difficulty;
         const selectedInterests = prefs.interests;
-
         const filtered = tutorials.filter(tutorial =>
             tutorial.level === selectedDifficulty &&
             selectedInterests.includes(tutorial.category)
@@ -140,13 +243,12 @@ const tutorials = [
     }
 
     function displayTutorials(list) {
+        const container = document.getElementById("woahRecoms");
+        container.innerHTML = "";
 
-    const container = document.getElementById("woahRecoms");
-    container.innerHTML = "";
-
-    if (list.length === 0) {
-        container.innerHTML = "<p>No matching tutorials found.</p>";
-        return;
+        if (list.length === 0) {
+            container.innerHTML = "<p>No matching tutorials found.</p>";
+            return;
     }
 
     list.forEach(tutorial => {
@@ -164,7 +266,7 @@ const tutorials = [
 
         container.appendChild(card);
     });
-    }
+}
     
 function displayAllTutorials() {
 
@@ -187,119 +289,4 @@ function displayAllTutorials() {
         container.appendChild(card);
     });
 }
-
-        function backToPref(){
-            window.location.href = "Preferences_Forum.html";
-        }
-        function sendToFoldingInOri(){
-            window.location.href = "Calm.html"; //sent to calm
-        }
-        function sendToRecommendations(){
-            window.location.href = "Recommendations.html"; //send to recommendations
-        }
-        function willReset(){
-            return confirm("Are you sure you want to reset your preferences"); //confirm to reset?
-        }
-
-        const quotes = [
-            "quote one",
-            "quote two",
-            "quote three",
-        ];
-
-        function displayQuoteFunc(){
-            const displayQuote = document.getElementById('displayQuote');
-            const random = quotes[Math.floor(Math.random()*quotes.length)];
-            displayQuote.textContent = random;
-        }
-        setInterval(displayQuoteFunc, 300000);
-        displayQuoteFunc();
-
-        const audio = document.getElementById('bgAudio');
-        const music = document.getElementById('chosenMusic');
-        const volume = document.getElementById('volumeRange');
-        const session = document.getElementById('sessionTime');
-
-        function loadPreferences() {
-            const savedMusic = localStorage.getItem('music') || 'ambient1.mp3';
-            const savedVolume = localStorage.getItem('volume') || 50;
-            const savedSession = localStorage.getItem('session') || 30;
-
-            musicSelect.value = savedMusic;
-            volumeRange.value = savedVolume;
-            sessionTime.value = savedSession;
-
-            audio.src = savedMusic;
-            audio.volume = savedVolume / 100;
-        }
-
-        function getMusicFile(opt){
-            switch(opt){
-                case 'lofi': return '';
-                case 'ambiance': return '';
-                case 'classical': return '';
-                case 'ost': return '';
-                case 'instrumental': return '';
-                case 'silence': return '';
-                default: return ''
-            }
-        }
-
-loadPreferences();
-
-function sixSeven(event){ //function is named sixSeven, deal with it. 
-        console.log("Form Submitted");
-            event.preventDefault(); //prevent refresh
-
-            if(!confirm("Are you sure you want to submit your preferences?")){ //confirm to submit?
-                return false;
-            }
-            const checkedValues = (name) => {
-                const checkedBoxes = document.querySelectorAll(`input[name="${name}"]:checked`);
-                return Array.from(checkedBoxes).map(box => box.value);
-            };
-
-                let preferences = {
-
-                    //grabs one checked value from difficulty radio
-                    difficulty: document.querySelector('input[name="difficulty"]:checked') ?.value || "not selected",
-
-                    interests: [ //merge all checked values to one array
-                        ...checkedValues('animals'),
-                        ...checkedValues('geometric'),
-                        ...checkedValues('plants'),
-                    ],
-
-                    musicPreference: document.getElementById("musicPreference").value
-                };
-
-
-                    localStorage.setItem('userPreferences', JSON.stringify(preferences)); //save new info to local storage as string
-                    localStorage.setItem('music', musicSelect.value);
-                    localStorage.setItem('volume', volumeSlider.value);
-                    localStorage.setItem('session', sessionInput.value);
-
-                    audio.src = getMusicFile(musicSelect.value);
-                    audio.volume = volumeSlider.value / 100;
-                    if(audio.src) audio.play()
-                        
-                    alert("Preferences saved/overwritten successfully! Note: Head to folding or recommendations!")
-            }
         
-
-musicSelect.addEventListener('change', () => {
-    audio.src = musicSelect.value;
-    audio.play();
-});
-volumeRange.addEventListener('input', () => {
-    audio.volume = volumeRange.value / 100;
-});
-
-
-document.getElementById('musicForm').addEventListener('submit', (e) => {
-    e.preventDefault();
-    localStorage.setItem('music', musicSelect.value);
-    localStorage.setItem('volume', volumeRange.value);
-    localStorage.setItem('session', sessionTime.value);
-    alert('Preferences saved!');
-});
