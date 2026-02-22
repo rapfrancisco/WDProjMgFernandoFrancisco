@@ -152,7 +152,7 @@ function loadPreferences() {
     volumeSlider.value = savedVolume;
     sessionInput.value = savedSession;
 
-    audio.src = savedMusic;
+    audio.src = getMusicFile(savedMusic);
     audio.volume = savedVolume / 100;
     }
 
@@ -189,14 +189,14 @@ function sixSeven(event){ //function is named sixSeven, deal with it.
             checkedValues('plants'),
         ),
 
-        musicPreference: document.getElementById("musicPreference").value,
+        musicPreference: document.getElementById("chosenMusic").value,
         volume: volumeSlider.value,
         session: sessionInput.value
 
         };
 
         localStorage.setItem('userPreferences', JSON.stringify(preferences)); //save new info to local storage as string
-        localStorage.setItem('music', musicSelect.value);
+        localStorage.setItem('music', preferences.musicPreference);
         localStorage.setItem('volume', volumeSlider.value);
         localStorage.setItem('session', sessionInput.value);
 
