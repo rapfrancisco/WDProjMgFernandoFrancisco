@@ -71,36 +71,10 @@
         <button class="coolButton" onclick="sendToRecommendations()">Go to Recommended</button>
     </div>
 
-<!--Sadly, since im out of creativity, our function name will be sixSeven -Brandy -->
-    <form method="post" onsubmit="sixSeven(event)" onreset = "return willReset()">
+<!--Sadly, since im out of creativity, our function name will be sixSeven -->
+    <form method="post" onsubmit="sixSeven(event)">
         <fieldset>
             <legend> User Origami Prefernces </legend>
-
-                <p>  Why do you want to learn how to fold Origami? (Select all that apply) </p> <!-- CHECKBOXES -->
-                
-                    <input type="checkbox" id="option1" name="option1" value="option1">
-                    <label for="option1">To create something beautiful</label><br>
-
-                    <input type="checkbox" id="option2" name="option2" value="option2">
-                    <label for="option2">To learn a new skill</label><br>
-
-                    <input type="checkbox" id="option3" name="option3" value="option3">
-                    <label for="option3">To relax and relieve my stress</label><br>
-
-                    <input type="checkbox" id="option4" name="option4" value="option4">
-                    <label for="option4">To improve my hand-eye coordination</label><br>
-
-                    <input type="checkbox" id="option5" name="option5" value="option5">
-                    <label for="option5">To connect with other people who also enjoy Origami</label><br>
-
-                    <input type="checkbox" id="option6" name="option6" value="option6">
-                    <label for="option6">To improve my spatial awareness</label><br>
-
-<!--  - Intended purpose of learning origami (relaxation, skill improvement, creativity, other); uses radio buttons
-  - Preferred learning difficulty of tutorials (beginner, intermediate, advanced); uses radio buttons
-  - Areas of interest in origami making (animals, modular, geometric, plants, decorative, other); uses checkboxes
-  - Preferred background music (lo-fi, ambiance, classical, OST, instrumental, silence); uses dropdown
-  -->
 
                 <p> Preferred learning difficulty of tutorials: </p> <!-- CHECKBOXES -->
 
@@ -135,9 +109,14 @@
                         <option value="silence">Silence</option>
                     </select><br><br>
 
-                <input type="submit" value="Submit Preferences">
-                <input type="reset" value="Reset Preferences">
+                        <label for="volumePreference">Volume:</label>
+                        <input type="range" id="volumePreference" name="volumePreference" min="0" max="100" value="50"><br><br>
 
+                        <!-- Folding Session Duration -->
+                        <label for="sessionDuration">Folding session duration (minutes):</label>
+                        <input type="number" id="sessionDuration" name="sessionDuration" min="5" max="120" value="30"><br><br>
+
+                        <button  type="submit" value="Submit Preferences" class="coolButton">Submit Preferences</button>
 
         </fieldset>
     </form>

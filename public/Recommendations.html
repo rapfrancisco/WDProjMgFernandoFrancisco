@@ -138,8 +138,9 @@
                     document.addEventListener("DOMContentLoaded", function () {
 
                         const showBtn = document.getElementById("showBtn");
+
                         showBtn.addEventListener("click", function(){
-                            displayTutorials(tutorials);
+                            loadRecommendations();
                         });
 
                         displayAllTutorials();

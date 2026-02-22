@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Oricentric: </title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="The home page of Oricentric">
+        <meta name="author" content="Brandon Timothy P. Fernando & Rei Annica P. Francisco">
+        <meta name="keywords" content="HTML, CSS, JavaScript, Web Development Oricentric, Origami, Paper Crafts" >
+        <link rel="icon" type="image/png" href="../assets/Oricentric_logo(transparent).png">
+        <link rel="stylesheet" href="../styles.css">
+        <style>
+            .intro, .music-settings, .quotes {
+                max-width: 600px;
+                margin: 2rem auto;
+                padding: 1rem;
+                text-align: center;
+            }
+            button {
+                padding: 0.5rem 1rem;
+                font-size: 1rem;
+                cursor: pointer;
+                transition: background 0.3s ease;
+            }
+
+            button:hover {
+                background: #cbd5e0;
+            }
+
+            #quoteDisplay {
+                font-style: italic;
+                margin-top: 2rem;
+                color: #555;
+            }
+        </style>
+    </head>
+
+    <body>
+
+                <nav class = "sidebar">
+            <ul>
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="History_Of_Origami.html">HISTORY OF ORIGAMI</a></li>
+            <li><a href="Origami_Exhibit.html">ORIGAMI EXHIBIT</a></li>
+            <li><a href="Folding_In_Origami.html">FOLDING IN ORIGAMI</a></li>
+            <li><a href="References&Resources.html">RESOURCES</a></li>
+            <li><a href="Preferences_Forum.html">PREFERENCES</a></li>
+            </ul>
+            <aside class="hotkeys">
+                <h4> Hotkeys </h4>
+                <ul>
+                    <li> <p> <kbd>Shift</kbd> + <kbd>B</kbd> - HOME </p> </li>
+                    <li> <p> <kbd>Shift</kbd> + <kbd>H</kbd> - HISTORY </p> </li>   
+                    <li> <p> <kbd>Shift</kbd> + <kbd>E</kbd> - EXHIBIT</p> </li>
+                    <li> <p> <kbd>Shift</kbd> + <kbd>M</kbd> - MECHANISMS </p> </li>    
+                    <li> <p> <kbd>Shift</kbd> + <kbd>R</kbd> - RESOURCES </p></li>    
+                </ul>
+            </aside>
+        </nav>
+
+        <header>
+
+            <h1> Oricentric </h1>
+            <h2> The Art of Folds </h2>
+          
+        </header>
+        
+        <section id="intro">
+            <h3>Home</h3>
+            <p>
+                Welcome to Oricentric- a website dedicated to allow art enthusiats, students, 
+                STEM advocates, learners, and everyone to explore the world of folding paper!
+            </p>
+        </section>
+
+        <section class="musicSet">
+            <h2> Personalize your Experience </h2>
+            <form id ="musicForm">
+                <label>Select Background Music: </label>
+                <select id = "chosenMusic">
+                    <option value ="1.mp3">Lofi Music</option> <!--lofi-->
+                    <option value ="2.mp3">Ambiance Music</option> <!--ambiance-->
+                    <option value ="3.mp3">Classical Music</option> <!--classical-->
+                    <option value ="4.mp3">OST Music</option> <!--ost-->
+                    <option value ="5.mp3">Instrumental Music</option> <!--instrumental-->
+                    <option value ="none"></option>
+                </select> <br> <br>
+
+                <label for="volumeRange">Volume : </label>
+                <input type="range" id="volumeRange" min="0" max="100" value="50">
+
+                <label for="sessionTime">Folding Session Duration (in minutes) : </label>
+                <input type="number" id="sessionTime" min="5" max="120" value="30">
+
+                <button type="submit">Save Preferences</button>
+            </form>
+        </section>
+
+        <section class="quotes">
+            <p id="displayQuote"></p>
+        </section>
+
+        <audio id="bgAudio" loop></audio>
+
+        <script src="script.js"></script>
+    </body>
+
+</html>
