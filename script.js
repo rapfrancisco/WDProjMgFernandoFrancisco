@@ -128,6 +128,7 @@ function displayQuoteFunc(){
     const random = quotes[Math.floor(Math.random()*quotes.length)];
     displayQuote.textContent = random;
 }
+
 setInterval(displayQuoteFunc, 300000);
 displayQuoteFunc();
 
