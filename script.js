@@ -16,32 +16,11 @@ document.addEventListener('keydown', function(event) {
                 case 'e': window.location.href = 'Origami_Exhibit.html'; break;
                 case 'm': window.location.href = 'Folding_In_Origami.html'; break;
                 case 'r': window.location.href = 'References&Resources.html'; break;
-                               
-                /*Theme and Music Hotkeys; MORE COMPLEX JS REQUIRED AND WILL NOT BE FINISHED*/
-                case "t": toggleTheme(); break;
-                case "p": break;
-                case "u": break;
-
+                //dont forget new cases
                 default: break;
             }
         }
     });
-
-    function toggleTheme() {
-        const useButton = document.getElementById('toggleTheme');
-        const body = document.body;
-
-        useButton.addEventListener('click', () => {
-            if(body.getAttribute('data-theme') === 'dark') {
-                body.removeAttribute('data-theme');
-                useButton.textContent = 'Toggle Dark Mode'; 
-            }
-            else {
-                body.setAttribute('data-theme','dark');
-                useButton.textContent = 'Toggle Light Mode';
-            }
-        });
-    }
 
         document.addEventListener('DOMContentLoaded', function() {
 
@@ -65,15 +44,12 @@ document.addEventListener('keydown', function(event) {
                     }
                     });
 
-//Preferences html
-
        function sixSeven(event){ //function is named sixSeven, deal with it. 
             event.preventDefault(); //prevent refresh
 
             if(!confirm("Are you sure you want to submit your preferences?")){ //confirm to submit?
                 return false;
             }
-
             const checkedValues = (name) => {
                 const checkedBoxes = document.querySelectorAll(`input[name="${name}"]:checked`);
                 return Array.from(checkedBoxes).map(box => box.value);
@@ -102,14 +78,12 @@ document.addEventListener('keydown', function(event) {
                     musicPreference: document.getElementById("musicPreference").value
                 };
 
-                localStorage.setItem('userPreferences', JSON.stringify(preferences)); //save to local storage as string
 
-                alert("Preferences submitted and saved successfully!"); //alert success
-
-                
-
+                    localStorage.setItem('userPreferences', JSON.stringify(preferences)); //save new info to local storage as string
+                    alert("Preferences saved/overwritten successfully! Note: Head to folding or recommendations!")
             }
-
+        
+                    
 const tutorials = [
 
     // Animals
@@ -229,13 +203,8 @@ const tutorials = [
 
         container.appendChild(card);
     });
-
-    document.addEventListener("DOMContentLoaded", function() {
-    displayTutorials(tutorials);
-    });
+    }
     
-    
-}
 function displayAllTutorials() {
 
     const container = document.querySelector(".all-grid");
@@ -258,11 +227,14 @@ function displayAllTutorials() {
     });
 }
 
+        function backToPref(){
+            window.location.href = "Preferences_Forum.html";
+        }
         function sendToFoldingInOri(){
             window.location.href = "Calm.html"; //send to clam
         }
         function sendToRecommendations(){
-            window.location.href = "Recommendations.html"; //send to reco(llection)
+            window.location.href = "Recommendations.html"; //send to recommendations
         }
         function willReset(){
             return confirm("Are you sure you want to reset your preferences"); //confirm to reset?

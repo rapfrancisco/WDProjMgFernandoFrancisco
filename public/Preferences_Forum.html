@@ -16,6 +16,12 @@
                 justify-content: center;
                 align-items: center;
             }
+            #loadingMessage{
+                display: none;
+                font-size: 20px;
+                color: grey;
+                margin-top:6px;
+            }
         </style>
     </head>
     
@@ -66,7 +72,7 @@
     </div>
 
 <!--Sadly, since im out of creativity, our function name will be sixSeven -Brandy -->
-    <form method="post" onsubmit="return sixSeven(event)" onreset = "return willReset()">
+    <form method="post" onsubmit="sixSeven(event)" onreset = "return willReset()">
         <fieldset>
             <legend> User Origami Prefernces </legend>
 

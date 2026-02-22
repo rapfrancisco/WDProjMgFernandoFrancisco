@@ -11,36 +11,13 @@
             <link rel="stylesheet" href="../styles.css">
 
             <style>
-
-                .divFeatureImg{
-                    height: 250px;
-                    display: flex;
-                    flex-direction: column;
-                    margin-top: auto;
-                }
-
-                #recommendations {
-                padding: 40px;
+            #recommendations {
+                padding: 1rem;
                 text-align: center;
             }
-
-            /* Centered horizontal button */
-            .backBut {
-                display: block;
-                margin: 20px auto;
-                padding: 10px 25px;
-                font-size: 16px;
-                border-radius: 25px;
-                border: none;
-                background-color: #444;
-                color: white;
-                cursor: pointer;
-            }
-
             .backBut:hover {
                 background-color: #222;
             }
-
             .card {
                 background: white;
                 border-radius: 15px;
@@ -48,27 +25,22 @@
                 padding: 15px;
                 transition: transform 0.3s ease;
             }
-
             .card:hover {
                 transform: translateY(-5px);
             }
-
             .card img {
                 width: 100%;
-                height: 180px;
+                height: 1.5rem;
                 object-fit: cover;
                 border-radius: 10px;
             }
-
             .card h3 {
                 margin: 10px 0 5px;
             }
-
             .card p {
                 font-size: 14px;
                 color: #555;
             }
-
             .card a {
                 display: inline-block;
                 margin-top: 10px;
@@ -77,27 +49,26 @@
                 color: white;
                 border-radius: 20px;
                 text-decoration: none;
+                border-radius: 10px;
             }
             #woahRecoms {
                 display: grid;
                 grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
                 gap: 25px;
                 max-width: 900px;
-                margin: 30px auto;
+                margin: 50px auto;
             }
             #all-tutorials {
                 padding: 40px;
             }
-
             .all-grid {
                 display: grid;
                 grid-template-columns: repeat(3, 1fr);
                 gap: 20px;
-                max-height: 800px;   /* Makes it scrollable */
+                max-height: 800px;   
                 overflow-y: auto;
                 padding-right: 10px;
             }
-
             </style>
         </head>
 
@@ -143,9 +114,9 @@
             <section id="recommendations"> 
                 <h2> Suggestions Text </h2>
 
-                <button id="showBtn"> Show suggested </button>
+                <button id="showBtn" class="coolButton"> Show suggested </button>
 
-                <button class="backBut">Back To Preferences</button>
+                <button class="coolButton" onclick="backToPref()">Back To Preferences</button>
 
                 <div class="woahRecoms" id="woahRecoms">
                     
@@ -161,21 +132,18 @@
 
         </section>
 
-
-
             <script src="../script.js" ></script>
             <script>
+
                     document.addEventListener("DOMContentLoaded", function () {
+
                         const showBtn = document.getElementById("showBtn");
-                        
                         showBtn.addEventListener("click", function(){
                             displayTutorials(tutorials);
                         });
 
                         displayAllTutorials();
                     });
-
-    
             </script>
         </body>
 
