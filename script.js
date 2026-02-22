@@ -196,7 +196,8 @@ function sixSeven(event){ //function is named sixSeven, deal with it.
             checkedValues('plants'),
         ),
 
-        musicPreference: document.getElementById("chosenMusic").value,
+
+        musicPreference: musicSelect.value
         volume: volumeSlider.value,
         session: sessionInput.value
 
@@ -210,9 +211,14 @@ function sixSeven(event){ //function is named sixSeven, deal with it.
         audio.src = getMusicFile(musicSelect.value);
         audio.volume = volumeSlider.value / 100;
         if(audio.src) audio.play()
-                        
-        alert("Preferences saved/overwritten successfully! Note: Head to folding or recommendations!")
+
         displayQuoteFunc();
+                        
+        alert("Preferences saved/overwritten successfully! Note: Head to folding or recommendations!");
+
+        if (window.location.pathname.includes("Calm.html")) {
+            window.location.href = "RelaxToFold.html";
+        }
     }
         
     if(musicForm){
