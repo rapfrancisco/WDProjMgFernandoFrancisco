@@ -111,6 +111,7 @@ const tutorials = [
 ];
 
 const audio = document.getElementById('bgAudio');
+audio.loop = true;
 const musicSelect = document.getElementById('chosenMusic'); // or 'musicPreference'
 const volumeSlider = document.getElementById('volumeRange');
 const sessionInput = document.getElementById('sessionTime');
@@ -118,9 +119,11 @@ const quoteDisplay = document.getElementById('displayQuote');
 const musicForm = document.getElementById('musicForm');
 
 const quotes = [
-    "dd",
-    "dd",
-    "dd",
+    "You can’t use up creativity. The more you use, the more you have.";
+    "Creativity takes courage.";
+    "Success is to be measured not so much by the position that one has reached in life as by the obstacles which he has overcome.";
+    ""
+
 ];
 
 function displayQuoteFunc(){
@@ -134,11 +137,11 @@ displayQuoteFunc();
 
 function getMusicFile(opt){
     switch(opt){
-        case 'lofi': return '';
-        case 'ambiance': return '';
-        case 'classical': return '';
-        case 'ost': return '';
-        case 'instrumental': return '';
+        case 'lofi': return 'audio/652558__angelorizzo__filo-chillare-ar04-2_46.mp3';
+        case 'ambiance': return 'audio/329371__princessgrace__summer-ambiance.wav';
+        case 'classical': return 'audio/573870__badoink__awaken.wav';
+        case 'ost': return 'audio/Screenrecorder-2026-02-22-16-25-42-999 (1).mp3';
+        case 'instrumental': return 'audio/623180__souljaunit__soulja-unit-struggling-2012.mp3';
         case 'silence': return '';
         default: return ''
         }
@@ -155,6 +158,7 @@ function loadPreferences() {
 
     audio.src = getMusicFile(savedMusic);
     audio.volume = savedVolume / 100;
+    
     }
 
 loadPreferences();
