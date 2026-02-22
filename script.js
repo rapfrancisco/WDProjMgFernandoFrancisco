@@ -119,10 +119,10 @@ const quoteDisplay = document.getElementById('displayQuote');
 const musicForm = document.getElementById('musicForm');
 
 const quotes = [
-    "You can’t use up creativity. The more you use, the more you have.";
-    "Creativity takes courage.";
-    "Success is to be measured not so much by the position that one has reached in life as by the obstacles which he has overcome.";
-    ""
+    "You can’t use up creativity. The more you use, the more you have. - Angelou, M.",
+    "Creativity takes courage. - Matisse, H.",
+    "Success is to be measured not so much by the position that one has reached in life as by the obstacles which he has overcome. - Washington, B. T.",
+    "Despite everything, it's still you! - Undertale"
 
 ];
 
@@ -158,6 +158,7 @@ function loadPreferences() {
 
     audio.src = getMusicFile(savedMusic);
     audio.volume = savedVolume / 100;
+    if (audio.src) audio.play();
     
     }
 
@@ -166,6 +167,7 @@ loadPreferences();
 musicSelect.addEventListener('change', () => {
     audio.src = getMusicFile(musicSelect.value);
     if(audio.src) audio.play();
+    startTimer();
 });
 
 volumeSlider.addEventListener('input', () => {
@@ -210,6 +212,7 @@ function sixSeven(event){ //function is named sixSeven, deal with it.
         if(audio.src) audio.play()
                         
         alert("Preferences saved/overwritten successfully! Note: Head to folding or recommendations!")
+        displayQuoteFunc();
     }
         
     if(musicForm){
@@ -246,6 +249,28 @@ function sixSeven(event){ //function is named sixSeven, deal with it.
 
         displayTutorials(filtered);
     }
+
+    function startTimer() {
+    let minutes = parseInt(sessionInput.value, 10);
+    let seconds = minutes * 60;
+    let timerDisplay = document.getElementById('sessionTimer');
+    if (!timerDisplay) {
+        timerDisplay = document.createElement('p');
+        timerDisplay.id = 'sessionTimer';
+        document.body.appendChild(timerDisplay);
+    }
+
+    const interval = setInterval(() => {
+        const m = Math.floor(seconds / 60);
+        const s = seconds % 60;
+        timerDisplay.textContent = `Time left: ${m}m ${s}s`;
+        seconds--;
+        if(seconds < 0){
+            clearInterval(interval);
+            alert("Session ended. Take a break or start another session.");
+        }
+    }, 1000);
+}
 
     function displayTutorials(list) {
         const container = document.getElementById("woahRecoms");
