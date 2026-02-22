@@ -26,12 +26,6 @@
             button:hover {
                 background: #cbd5e0;
             }
-
-            #quoteDisplay {
-                font-style: italic;
-                margin-top: 2rem;
-                color: #555;
-            }
         </style>
     </head>
 
@@ -75,14 +69,14 @@
 
         <section class="musicSet">
             <h2> Personalize your Experience </h2>
-            <form id ="musicForm">
+            <form id ="musicForm" onsubmit="sendToRelax()">
                 <label>Select Background Music: </label>
                 <select id = "chosenMusic">
-                    <option value ="1.mp3">Lofi Music</option> <!--lofi-->
-                    <option value ="2.mp3">Ambiance Music</option> <!--ambiance-->
-                    <option value ="3.mp3">Classical Music</option> <!--classical-->
-                    <option value ="4.mp3">OST Music</option> <!--ost-->
-                    <option value ="5.mp3">Instrumental Music</option> <!--instrumental-->
+                    <option value ="../audio/652558__angelorizzo__filo-chillare-ar04-2_46.mp3">Lofi Music</option> <!--lofi-->
+                    <option value ="../audio/329371__princessgrace__summer-ambiance.wav">Ambiance Music</option> <!--ambiance-->
+                    <option value ="../audio/573870__badoink__awaken.wav">Classical Music</option> <!--classical-->
+                    <option value ="../audio/Screenrecorder-2026-02-22-16-25-42-999 (1).mp3">OST Music</option> <!--ost-->
+                    <option value ="../audio/623180__souljaunit__soulja-unit-struggling-2012.mp3">Instrumental Music</option> <!--instrumental-->
                     <option value ="none">No Music/Silence</option>
                 </select> <br> <br>
 
@@ -96,13 +90,13 @@
             </form>
         </section>
 
-        <section class="quotes">
-            <p id="displayQuote"></p>
-        </section>
-
-        <audio id="bgAudio" loop></audio>
-
         <script src="script.js"></script>
+        <script>
+            function sendToRelax(){
+                window.location.href= "RelaxToFold.html";
+            }
+        </script>
+        
     </body>
 
 </html>

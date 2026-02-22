@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Relax and Fold</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background: linear-gradient(135deg, #5e9975, #5895d1); 
+            font-family: 'Segoe UI', sans-serif;
+            color: #161515;
+            overflow: hidden;
+        }
+        .origami {
+            width: 50px;
+            height: 50px;
+            background: rgba(225, 209, 209, 0.6);
+            clip-path: polygon(50% 50%, 100% 100%, 25% 100%);
+            position: absolute;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0) rotate(0deg); opacity: 0.5; }
+            50% { transform: translateY(-50px) rotate(180deg); opacity: 1; }
+            100% { transform: translateY(0) rotate(360deg); opacity: 0.5; }
+        }
+
+        button {
+            position: relative;
+            z-index: 10;
+            margin-top: 40px;
+            padding: 12px 25px;
+            border: none;
+            background: #556b2f;
+            color: #fff;
+            font-size: 16px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #617538;
+        }
+        p {
+            font-size: 18px;
+            margin-top: 20px;
+        }
+        #quoteDisplay {
+            font-style: italic;
+            margin-top: 2rem;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="origami" style="top: 10%; left: 20%; animation-duration: 6s;"></div>
+    <div class="origami" style="top: 30%; left: 70%; animation-duration: 12s;"></div>
+    <div class="origami" style="top: 60%; left: 40%; animation-duration: 7s;"></div>
+    <div class="origami" style="top: 80%; left: 15%; animation-duration: 10s;"></div>
+
+    <p>Enjoy your folding session</p>
+
+    <section class="quotes">
+        <p id="displayQuote" ></p>
+    </section>
+
+        <audio id="bgAudio" loop></audio>
+
+    <button onclick="goBack()">Back to Preferences</button>
+
+
+    <script>
+        function goBack() {
+            window.location.href = "Calm.html";
+        }
+        document.addEventListener('DOMContentLoaded', () => {
+            const audio = document.getElementById('bgAudio');
+            const prefs = JSON.parse(localStorage.getItem('userPreferences') || '{}');
+
+            if(prefs.musicPreference && prefs.musicPreference !== 'none'){
+                audio.src = getMusicFile(prefs.musicPreference);
+                audio.volume = (prefs.volume || 50)/100;
+                audio.play();
+            }
+
+        });
+    </script>
+</body>
+</html>

@@ -142,7 +142,7 @@ function getMusicFile(opt){
         case 'classical': return 'audio/573870__badoink__awaken.wav';
         case 'ost': return 'audio/Screenrecorder-2026-02-22-16-25-42-999 (1).mp3';
         case 'instrumental': return 'audio/623180__souljaunit__soulja-unit-struggling-2012.mp3';
-        case 'silence': return '';
+        case 'none': return '';
         default: return ''
         }
     }
