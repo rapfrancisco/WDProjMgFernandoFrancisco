@@ -10,19 +10,6 @@
         <link rel="icon" type="image/png" href="../assets/Oricentric_logo(transparent).png">
         <link rel="stylesheet" href="../styles.css">
         <script src="../script.js" defer></script>
-        <style>
-            #butCont{
-                display: flex;
-                justify-content: center;
-                align-items: center;
-            }
-            #loadingMessage{
-                display: none;
-                font-size: 20px;
-                color: grey;
-                margin-top:6px;
-            }
-        </style>
     </head>
     
 <body> 
@@ -66,15 +53,14 @@
         </p>
     </section>
 
-    <div id=butCont>
+    <section id=butCont class="navBut">
         <button class="coolButton" onclick="sendToFoldingInOri()">Go to Folding</button>
         <button class="coolButton" onclick="sendToRecommendations()">Go to Recommended</button>
-    </div>
+    </section>
 
 <!--Sadly, since im out of creativity, our function name will be sixSeven -->
     <form id="musicForm" method="post" onsubmit="sixSeven(event)" onreset="willReset()">
-        <fieldset>
-            <legend> User Origami Preferences </legend>
+        <fieldset> User Origami Preferences </fieldset>
 
                 <p> Preferred learning difficulty of tutorials: </p> <!-- CHECKBOXES -->
 
@@ -106,7 +92,7 @@
                         <option value="classical">Classical</option>
                         <option value="ost">OST</option>
                         <option value="instrumental">Instrumental</option>
-                        <option value="silence">Silence</option>
+                        <option value="none">Silence</option>
                     </select><br><br>
 
                         <label for="volumeRange">Volume:</label>

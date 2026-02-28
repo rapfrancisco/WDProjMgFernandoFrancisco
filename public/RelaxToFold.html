@@ -5,21 +5,24 @@
     <style>
         body {
             margin: 0;
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
             flex-direction: column;
-            background: linear-gradient(135deg, #5e9975, #5895d1); 
+            background: linear-gradient(135deg, #5e9975, #5895d1);
             font-family: 'Segoe UI', sans-serif;
             color: #161515;
             overflow: hidden;
+            padding: 2rem;
         }
+
+        /* --- Floating Origami --- */
         .origami {
             width: 50px;
             height: 50px;
-            background: rgba(225, 209, 209, 0.6);
-            clip-path: polygon(50% 50%, 100% 100%, 25% 100%);
+            background: rgba(255, 255, 255, 0.7);
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
             position: absolute;
             animation: float 6s ease-in-out infinite;
         }
@@ -30,10 +33,37 @@
             100% { transform: translateY(0) rotate(360deg); opacity: 0.5; }
         }
 
+        /* --- Quote Display --- */
+        .quotes {
+            position: relative;
+            z-index: 5;
+            max-width: 700px;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        #quoteDisplay {
+            font-style: italic;
+            font-size: 1.2rem;
+            color: #f4f4f4;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+        }
+
+        /* --- Main Message --- */
+        .message {
+            position: relative;
+            z-index: 5;
+            text-align: center;
+            font-size: 1.5rem;
+            color: #fff;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 6px rgba(0,0,0,0.5);
+        }
+
+        /* --- Buttons --- */
         button {
             position: relative;
             z-index: 10;
-            margin-top: 40px;
             padding: 12px 25px;
             border: none;
             background: #556b2f;
@@ -41,18 +71,20 @@
             font-size: 16px;
             border-radius: 6px;
             cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s ease;
+            margin-top: 1.5rem;
         }
+
         button:hover {
             background: #617538;
+            transform: translateY(-2px);
         }
-        p {
-            font-size: 18px;
-            margin-top: 20px;
-        }
-        #quoteDisplay {
-            font-style: italic;
-            margin-top: 2rem;
-            color: #555;
+
+        /* --- Responsive --- */
+        @media (max-width: 600px) {
+            .message { font-size: 1.2rem; }
+            #quoteDisplay { font-size: 1rem; }
+            .origami { width: 35px; height: 35px; }
         }
     </style>
 </head>
@@ -79,17 +111,54 @@
             window.location.href = "Calm.html";
         }
         
-        document.addEventListener('DOMContentLoaded', () => {
-            const audio = document.getElementById('bgAudio');
-            const prefs = JSON.parse(localStorage.getItem('userPreferences') || '{}');
+         const quotes = [
+            "You can’t use up creativity. The more you use, the more you have. - Angelou, M.",
+            "Creativity takes courage. - Matisse, H.",
+            "Success is to be measured not so much by the position that one has reached in life as by the obstacles which he has overcome. - Washington, B. T.",
+            "Despite everything, it's still you! - Undertale"
+        ];
 
-            if(prefs.musicPreference && prefs.musicPreference !== 'none'){
-                audio.src = getMusicFile(prefs.musicPreference);
-                audio.volume = (prefs.volume || 50)/100;
-                audio.play();
+        // --- Quote display function ---
+        function quoteDisplayFunc(){
+            const quoteDisplay = document.getElementById("quoteDisplay");
+            if(quoteDisplay){
+                const random = quotes[Math.floor(Math.random() * quotes.length)];
+                quoteDisplay.textContent = random;
             }
+        }
 
-        });
+        setInterval(quoteDisplayFunc, 300000); // every 5 minutes
+        quoteDisplayFunc();
+
+        // --- Music Loader ---
+        function getMusicFile(opt){
+            switch(opt){
+                case 'lofi': return '../../652558__angelorizzo__filo-chillare-ar04-2_46.mp3';
+                case 'ambiance': return '../../329371__princessgrace__summer-ambiance.wav';
+                case 'classical': return '../../573870__badoink__awaken.wav';
+                case 'ost': return '../../Screenrecorder-2026-02-22-16-25-42-999 (1).mp3';
+                case 'instrumental': return '../../623180__souljaunit__soulja-unit-struggling-2012.mp3';
+                case 'none': return '';
+                default: return '';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+    const audio = document.getElementById('bgAudio');
+    const prefs = JSON.parse(localStorage.getItem('userPreferences') || '{}');
+
+    if(prefs.musicPreference && prefs.musicPreference !== 'none'){
+        audio.src = getMusicFile(prefs.musicPreference);
+        audio.volume = (prefs.volume || 50) / 100;
+
+        // Wait for first user interaction
+        const playAudio = () => {
+            audio.play().catch(err => console.log("Autoplay blocked, need user interaction."));
+            document.removeEventListener('click', playAudio);
+        };
+        document.addEventListener('click', playAudio);
+    }
+});
     </script>
 </body>
 </html>

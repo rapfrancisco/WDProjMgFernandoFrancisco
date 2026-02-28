@@ -117,9 +117,7 @@ const audio = document.getElementById('bgAudio');
 if(audio){
     audio.loop = true;
 }
-else{
-    console.warn("bgAudio: not found on page.");
-}
+
 const musicSelect = document.getElementById('chosenMusic'); 
 const volumeSlider = document.getElementById('volumeRange');
 const sessionInput = document.getElementById('sessionTime');
@@ -166,31 +164,25 @@ function loadPreferences() {
     if(stored){
         const prefs = JSON.parse(stored);
 
-        const isAtForum = window.location.pathname.includes("Preferences_Forum.html");
-        const isAtRelax = window.location.pathname.includes("RelaxToFold.html");
+        if (musicSelect) musicSelect.value = prefs.musicPreference; //update elements to have their values
+        if (volumeSlider) volumeSlider.value = prefs.volume;
+        if (sessionInput) sessionInput.value = prefs.session;
 
-        if(stored && !isAtForum && !isAtRelax){
-            window.location.href = "RelaxToFold.html";
-            return;
+        const difRad = document.querySelector(`input[name="difficulty"][value="${prefs.difficulty}"]`);
+        if (difRad) difRad.checked=true;
+
+        if(prefs.interests && Array.isArray(prefs.interests)) {
+            prefs.interests.forEach(val => {
+                const checkbox = document.querySelector(`input[value="${val}"]`);
+                if(checkbox) checkbox.checked=true;
+        });
+
         }
 
-    musicSelect.value = savedMusic; //update elements to have their values
-    volumeSlider.value = savedVolume;
-    sessionInput.value = savedSession;
-
-    const difRad =document.querySelector(`input[name="difficulty][value="${prefs.difficulty}"]`);
-    if (difRad) difRad.checked=true;
-    prefs.interests.forEach(interest =>{
-        const checkbox = document.querySelector(`input[value="${interest}"]`);
-        if(checkbox) checkbox.checked=true;
-    });
-
-    const musicFile = getMusicFile(savedMusic);
-    
-    if(musicFile){ //apply audio settings
+    const musicFile = getMusicFile(prefs.musicPreference);
+    if(audio && musicFile){ //apply audio settings
         audio.src = musicFile;
         audio.volume = savedVolume / 100;
-        audio.play().catch(err => console.log("Autoplay restricted: You must interact first."));
 
     }
     
@@ -231,7 +223,6 @@ if(volumeSlider){
 loadPreferences();
 
 function sixSeven(event){ //function is named sixSeven, deal with it. 
-    console.log("Form Submitted"); //just a checker to see if form loads, unrelated to actual code and jsut for debugging
         event.preventDefault(); //prevent refresh
 
     if(!confirm("Are you sure you want to submit your preferences?")){ //confirm to submit?
@@ -272,7 +263,6 @@ function sixSeven(event){ //function is named sixSeven, deal with it.
         quoteDisplayFunc();
                         
         alert("Preferences saved successfully!");
-        window.location.href = "RelaxToFold.html";
     }
         
     if(musicForm){
@@ -289,9 +279,10 @@ function sixSeven(event){ //function is named sixSeven, deal with it.
         window.location.href = "Recommendations.html"; //send to recommendations
     }
     function willReset(){
-        if(confirm("Are you sure you want to reset your preferences")); //confirm to reset?
+        if(confirm("Are you sure you want to reset your preferences")){//confirm to reset?
         localStorage.removeItem('userPreferences');
         window.location.href="Preferences_Forum.html";
+        }
     }
 
     function startTimer() {
@@ -381,6 +372,15 @@ function displayAllTutorials() {
         `;
 
         container.appendChild(card);
+    });
+}
+
+const calmForm = document.getElementById("calmForm");
+if(calmForm){
+    calmForm.addEventListener("submit", function (event){
+        event.preventDefault();
+        alert("Session starting! Enjoy your calm moment!");
+        window.location.href = "RelaxToFold.html";
     });
 }
         

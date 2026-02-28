@@ -9,24 +9,6 @@
         <meta name="keywords" content="HTML, CSS, JavaScript, Web Development Oricentric, Origami, Paper Crafts" >
         <link rel="icon" type="image/png" href="../assets/Oricentric_logo(transparent).png">
         <link rel="stylesheet" href="../styles.css">
-        <style>
-            .intro, .music-settings, .quotes {
-                max-width: 600px;
-                margin: 2rem auto;
-                padding: 1rem;
-                text-align: center;
-            }
-            button {
-                padding: 0.5rem 1rem;
-                font-size: 1rem;
-                cursor: pointer;
-                transition: background 0.3s ease;
-            }
-
-            button:hover {
-                background: #cbd5e0;
-            }
-        </style>
     </head>
 
     <body>
@@ -69,33 +51,29 @@
 
         <section class="musicSet">
             <h2> Personalize your Experience </h2>
-            <form id ="musicForm" onsubmit="sendToRelax()">
-                <label>Select Background Music: </label>
+            <form id="calmForm">
+                <legend> Personalize Your Experience</legend>
+                <label for="chosenMusic">Select Background Music: </label>
                 <select id = "chosenMusic">
-                    <option value ="../audio/652558__angelorizzo__filo-chillare-ar04-2_46.mp3">Lofi Music</option> <!--lofi-->
-                    <option value ="../audio/329371__princessgrace__summer-ambiance.wav">Ambiance Music</option> <!--ambiance-->
-                    <option value ="../audio/573870__badoink__awaken.wav">Classical Music</option> <!--classical-->
-                    <option value ="../audio/Screenrecorder-2026-02-22-16-25-42-999 (1).mp3">OST Music</option> <!--ost-->
-                    <option value ="../audio/623180__souljaunit__soulja-unit-struggling-2012.mp3">Instrumental Music</option> <!--instrumental-->
+                    <option value ="lofi">Lofi Music</option> <!--lofi-->
+                    <option value ="ambiance">Ambiance Music</option> <!--ambiance-->
+                    <option value ="classical">Classical Music</option> <!--classical-->
+                    <option value ="ost">OST Music</option> <!--ost-->
+                    <option value ="instrumental">Instrumental Music</option> <!--instrumental-->
                     <option value ="none">No Music/Silence</option>
                 </select> <br> <br>
 
                 <label for="volumeRange">Volume : </label>
-                <input type="range" id="volumeRange" min="0" max="100" value="50"> <br> <br>
+                <input type="range" id="volumeRange" min="0" max="100"> <br> <br>
 
                 <label for="sessionTime">Folding Session Duration (in minutes) : </label>
-                <input type="number" id="sessionTime" min="5" max="120" value="30"> <br><br>
+                <input type="number" id="sessionTime" min="5" max="120"> <br><br>
 
                 <button type="submit" class="coolButton">Save Preferences</button>
             </form>
         </section>
 
         <script src="../script.js"></script>
-        <script>
-            function sendToRelax(){
-                window.location.href = "RelaxToFold.html";
-            }
-        </script>
         
     </body>
 
