@@ -72,7 +72,7 @@
     </div>
 
 <!--Sadly, since im out of creativity, our function name will be sixSeven -->
-    <form id="musicForm" method="post" onsubmit="sixSeven(event)">
+    <form id="musicForm" method="post" onsubmit="sixSeven(event)" onreset="willReset(event)">
         <fieldset>
             <legend> User Origami Preferences </legend>
 
@@ -117,6 +117,7 @@
                         <input type="number" id="sessionTime" name="sessionDuration" min="5" max="120" value="30"><br><br>
 
                         <button type="submit" value="Submit Preferences" class="coolButton">Submit Preferences</button>
+                        <button type="reset" value="Reset Preferences" class="coolButton">Reset Preferences</button>
 
         </fieldset>
     </form>

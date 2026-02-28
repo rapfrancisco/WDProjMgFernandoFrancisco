@@ -1,7 +1,7 @@
 document.addEventListener('keydown', function(event) {
     if (event.shiftKey) {
 
-        if(['b','h','e','m','r','t','p','u'].includes(event.key.toLowerCase())){
+        if(['b','h','e','m','r'].includes(event.key.toLowerCase())){
             event.preventDefault();
         }
 
@@ -11,20 +11,20 @@ document.addEventListener('keydown', function(event) {
             case 'e': window.location.href = 'Origami_Exhibit.html'; break;
             case 'm': window.location.href = 'Folding_In_Origami.html'; break;
             case 'r': window.location.href = 'References&Resources.html'; break;
-            //dont forget new cases
+            //new hotkeys for different locations to be inputted on a later date
             default: break;
             }
         }
     });
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function() { //this event listener is basically for collapsible sections. it finds every page with the infobox class and loops to add the click eventlistener.
     var outsideTheBox = document.querySelectorAll(".infoBox");
 
         for (var i = 0; i < outsideTheBox.length; i++) {
             outsideTheBox[i].addEventListener("click", function() {
             this.classList.toggle("active");
 
-            var content = this.querySelector(".infoContent");
+            var content = this.querySelector(".infoContent"); //when the user clicks the infoBox class, it removes or adds the active on the box, and looks for infoContent. if its open it sets max heigh to null to hide it, else it sets maxHeight to element's scroll height, showign the text
 
                 if (content){
                     if(content.style.maxHeight){
@@ -39,7 +39,8 @@ document.addEventListener('DOMContentLoaded', function() {
 });
                     
 const tutorials = [
-
+/* This is an array containing objects on each tutorial. They are divided into 3 main groups (animals, plants and geometric), and are further
+divided into difficulties of beginner, intermediate and advanced. their properties also contain the title, estimated time for completeion, and links (which are sited in references.html already) */
     // Animals
     {
         title: "Origami Crab",
@@ -110,15 +111,16 @@ const tutorials = [
     }
 ];
 
+//declaration of html elemnts with ids to be set to certain variables. each would be used for certain parts of the calm.html and recommendations html.
 const audio = document.getElementById('bgAudio');
 audio.loop = true;
-const musicSelect = document.getElementById('chosenMusic'); // or 'musicPreference'
+const musicSelect = document.getElementById('chosenMusic'); 
 const volumeSlider = document.getElementById('volumeRange');
 const sessionInput = document.getElementById('sessionTime');
 const quoteDisplay = document.getElementById('displayQuote');
 const musicForm = document.getElementById('musicForm');
-
-const quotes = [
+let timerInt;
+const quotes = [ //an array of quotes that would be displayed in the relax.html 
     "You can’t use up creativity. The more you use, the more you have. - Angelou, M.",
     "Creativity takes courage. - Matisse, H.",
     "Success is to be measured not so much by the position that one has reached in life as by the obstacles which he has overcome. - Washington, B. T.",
@@ -126,16 +128,15 @@ const quotes = [
 
 ];
 
-function displayQuoteFunc(){
-    const displayQuote = document.getElementById('displayQuote');
+function displayQuoteFunc(){ //this essentially picks a random quote and uses a randomizer to generate a valid index and display the quote
     const random = quotes[Math.floor(Math.random()*quotes.length)];
     displayQuote.textContent = random;
 }
 
-setInterval(displayQuoteFunc, 300000);
-displayQuoteFunc();
+setInterval(displayQuoteFunc, 300000); //trigger quote change every 5 seconds
+displayQuoteFunc();//run function
 
-function getMusicFile(opt){
+function getMusicFile(opt){ //this function has a switch statement that sets the chosen music the user wants to play
     switch(opt){
         case 'lofi': return 'audio/652558__angelorizzo__filo-chillare-ar04-2_46.mp3';
         case 'ambiance': return 'audio/329371__princessgrace__summer-ambiance.wav';
@@ -148,31 +149,70 @@ function getMusicFile(opt){
     }
 
 function loadPreferences() {
-    const savedMusic = localStorage.getItem('music') || 'silence';
+    const savedMusic = localStorage.getItem('music') || 'none';
     const savedVolume = localStorage.getItem('volume') || 50;
     const savedSession = localStorage.getItem('session') || 30;
+    const stored = localStorage.getItem('userPreferences');
 
-    musicSelect.value = savedMusic;
+    if(stored){
+        const prefs = JSON.parse(stored);
+
+        if(!window.location.pathname.includes("RelaxToFold.html")){
+            window.location.href = "RelaxToFold.html";
+            return;
+        }
+
+    musicSelect.value = savedMusic; //update elements to have their values
     volumeSlider.value = savedVolume;
     sessionInput.value = savedSession;
 
-    audio.src = getMusicFile(savedMusic);
-    audio.volume = savedVolume / 100;
-    if (audio.src) audio.play();
+    const difRad =document.querySelector(`input[name="difficulty][value="$prefs.difficulty}"]`);
+    if (difRad) difRad.checked=true;
+    prefs.interests.forEach(interest->{
+        const checkbox = document.querySelector(`input[value="$interest}"]`);
+        if(checkbox) checkbox.checked=true;
+    });
+
+    const musicFile = getMusicFile(savedMusic);
+    
+    if(musicFile){ //apply audio settings
+        audio.src = musicFile;
+        audio.volume = savedVolume / 100;
+        audio.play().catch(err => console.log("Autoplay restricted: You must interact first."));
+
+    }
     
     }
-
-loadPreferences();
-
+}
 musicSelect.addEventListener('change', () => {
-    audio.src = getMusicFile(musicSelect.value);
-    if(audio.src) audio.play();
-    startTimer();
+    const selected = musicSelect.value;
+    const musicFile = getMusicFile(selected);
+
+    localStorage.setItem('music', selected);
+
+    if (musicFile){
+        audio.src = musicFile;
+        audio.play();
+    }
+    else{
+        audio.pause();
+        audio.src="";
+    }
+
+    if (typeof startTimer === "function"){
+        startTimer();
+    }
+    else {
+        console.warn("Function not defined.");
+    }
 });
 
 volumeSlider.addEventListener('input', () => {
     audio.volume = volumeSlider.value / 100;
+    localStorage.setItem('volume', vol);
 });
+
+loadPreferences();
 
 function sixSeven(event){ //function is named sixSeven, deal with it. 
     console.log("Form Submitted"); //just a checker to see if form loads, unrelated to actual code and jsut for debugging
@@ -191,34 +231,33 @@ function sixSeven(event){ //function is named sixSeven, deal with it.
         //grabs one checked value from difficulty radio
         difficulty: document.querySelector('input[name="difficulty"]:checked') ?.value || "not selected",
         interests: [].concat( //merge all checked values to one array
-            checkedValues('animals'),
-            checkedValues('geometric'),
-            checkedValues('plants'),
+            ...checkedValues('animals'),
+            ...checkedValues('geometric'),
+            ...checkedValues('plants'),
         ),
 
 
-        musicPreference: musicSelect.value
+        musicPreference: musicSelect.value,
         volume: volumeSlider.value,
         session: sessionInput.value
 
         };
 
+        //save everything
         localStorage.setItem('userPreferences', JSON.stringify(preferences)); //save new info to local storage as string
         localStorage.setItem('music', preferences.musicPreference);
         localStorage.setItem('volume', volumeSlider.value);
         localStorage.setItem('session', sessionInput.value);
 
-        audio.src = getMusicFile(musicSelect.value);
-        audio.volume = volumeSlider.value / 100;
-        if(audio.src) audio.play()
+        audio.src = getMusicFile(preferences.musicPreference);
+        audio.volume = preferences.value / 100;
+        if(audio.src) audio.play();
 
         displayQuoteFunc();
                         
-        alert("Preferences saved/overwritten successfully! Note: Head to folding or recommendations!");
+        alert("Preferences saved successfully! Note: Head to folding or recommendations!");
 
-        if (window.location.pathname.includes("Calm.html")) {
             window.location.href = "RelaxToFold.html";
-        }
     }
         
     if(musicForm){
@@ -235,7 +274,33 @@ function sixSeven(event){ //function is named sixSeven, deal with it.
         window.location.href = "Recommendations.html"; //send to recommendations
     }
     function willReset(){
-        return confirm("Are you sure you want to reset your preferences"); //confirm to reset?
+        if(confirm("Are you sure you want to reset your preferences")); //confirm to reset?
+        localStorage.removeItem('userPreferences');
+        window.location.href="Preferences.Forum.html";
+    }
+
+    function startTimer() {
+        clearInterval(timer);
+        let minutes = parseInt(sessionInput.value, 10) || 30;
+        let seconds = minutes * 60;
+        let timerDisplay = document.getElementById('sessionTimer');
+        if (!timerDisplay) {
+            timerDisplay = document.createElement('p');
+            timerDisplay.id = 'sessionTimer';
+            document.body.appendChild(timerDisplay);
+        }
+        timerInt = setInterval (() => {
+            const m = Math.floor(seconds / 60);
+            const s = seconds % 60;
+
+            timerDisplay.textContent = `Time left: ${m}m ${String(s).padStart(2, '0')}s`;
+
+            if(seconds < 0){
+                clearInterval(timerInt);
+                alert("Session ended. Take a break or start another session.");
+            }
+            seconds--;
+        },1000);
     }
 
     function loadRecommendations() {
@@ -246,37 +311,15 @@ function sixSeven(event){ //function is named sixSeven, deal with it.
         }
 
         const prefs = JSON.parse(stored);
-        const selectedDifficulty = prefs.difficulty;
-        const selectedInterests = prefs.interests;
-        const filtered = tutorials.filter(tutorial =>
-            tutorial.level === selectedDifficulty &&
-            selectedInterests.includes(tutorial.category)
-        );
 
+        if(typeof tutorials !== 'undefined'){
+            const filtered = tutorials.filter(tutorial => {
+                return tutorial.level === prefs.difficulty && prefs.interests.includes(tutorial.category);
+            });
         displayTutorials(filtered);
-    }
-
-    function startTimer() {
-    let minutes = parseInt(sessionInput.value, 10);
-    let seconds = minutes * 60;
-    let timerDisplay = document.getElementById('sessionTimer');
-    if (!timerDisplay) {
-        timerDisplay = document.createElement('p');
-        timerDisplay.id = 'sessionTimer';
-        document.body.appendChild(timerDisplay);
-    }
-
-    const interval = setInterval(() => {
-        const m = Math.floor(seconds / 60);
-        const s = seconds % 60;
-        timerDisplay.textContent = `Time left: ${m}m ${s}s`;
-        seconds--;
-        if(seconds < 0){
-            clearInterval(interval);
-            alert("Session ended. Take a break or start another session.");
         }
-    }, 1000);
-}
+    }
+
 
     function displayTutorials(list) {
         const container = document.getElementById("woahRecoms");
