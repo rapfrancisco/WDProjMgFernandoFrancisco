@@ -113,7 +113,13 @@ divided into difficulties of beginner, intermediate and advanced. their properti
 
 //declaration of html elemnts with ids to be set to certain variables. each would be used for certain parts of the calm.html and recommendations html.
 const audio = document.getElementById('bgAudio');
-audio.loop = true;
+
+if(audio){
+    audio.loop = true;
+}
+else{
+    console.warn("bgAudio: not found on page.");
+}
 const musicSelect = document.getElementById('chosenMusic'); 
 const volumeSlider = document.getElementById('volumeRange');
 const sessionInput = document.getElementById('sessionTime');
@@ -128,13 +134,16 @@ const quotes = [ //an array of quotes that would be displayed in the relax.html
 
 ];
 
-function displayQuoteFunc(){ //this essentially picks a random quote and uses a randomizer to generate a valid index and display the quote
-    const random = quotes[Math.floor(Math.random()*quotes.length)];
-    displayQuote.textContent = random;
+function quoteDisplayFunc(){ //this essentially picks a random quote and uses a randomizer to generate a valid index and display the quote
+    
+    if(quoteDisplay){
+        const random = quotes[Math.floor(Math.random()*quotes.length)];
+        quoteDisplay.textContent = random;
+    }
 }
 
-setInterval(displayQuoteFunc, 300000); //trigger quote change every 5 seconds
-displayQuoteFunc();//run function
+setInterval(quoteDisplayFunc, 300000); //trigger quote change every 5 seconds
+quoteDisplayFunc();//run function
 
 function getMusicFile(opt){ //this function has a switch statement that sets the chosen music the user wants to play
     switch(opt){
@@ -157,7 +166,10 @@ function loadPreferences() {
     if(stored){
         const prefs = JSON.parse(stored);
 
-        if(!window.location.pathname.includes("RelaxToFold.html")){
+        const isAtForum = window.location.pathname.includes("Preferences_Forum.html");
+        const isAtRelax = window.location.pathname.includes("RelaxToFold.html");
+
+        if(stored && !isAtForum && !isAtRelax){
             window.location.href = "RelaxToFold.html";
             return;
         }
@@ -166,10 +178,10 @@ function loadPreferences() {
     volumeSlider.value = savedVolume;
     sessionInput.value = savedSession;
 
-    const difRad =document.querySelector(`input[name="difficulty][value="$prefs.difficulty}"]`);
+    const difRad =document.querySelector(`input[name="difficulty][value="${prefs.difficulty}"]`);
     if (difRad) difRad.checked=true;
-    prefs.interests.forEach(interest->{
-        const checkbox = document.querySelector(`input[value="$interest}"]`);
+    prefs.interests.forEach(interest =>{
+        const checkbox = document.querySelector(`input[value="${interest}"]`);
         if(checkbox) checkbox.checked=true;
     });
 
@@ -184,6 +196,7 @@ function loadPreferences() {
     
     }
 }
+if(musicSelect){
 musicSelect.addEventListener('change', () => {
     const selected = musicSelect.value;
     const musicFile = getMusicFile(selected);
@@ -206,11 +219,14 @@ musicSelect.addEventListener('change', () => {
         console.warn("Function not defined.");
     }
 });
+}
 
-volumeSlider.addEventListener('input', () => {
+if(volumeSlider){
+    volumeSlider.addEventListener('input', () => {
     audio.volume = volumeSlider.value / 100;
-    localStorage.setItem('volume', vol);
+    localStorage.setItem('volume', volumeSlider.value);
 });
+}
 
 loadPreferences();
 
@@ -250,14 +266,13 @@ function sixSeven(event){ //function is named sixSeven, deal with it.
         localStorage.setItem('session', sessionInput.value);
 
         audio.src = getMusicFile(preferences.musicPreference);
-        audio.volume = preferences.value / 100;
+        audio.volume = preferences.volume / 100;
         if(audio.src) audio.play();
 
-        displayQuoteFunc();
+        quoteDisplayFunc();
                         
-        alert("Preferences saved successfully! Note: Head to folding or recommendations!");
-
-            window.location.href = "RelaxToFold.html";
+        alert("Preferences saved successfully!");
+        window.location.href = "RelaxToFold.html";
     }
         
     if(musicForm){
@@ -276,11 +291,11 @@ function sixSeven(event){ //function is named sixSeven, deal with it.
     function willReset(){
         if(confirm("Are you sure you want to reset your preferences")); //confirm to reset?
         localStorage.removeItem('userPreferences');
-        window.location.href="Preferences.Forum.html";
+        window.location.href="Preferences_Forum.html";
     }
 
     function startTimer() {
-        clearInterval(timer);
+        clearInterval(timerInt);
         let minutes = parseInt(sessionInput.value, 10) || 30;
         let seconds = minutes * 60;
         let timerDisplay = document.getElementById('sessionTimer');
