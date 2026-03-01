@@ -156,10 +156,6 @@ function getMusicFile(opt){ //this function has a switch statement that sets the
     }
 
 function loadPreferences() {
-    const savedMusic = localStorage.getItem('music') || 'none';
-    const savedVolume = localStorage.getItem('volume') || 50;
-    const savedSession = localStorage.getItem('session') || 30;
-    const stored = localStorage.getItem('userPreferences');
 
     if(stored){
         const prefs = JSON.parse(stored);

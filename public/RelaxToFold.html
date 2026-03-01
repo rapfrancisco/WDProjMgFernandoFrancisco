@@ -2,6 +2,13 @@
 <html>
 <head>
     <title>Relax and Fold</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="The references page of Oricentric">
+        <meta name="author" content="Brandon Timothy P. Fernando & Rei Annica P. Francisco">
+        <meta name="keywords" content="HTML, CSS, JavaScript, Web Development Oricentric, Origami, Paper Crafts" >
+        <link rel="stylesheet" href="../styles.css">
+        <link rel="icon" type="image/png" href="../assets/Oricentric_logo(transparent).png">
     <style>
         body {
             margin: 0;
@@ -17,7 +24,6 @@
             padding: 2rem;
         }
 
-        /* --- Floating Origami --- */
         .origami {
             width: 50px;
             height: 50px;
@@ -33,7 +39,6 @@
             100% { transform: translateY(0) rotate(360deg); opacity: 0.5; }
         }
 
-        /* --- Quote Display --- */
         .quotes {
             position: relative;
             z-index: 5;
@@ -49,7 +54,6 @@
             text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
         }
 
-        /* --- Main Message --- */
         .message {
             position: relative;
             z-index: 5;
@@ -60,7 +64,6 @@
             text-shadow: 1px 1px 6px rgba(0,0,0,0.5);
         }
 
-        /* --- Buttons --- */
         button {
             position: relative;
             z-index: 10;
@@ -73,6 +76,7 @@
             cursor: pointer;
             transition: background 0.3s ease, transform 0.2s ease;
             margin-top: 1.5rem;
+            text-align: center;
         }
 
         button:hover {
@@ -101,10 +105,15 @@
         <p id="quoteDisplay" ></p>
     </section>
 
-        <audio id="bgAudio" loop></audio>
+    <audio id="bgAudio" loop></audio>
 
-    <button onclick="goBack()">Back to Preferences</button>
+    <section id="buttons">
 
+        <button id="musicToggle">Play Music</button> <br>
+
+        <button onclick="goBack()">Back to Preferences</button>
+
+    </section>
 
     <script>
         function goBack() {
@@ -133,11 +142,11 @@
         // --- Music Loader ---
         function getMusicFile(opt){
             switch(opt){
-                case 'lofi': return '../../652558__angelorizzo__filo-chillare-ar04-2_46.mp3';
-                case 'ambiance': return '../../329371__princessgrace__summer-ambiance.wav';
-                case 'classical': return '../../573870__badoink__awaken.wav';
-                case 'ost': return '../../Screenrecorder-2026-02-22-16-25-42-999 (1).mp3';
-                case 'instrumental': return '../../623180__souljaunit__soulja-unit-struggling-2012.mp3';
+                case 'lofi': return 'lofi-chill.mp3';
+                case 'ambiance': return 'ambiance-bird.wav';
+                case 'classical': return 'classical-rave.wav'; //Nica what category is this idt theres any classical :sob:
+                case 'ost': return 'ost-undertale.mp3'; 
+                case 'instrumental': return '../instrumental-beats.mp3';
                 case 'none': return '';
                 default: return '';
             }
@@ -145,19 +154,23 @@
 
         document.addEventListener('DOMContentLoaded', () => {
     const audio = document.getElementById('bgAudio');
+    const musicBtn = document.getElementById('musicToggle');
     const prefs = JSON.parse(localStorage.getItem('userPreferences') || '{}');
 
     if(prefs.musicPreference && prefs.musicPreference !== 'none'){
         audio.src = getMusicFile(prefs.musicPreference);
         audio.volume = (prefs.volume || 50) / 100;
-
-        // Wait for first user interaction
-        const playAudio = () => {
-            audio.play().catch(err => console.log("Autoplay blocked, need user interaction."));
-            document.removeEventListener('click', playAudio);
-        };
-        document.addEventListener('click', playAudio);
     }
+
+    musicBtn.addEventListener('click', () => {
+        if(audio.paused){
+            audio.play();
+            musicBtn.textContent = "Pause Music";
+        } else {
+            audio.pause();
+            musicBtn.textContent = "Play Music";
+        }
+    });
 });
     </script>
 </body>
