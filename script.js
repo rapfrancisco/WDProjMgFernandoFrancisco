@@ -145,11 +145,11 @@ quoteDisplayFunc();//run function
 
 function getMusicFile(opt){ //this function has a switch statement that sets the chosen music the user wants to play
     switch(opt){
-        case 'lofi': return 'audio/652558__angelorizzo__filo-chillare-ar04-2_46.mp3';
-        case 'ambiance': return 'audio/329371__princessgrace__summer-ambiance.wav';
-        case 'classical': return 'audio/573870__badoink__awaken.wav';
-        case 'ost': return 'audio/Screenrecorder-2026-02-22-16-25-42-999 (1).mp3';
-        case 'instrumental': return 'audio/623180__souljaunit__soulja-unit-struggling-2012.mp3';
+        case 'lofi': return 'lofi-chill.mp3';
+        case 'ambiance': return 'ambiance-bird.wav';
+        case 'classical': return 'classical-rave.wav';
+        case 'ost': return 'ost-ut.mp3';
+        case 'instrumental': return 'instrumental-beats.mp3';
         case 'none': return '';
         default: return ''
         }
