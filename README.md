@@ -177,7 +177,7 @@ Overall, HTML form would be used for user personalization, allowing websites to 
 - A user Preferences HTML Form. It would be used to gather information and preferences from the visitor, including:
   - Intended purpose of learning origami (relaxation, skill improvement, creativity, other); uses radio buttons
   - Preferred learning difficulty of tutorials (beginner, intermediate, advanced); uses radio buttons
-  - Areas of interest in origami making (animals, modular, geometric, plants, decorative, other); uses checkboxes
+  - Areas of interest in origami making (animals, geometric, plants); uses checkboxes
   - Preferred background music (lo-fi, ambiance, classical, OST, instrumental, silence); uses dropdown
 - A "Submit Preferences" button that saves the user's selected options
   - Javascript would store submitted data in the user's computer via localStorage, allowing preferences to persist across multiple sessions
@@ -185,6 +185,8 @@ Overall, HTML form would be used for user personalization, allowing websites to 
 - Footer containing:
   - Copyright
   - Credentials to referenced materials
+
+**[Paragraph Summary]:**
 
 The HTML form used in this page allows user's preference's to shape their website viewing. By collecting non-personal information regarding user interests, goals in learning origami, and music preferences, along with the use of radio buttons, checkboxes and dropdown selection, the website allows clean interaction. 
 
@@ -206,6 +208,8 @@ Upon submission, the form data is snet to JavaScript and saved locally on the us
   - Copyright
   - Credentials to referenced materials
 
+**[Paragraph Summary]:**
+
 The HTML form used on this page is based on the user's preferences and to customize their experience. Through collecting user-selected options such as origami skill level, tutorial interests, and learning goals, the website aims to personalize the tutorial and learning experience of the user. Upon submission of form data, JavaScript processes and locally stores information through the localStorage feature. Then, the website would remember the user's preferences even after the page is refreshed or closed. No information is also sent to any external to ensure privacy as the user digitally browses.
 
 ### Folding
@@ -224,64 +228,67 @@ The HTML form used on this page is based on the user's preferences and to custom
 - Footer containing:
   - Copyright
   - Credentials to referenced materials
+- +[NEW ADDITION!] A hotbar inside the HTML file, which shows a dropdown of different backgrounds the user can select.
+
+**[Paragraph Summary]:**
 
 The HTML form used on this page is based on the user's preferences and to customize their experience. Through collecting user-selected ambiance settings such as music genre, volume level and session level, the website aims to enhance the user's experience while folding paper. Upon submission of form data, JavaScript processes and locally stores information through the localStorage feature. Then, the website would remember the user's preferences even after the page is refreshed or closed. No information is also sent to any external to ensure privacy as the user digitally browses.
 ---
 ### Wireframe
 
 ## HOME - top
-![Home_page](/assets/1.1_Homepage.png)
+![Home_page](./assets/1.1_Homepage.png)
 
 ## HOME with Navigation tab expanded
-![Home_page](/assets/1.2_Homepage.png)
+![Home_page](./assets/1.2_Homepage.png)
 
 ## HOME - bottom
-![Home_page](/assets/1.3_Homepage.png)
+![Home_page](./assets/1.3_Homepage.png)
 
 ## HISTORY OF ORIGAMI - top
-![History](/assets/2.1_History.png)
+![History](./assets/2.1_History.png)
 
 ## HISTORY OF ORIGAMI - middle
-![History](/assets/2.3_History.png)
+![History](./assets/2.3_History.png)
 
 ## HISTORY OF ORIGAMI - bottom
-![History](/assets/2.4_History.png)
+![History](./assets/2.4_History.png)
 
 ## ORIGAMI EXHIBIT - top
-![Exhibit](/assets/3.1_Exhibit.png)
+![Exhibit](./assets/3.1_Exhibit.png)
 
 ## ORIGAMI EXHIBIT - per origami
-![Exhibit](/assets/3.2_Exhibit.png)
+![Exhibit](./assets/3.2_Exhibit.png)
 
 ## ORIGAMI EXHIBIT - bottom
-![Exhibit](/assets/3.3_Exhibit.png)
+![Exhibit](./assets/3.3_Exhibit.png)
 
 ## FOLDING IN ORIGAMI - top
-![Mechanisms](/assets/4.1_Mechanisms.png)
+![Mechanisms](./assets/4.1_Mechanisms.png)
 
 ## FOLDING IN ORIGAMI - bottom
-![Mechanisms](/assets/4.2_Mechanisms.png)
+![Mechanisms](./assets/4.2_Mechanisms.png)
 
 ## REFERENCES & RESOURCES
-![References_and_Resources](/assets/5.1_References_and_Resources.png)
+![References_and_Resources](./assets/5.1_References_and_Resources.png)
 
 ## PREFERENCES FORUM
-![Preferences](/assets/6.1%20Preferences%20Forum.png)
+![Preferences](./assets/6.1%20Preferences%20Forum.png)
 - Alongside the footer and navigation bar, the screen will be split into two, with half of it showing the purpose of the preferences page, and the other half showing the HTML form the user can answer
 
 ## TUTORIALS - recommendations segment/upper part
-![Preferences](/assets/7.1%20Tutorials.png)
+![Preferences](./assets/7.1%20Tutorials.png)
 - The screen header would be shown at the top, with the website purpose below it. A segment would show recommendations and additional recommendations that the user picked based on their answers from the preferences forum page. If the preferences page was not answered, no recommendations would be presented and would just show the library segment.
 
 ## TUTORIALS - library segment/lower part
-![Preferences](/assets/7.2%20Tutorials.png)
+![Preferences](./assets/7.2%20Tutorials.png)
 - The screen header would be called "Library of Origami", with a difficulty bar that the user can use to fidn certain videos. Below would be every tutorial uploaded in the Oricentric website, regardless of preference. Text for estimated difficulty and approximated time to accomplish will also be visible
 
 ## FOLDING - choosing environment segment/first segment
-![Preferences](/assets/8.1%20Folding.png)
+![Preferences](./assets/8.1%20Folding.png)
 - The screen header would be shown at the top, with the website purpose below it. A segment would show the background music, adjust volume and duration of time the user would want to fold origami. If the user answered the preferences page, information would already be filled up, else it would remain blank. 
 
 ## FOLDING - folding environment/second segment
-![Preferences](/assets/8.2%20Folding.png)
+![Preferences](./assets/8.2%20Folding.png)
 - The screen would show the image of nature backgrounds, along with a timer at te top left. There would also be an inspirational quote that would randomly change in the bottom center. Music according to the user's preference would also play.
 ---
