@@ -21,7 +21,7 @@ As an educational and creative website for **students**, **art enthusiasts**, **
 
 
 ---
-## New Additions! (Q4 Milestone)
+## FINAL MODIFICATION PROPOSAL 
 - A button in the Preferences.html file would be placed near the submit button. Do note the reset button would be replaced with this button. It would be titled as "See results" and would have a pop-up containing the chosen settings. The button would be gray/red if no results were submitted
 - **Application of Update**: 
   - In the Preferences.html forum, the See results button would allow the user to easily modify their 
