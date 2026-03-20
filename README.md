@@ -44,7 +44,16 @@ As an educational and creative website for **students**, **art enthusiasts**, **
   5. Revampping of the designs of Mechanisms, References and Recommendation, as well as the footer
   6. Improving Keyboard Shortcuts (meaning adding them back in because I forgot to place them back)
 
+  Updated Wireframes:
+
+  ## UD Part
+![Updated UD](./assets/9.1%20Updated%20Calmhtml%20Preference_UD.png)
+ ## Interface Part
+![Updated Interface](./assets/9.2%20Updated%20Calmhtml%20Preference_Interface.png)
+
+
 ## Outline of Pages
+
 
 
 ### **Home Page**
@@ -259,40 +268,40 @@ The HTML form used on this page is based on the user's preferences and to custom
 ### Wireframe
 
 ## HOME - top
-![Home_page](./assets/1.1_Homepage.png)
+![Home_page](1.1_Homepage.png)
 
 ## HOME with Navigation tab expanded
-![Home_page](./assets/1.2_Homepage.png)
+![Home_page](/1.2_Homepage.png)
 
 ## HOME - bottom
-![Home_page](./assets/1.3_Homepage.png)
+![Home_page](1.3_Homepage.png)
 
 ## HISTORY OF ORIGAMI - top
-![History](./assets/2.1_History.png)
+![History](2.1_History.png)
 
 ## HISTORY OF ORIGAMI - middle
-![History](./assets/2.3_History.png)
+![History](2.3_History.png)
 
 ## HISTORY OF ORIGAMI - bottom
-![History](./assets/2.4_History.png)
+![History](2.4_History.png)
 
 ## ORIGAMI EXHIBIT - top
-![Exhibit](./assets/3.1_Exhibit.png)
+![Exhibit](3.1_Exhibit.png)
 
 ## ORIGAMI EXHIBIT - per origami
-![Exhibit](./assets/3.2_Exhibit.png)
+![Exhibit](3.2_Exhibit.png)
 
 ## ORIGAMI EXHIBIT - bottom
-![Exhibit](./assets/3.3_Exhibit.png)
+![Exhibit](3.3_Exhibit.png)
 
 ## FOLDING IN ORIGAMI - top
-![Mechanisms](./assets/4.1_Mechanisms.png)
+![Mechanisms](4.1_Mechanisms.png)
 
 ## FOLDING IN ORIGAMI - bottom
-![Mechanisms](./assets/4.2_Mechanisms.png)
+![Mechanisms](4.2_Mechanisms.png)
 
 ## REFERENCES & RESOURCES
-![References_and_Resources](./assets/5.1_References_and_Resources.png)
+![References_and_Resources](5.1_References_and_Resources.png)
 
 ## PREFERENCES FORUM
 ![Preferences](./assets/6.1%20Preferences%20Forum.png)
