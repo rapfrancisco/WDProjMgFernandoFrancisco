@@ -21,7 +21,28 @@ As an educational and creative website for **students**, **art enthusiasts**, **
 
 
 ---
-
+## New Additions! (Q4 Milestone)
+- A button in the Preferences.html file would be placed near the submit button. Do note the reset button would be replaced with this button. It would be titled as "See results" and would have a pop-up containing the chosen settings. The button would be gray/red if no results were submitted
+- **Application of Update**: 
+  - In the Preferences.html forum, the See results button would allow the user to easily modify their 
+  preferences by changing them in the button's display
+- **Application of Delete**
+  - Delete would work in the same way as the Update, where a delete button could be used to erase preferences (simply one button to erase everything. The user CANNOT erase a single value).
+- The rest of the effort that we would put to our project would be for revisions, including:
+  1. A loading screen especially after (1) submitting, resetting or updating a response, (2) loading into different pages, and (3) loading into a different scene in "RelaxtoFold.html" (see number 2). 
+  2. A navigation bar would be placed in the RelaxToFold.html (a small one at the bottom with light colors). In case the user whats to remove the navbar from their display, a small "eye button" could be used to make it appear and dissapear. It would be a light gray and almost invisible color. When opened, it would show a dropdown *(pop up into different scenes; think of hovering the cursor in desktop but with multiple results)* showing different scenes the user could pick for their folding experience. These scenes include:
+       - Stary night (stars falling)
+       - Raining
+       - Pulsing circles
+       - Floating geometric shapes (similar to the current one) in the html file
+       - Fireflies
+       - Waves
+       - And more! (if we feel energized enough to do them)
+    
+  3. Removing the timer in the preferences.html as we deem it as uncessary; users should be able to stay in each page as long as they like, and it is up to them to leave
+  4. Extra information that we have forgetten to add in all pages (Home, History, Exhibit, Mechanisms, and References, Calm, Recommendations, Preferences, RelaxToFold)
+  5. Revampping of the designs of Mechanisms, References and Recommendation, as well as the footer
+  6. Improving Keyboard Shortcuts (meaning adding them back in because I forgot to place them back)
 
 ## Outline of Pages
 
@@ -228,12 +249,13 @@ The HTML form used on this page is based on the user's preferences and to custom
 - Footer containing:
   - Copyright
   - Credentials to referenced materials
-- +[NEW ADDITION!] A hotbar inside the HTML file, which shows a dropdown of different backgrounds the user can select.
 
 **[Paragraph Summary]:**
 
 The HTML form used on this page is based on the user's preferences and to customize their experience. Through collecting user-selected ambiance settings such as music genre, volume level and session level, the website aims to enhance the user's experience while folding paper. Upon submission of form data, JavaScript processes and locally stores information through the localStorage feature. Then, the website would remember the user's preferences even after the page is refreshed or closed. No information is also sent to any external to ensure privacy as the user digitally browses.
 ---
+
+
 ### Wireframe
 
 ## HOME - top
