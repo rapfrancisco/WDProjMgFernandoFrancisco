@@ -2,8 +2,13 @@ const musicSelect = document.getElementById('chosenMusic');
 const volumeSlider = document.getElementById('volumeRange');
 const sessionInput = document.getElementById('sessionTime');
 const quoteDisplay = document.getElementById('displayQuote');
-const audio = document.getElementById('bgAudio'); // ✅ add this
-const musicForm = document.getElementById('musicForm'); // ✅ add this
+const audio = document.getElementById('bgAudio'); 
+const musicForm = document.getElementById('musicForm'); 
+const seeResultsBtn = document.getElementById('seeResultsBtn');
+const deletePrefsBtn = document.getElementById('deletePrefsBtn');
+const modal = document.getElementById('resultsModal');
+const closeModal = document.getElementById('closeModal');
+const resultsContent = document.getElementById('resultsContent');
 
 function loadPreferences() {
     const savedMusic = localStorage.getItem('music') || 'none';
@@ -73,6 +78,70 @@ if(volumeSlider){
 
 loadPreferences();
 
+function updateSeeResults() {
+    const stored = localStorage.getItem('userPreferences');
+
+    console.log("Checking stored:", stored); // DEBUG
+
+    if (!seeResultsBtn) return;
+
+    if (stored && stored !== "null") {
+        seeResultsBtn.disabled = false;
+        seeResultsBtn.style.backgroundColor = "green";
+        console.log("Button ENABLED");
+    } else {
+        seeResultsBtn.disabled = true;
+        seeResultsBtn.style.backgroundColor = "red";
+        console.log("Button DISABLED");
+    }
+}
+
+updateSeeResults();
+
+if(seeResultsBtn) {
+    seeResultsBtn.addEventListener('click', () => {
+        const storedData = localStorage.getItem('userPreferences');
+        if(!storedData) return;
+        const prefs = JSON.parse(storedData);
+
+        resultsContent.innerHTML = `
+            <p><strong>Difficulty:</strong> ${prefs.difficulty}</p>
+            <p><strong>Interests:</strong> ${prefs.interests.join(", ")}</p>
+            <p><strong>Music:</strong> ${prefs.musicPreference}</p>
+            <p><strong>Volume:</strong> ${prefs.volume}</p>
+            <p><strong>Session:</strong> ${prefs.session} min</p>
+        `;
+
+        modal.style.display = "block";
+    });
+}
+if (closeModal) {
+    closeModal.addEventListener('click', () => {
+        modal.style.display = "none";
+    });
+}
+
+window.addEventListener('click', (e) => {
+    if (e.target === modal) {
+        modal.style.display = "none";
+    }
+});
+
+if (deletePrefsBtn) {
+    deletePrefsBtn.addEventListener('click', () => {
+        if (confirm("Delete ALL preferences?")) {
+            localStorage.removeItem('userPreferences');
+            localStorage.removeItem('music');
+            localStorage.removeItem('volume');
+            localStorage.removeItem('session');
+
+            alert("Preferences deleted.");
+
+            updateSeeResults();
+        }
+    });
+}
+
 function sixSeven(event){
     event.preventDefault();
 
@@ -94,7 +163,6 @@ function sixSeven(event){
             ...checkedValues('plants'),
         ),
 
-        // ✅ SAFE ACCESS
         musicPreference: musicSelect ? musicSelect.value : "none",
         volume: volumeSlider ? volumeSlider.value : 50,
         session: sessionInput ? sessionInput.value : 30
@@ -117,11 +185,16 @@ function sixSeven(event){
     }
 
     alert("Preferences saved successfully!");
+
+    setTimeout(() => {
+    updateSeeResults();
+    }, 0);
+    
+    localStorage.setItem('userPreferences', JSON.stringify(preferences));
+console.log("AFTER SAVE:", localStorage.getItem('userPreferences'));
 }
 
-if(musicForm){
-    musicForm.addEventListener('submit', sixSeven);
-}
+
 
 function getMusicFile(opt){
     switch(opt){
@@ -134,3 +207,4 @@ function getMusicFile(opt){
         default: return '';
     }
 }
+

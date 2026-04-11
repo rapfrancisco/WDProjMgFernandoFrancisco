@@ -5,7 +5,9 @@ const quotes = [ //an array of quotes that would be displayed in the relax.html
     "Despite everything, it's still you! - Undertale"
 
 ];
-const musicForm = document.getElementById('musicForm');
+(() => {
+    const musicForm = document.getElementById('musicForm');
+})();
 let timerInt;
 
 const calmForm = document.getElementById("calmForm");
@@ -16,8 +18,6 @@ if(calmForm){
         window.location.href = "RelaxToFold.html";
     });
 }
-      
-const audio = document.getElementById('bgAudio');
 
 if(audio){
     audio.loop = true;
