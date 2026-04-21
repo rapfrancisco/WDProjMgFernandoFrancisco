@@ -51,22 +51,108 @@
                 text-align: center;
                 padding: 1.5rem;
             }
-            footer{
-                width:100%;
-                background: rgb(247, 244, 244);
-                background-color: var(--secondary-color);
-                border-top: 2px solid #f1eaea;
-                color: rgba(240, 240, 238, 0.897);
-                padding: 1.5rem;
-            }
-            #footerlogo img{
-                width: 150px;
-                height: auto;
-                align-items: center;
-                margin-top: 1rem;
-                display: flex;
-                justify-content: center;
-            }
+
+
+footer {
+    width: 100%;
+    background: var(--secondary-color);
+    border-top: 2px solid #e5e5e5;
+    color: rgba(255, 255, 255, 0.9);
+    padding: 2rem 1.5rem;
+}
+
+/* Container */
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+/* Sections */
+.footer-section {
+    flex: 1;
+    min-width: 220px;
+}
+
+/* Headings */
+.footer-section p:first-child {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+/* Contact text */
+.footer-section p,
+.footer-section li {
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Links */
+.footer-section a {
+    text-decoration: none;
+    color: inherit;
+    transition: 0.3s ease;
+}
+
+.footer-section a:hover {
+    color: #ffe66d;
+}
+
+
+.social-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0.4rem 0;
+}
+
+.social-item img {
+    width: 18px;
+    height: 18px;
+}
+
+/* Logo */
+.footer-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-logo img {
+    width: 120px;
+    opacity: 0.9;
+    transition: 0.3s ease;
+}
+
+.footer-logo img:hover {
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+
+.footer-section:hover {
+    transform: translateY(-3px);
+    transition: 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .footer-logo {
+        justify-content: flex-start;
+    }
+}
 
             /* LINKS */
             a {
