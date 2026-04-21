@@ -152,6 +152,15 @@ footer {
     .footer-logo {
         justify-content: flex-start;
     }
+    .sidebar {
+        transform: translateX(-100%); /* Hides it off-screen to the left */
+        transition: transform 0.3s ease;
+        z-index: 1000;
+    }
+
+    .sidebar.active {
+        transform: translateX(0); /* Slides it back in when active */
+    }
 }
 
             /* LINKS */
@@ -288,62 +297,116 @@ footer {
                 font-style: italic;
                 font-family: playfair display, serif;
             }
-            /* Footer Styles */
-            #footerhead {
+            
+            footer {
+                padding: 3rem 10% 1rem 10%;
+                background-color: #e3f2fd; 
+                color: var(--text-color);
+            }
+
+            .footerhead {
                 text-align: center;
             }
-            #footerhead h2 {
-                font-family: playfair display, serif;
+
+            .footerhead h2 {
                 font-size: 2rem;
                 margin-bottom: 0.5rem;
+                line-height: 1.4;
+                text-align:center;
+                color: #333;
             }
-            #footer ul {
+
+            #footerbox ul {
                 list-style: none;
-                display: flex;
-                justify-content: space-around;
-                margin: 1rem 2rem;
                 padding: 0;
+                margin: 0;
             }
-            footer ul li{
-                line-height: 1.6;
-            }
-            #footerbox {
-                border-bottom: 1px solid rgba(255, 255, 255, 0.084);
-                align-items: center;
-                padding: 1rem 0;
-                margin-bottom: 1rem;
+
+            #footerbox li {
+                line-height: 1.8;
                 display: flex;
-                justify-content: space-around;
-            }
-            #footercontacts, .footersocialmedia {
-                flex-basis: 45%;
-                padding-right: 1rem;
-            }
-            #footerlogoimg {
-                height: auto;
                 align-items: center;
-                display:flex;
-                justify-content: center;
-                margin-top: 1rem;
-                flex-basis: 30%;
+                gap: 10px; 
             }
+
+            #footerbox {
+                border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 2rem 0;
+                margin-bottom: 1rem;
+            }
+
+            #footercontacts, #footersocialmedia {
+                flex-basis: 35%;
+            }
+            #footercontacts {
+                flex: 2;
+            }
+            #footersocialmedia {
+                flex: 1;
+            }
+            #footersocialmedia li{
+                display: flex;
+                align-items: center;
+            }
+            #footersocialmedia ul {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                display: flex;
+                gap: 12px;
+                flex-direction: column;
+            }
+            #footersocialmedia a {
+                text-decoration: none;
+                color: #1976d2;
+                font-weight: bold;
+                transition: color 0.3s ease;
+                background-color: transparent;
+            }
+            #footersocialmedia a:hover {
+                color: #0d47a1;
+                text-decoration: underline;
+            }
+
+            .socMedLogo {
+                width: 1rem;
+                height: 1rem;
+                margin-right: 10px;
+                object-fit: contain;
+            }
+
+            #footerlogoimg {
+                display: flex;
+                justify-content: flex-end;
+                flex: 1;
+            }
+
             #footerlogoimg img {
                 max-width: 100%;
-                width: 267px;
+                width: 200px;
                 height: auto;
-                display: block;
                 opacity: 0.85;
+                transition: all 0.3s ease;
+                filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
             }
+
             #footerlogoimg img:hover {
                 opacity: 1;
                 transform: scale(1.05);
-                transition: opacity 0.3s ease, transform 0.3s ease;
             }
-            #footer p {
+
+            .copyright {
                 color: rgba(0, 0, 0, 0.67);
                 text-align: center;
-                font-size: 1rem;
+                font-size: 0.9rem;
                 margin-top: 1rem;
+            }
+            /* Form Styles */
+            form *{
+                align-self: flex-start;
             }
             form{
                 display: flex;
@@ -365,7 +428,28 @@ footer {
                 font-size: 1.8rem;
                 color: var(--text-color);
             }
-
+            form input[type="radio"], form input[type="checkbox"]{
+                width: auto !important;
+                height: auto !important;
+                padding: 0;
+                margin-right: 0.5rem;
+                cursor: pointer;
+                align-self: flex-start;
+                display: inline-block;
+            }
+            label{
+                display: inline-block;
+                align-items: center;
+                margin-bottom: 0.5rem;
+                cursor: pointer;
+            }
+            .formGroup{
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 10px;
+                margin-bottom: 0.5rem;
+            }
             #displayQuote {
                 font-style: italic;
                 margin: 10px 0;
@@ -465,98 +549,98 @@ footer {
                 justify-content: center;
                 align-items: center;
             }
-form#musicForm {
-    max-width: 700px;
-    margin: 40px auto;
-    padding: 30px;
-    background: #ffffff;
-    border-radius: 18px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-    font-family: 'Segoe UI', sans-serif;
-}
-
-form#musicForm fieldset {
-    border: none;
-}
-
-form#musicForm legend {
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin-bottom: 20px;
-    color: #2c3e50;
-}
-
-form#musicForm p {
-    font-weight: 600;
-    margin-top: 20px;
-    margin-bottom: 10px;
-}
-
-form#musicForm input[type="radio"],
-form#musicForm input[type="checkbox"] {
-    margin-right: 8px;
-    transform: scale(1.1);
-    cursor: pointer;
-}
-
-form#musicForm label {
-    cursor: pointer;
-}
-
-form#musicForm select,
-form#musicForm input[type="number"] {
-    width: 100%;
-    padding: 10px;
-    margin-top: 6px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    font-size: 0.95rem;
-}
-
-form#musicForm input[type="range"] {
-    width: 100%;
-    margin-top: 10px;
-}
-
-form#musicForm button {
-    margin-top: 20px;
-    margin-right: 10px;
-}
-
-form#musicForm br {
-    display: none; 
-}
-form#musicForm > fieldset > * {
-    margin-bottom: 12px;
-}
-            .intro, .music-settings, .quotes {
-                max-width: 600px;
-                margin: 2rem auto;
-                padding: 1rem;
-                text-align: center;
+            form#musicForm {
+                max-width: 700px;
+                margin: 40px auto;
+                padding: 30px;
+                background: #ffffff;
+                border-radius: 18px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+                font-family: 'Segoe UI', sans-serif;
             }
-            button {
-                padding: 0.5rem 1rem;
-                font-size: 1rem;
+
+            form#musicForm fieldset {
+                border: none;
+            }
+
+            form#musicForm legend {
+                font-size: 1.5rem;
+                font-weight: bold;
+                margin-bottom: 20px;
+                color: #2c3e50;
+            }
+
+            form#musicForm p {
+                font-weight: 600;
+                margin-top: 20px;
+                margin-bottom: 10px;
+            }
+
+            form#musicForm input[type="radio"],
+            form#musicForm input[type="checkbox"] {
+                margin-right: 8px;
+                transform: scale(1.1);
                 cursor: pointer;
-                transition: background 0.3s ease;
             }
 
-            button:hover {
-                background: #cbd5e0;
+            form#musicForm label {
+                cursor: pointer;
             }
-            form#calmForm {
-    max-width: 700px;
-    margin: 40px auto;
-    padding: 30px;
-    background: #ffffff;
-    border-radius: 18px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-}
 
-form#calmForm fieldset {
-    border: none;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
+            form#musicForm select,
+            form#musicForm input[type="number"] {
+                width: 100%;
+                padding: 10px;
+                margin-top: 6px;
+                border-radius: 8px;
+                border: 1px solid #ccc;
+                font-size: 0.95rem;
+            }
+
+            form#musicForm input[type="range"] {
+                width: 100%;
+                margin-top: 10px;
+            }
+
+            form#musicForm button {
+                margin-top: 20px;
+                margin-right: 10px;
+            }
+
+            form#musicForm br {
+                display: none; 
+            }
+            form#musicForm > fieldset > * {
+                margin-bottom: 12px;
+            }
+                        .intro, .music-settings, .quotes {
+                            max-width: 600px;
+                            margin: 2rem auto;
+                            padding: 1rem;
+                            text-align: center;
+                        }
+                        button {
+                            padding: 0.5rem 1rem;
+                            font-size: 1rem;
+                            cursor: pointer;
+                            transition: background 0.3s ease;
+                        }
+
+                        button:hover {
+                            background: #cbd5e0;
+                        }
+                        form#calmForm {
+                max-width: 700px;
+                margin: 40px auto;
+                padding: 30px;
+                background: #ffffff;
+                border-radius: 18px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            }
+
+            form#calmForm fieldset {
+                border: none;
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+            }
