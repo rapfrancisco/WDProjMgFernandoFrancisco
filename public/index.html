@@ -11,7 +11,7 @@
         <link rel="stylesheet" href="../styles.css">
         <script src="../datahandling.js"></script>
         <script src="../navigation.js"></script>
-        <script src="../ui.js"></script>
+        <script src="../ui.js" defer></script>
 
 <!-- https://github.com/rapfrancisco/WDProjMgFernandoFrancisco.git--    -->
         <style>
@@ -93,12 +93,27 @@
                 overflow: hidden;
                 transition: max-height 0.3s ease;
             }
+            @media (max-width: 1000px) {
+                .infoBox{
+                    width:auto;
+                }
+                .collapsibles-contents {
+                    display: flex;
+                    flex-direction: column;
+                }
+                infoBox > img {
+                    width: 60px;
+                    height: 120px;
+                }
+                
+            }   
 
         </style>
     </head>
 
     <body>
 
+        <button class ="menu-toggle" aria-label="Toggle Navigation">☰</button>
         <nav class = "sidebar">
             <ul>
             <li><a href="index.html">HOME</a></li>

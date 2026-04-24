@@ -12,6 +12,7 @@
         <script src="../datahandling.js"></script>
         <script src="../navigation.js"></script>
         <script src="../preferences.js" defer></script>
+        <script src="../ui.js" defer></script>
 
         <style>
             .modal {
@@ -41,6 +42,7 @@
     </head>
     
 <body> 
+    <button class ="menu-toggle" aria-label="Toggle Navigation">☰</button>
     <nav class = "sidebar">
         <ul>
             <li><a href="index.html">HOME</a></li>
@@ -137,7 +139,7 @@
                         <input type="number" id="sessionTime" name="sessionDuration" min="5" max="120" value="30"><br><br>
 
                         <button type="submit" value="Submit Preferences" class="coolButton">Submit Preferences</button>
-                        <button type="button" id="seeResultsBtn" >See Results</button>
+                        <button type="button" id="seeResultsBtn" style="color: whitesmoke;">See Results</button>
                         <button type="button" id="deletePrefsBtn">Delete Preferences</button>
 
                         <div id="resultsModal" class="modal">

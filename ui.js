@@ -18,3 +18,25 @@ document.addEventListener('DOMContentLoaded', function() { //this event listener
             });
         }
 });
+
+const menuToggle = document.querySelector('.menu-toggle');
+const sidebar = document.querySelector('.sidebar');
+
+menuToggle.addEventListener('click', () => {
+    sidebar.classList.toggle('active');
+    
+    if (sidebar.classList.contains('active')) {
+        menuToggle.innerHTML = '✕';
+    } else {
+        menuToggle.innerHTML = '☰';
+    }
+});
+
+// Close sidebar if a link is clicked 
+const navLinks = document.querySelectorAll('.sidebar ul li a');
+navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        sidebar.classList.remove('active');
+        menuToggle.innerHTML = '☰';
+    });
+});
