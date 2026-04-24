@@ -1,7 +1,8 @@
+   // should pull the user's references already from local storage and then filter the tutorials given their preferences
    function loadRecommendations() {
         const stored = localStorage.getItem("userPreferences");
         if (!stored) {
-            alert("Please set your preferences first.");
+            alert("Please set your preferences first."); //to remind the user to know it's required
             return;
         }
 
@@ -16,12 +17,12 @@
     }
 
 
-    function displayTutorials(list) {
+    function displayTutorials(list) { //to empty the recommendations container before adding the new ones so no duplicates
         const container = document.getElementById("woahRecoms");
         container.innerHTML = "";
 
         if (list.length === 0) {
-            container.innerHTML = "<p>No matching tutorials found.</p>";
+            container.innerHTML = "<p>No matching tutorials found.</p>"; //it's possible for the user to have preferences that don't match the tutorials we have at the moment
             return;
     }
 
@@ -42,7 +43,7 @@
     });
 }
     
-function displayAllTutorials() {
+function displayAllTutorials() { //more of shows the user all the tutorials in grids not dependend on the local storage for the preferences
 
     const container = document.querySelector(".all-grid");
     container.innerHTML = "";
